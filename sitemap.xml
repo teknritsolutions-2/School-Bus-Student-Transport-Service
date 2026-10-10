@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://your-domain.example with the final production origin. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://your-domain.example/pages/index.html</loc></url>
+  <url><loc>https://your-domain.example/pages/home2.html</loc></url>
+  <url><loc>https://your-domain.example/pages/about.html</loc></url>
+  <url><loc>https://your-domain.example/pages/services.html</loc></url>
+  <url><loc>https://your-domain.example/pages/routes.html</loc></url>
+  <url><loc>https://your-domain.example/pages/safety-features.html</loc></url>
+  <url><loc>https://your-domain.example/pages/subscription-plans.html</loc></url>
+  <url><loc>https://your-domain.example/pages/how-it-works.html</loc></url>
+  <url><loc>https://your-domain.example/pages/contact.html</loc></url>
+  <url><loc>https://your-domain.example/pages/faq.html</loc></url>
+  <url><loc>https://your-domain.example/pages/login.html</loc></url>
+  <url><loc>https://your-domain.example/pages/register.html</loc></url>
+  <url><loc>https://your-domain.example/pages/privacy.html</loc></url>
+  <url><loc>https://your-domain.example/pages/terms.html</loc></url>
+</urlset>

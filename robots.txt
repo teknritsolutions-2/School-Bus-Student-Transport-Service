@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pages/parent-dashboard.html
+
+# Replace this placeholder with your production domain before launch.
+Sitemap: https://your-domain.example/sitemap.xml
