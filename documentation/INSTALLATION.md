@@ -1,6 +1,6 @@
 # Installation
 
-WAYBELL is a standalone static website. It has no package manager, build command, framework runtime, or server-side requirement.
+SCHOOL TRANSPORT is a standalone static website. It has no package manager, build command, framework runtime, or server-side requirement.
 
 ## Preview locally
 
@@ -27,8 +27,8 @@ Use current versions of Chrome, Edge, Firefox, or Safari. The template uses Java
 1. Open the root URL and confirm it lands on `pages/index.html`.
 2. Check desktop and mobile navigation.
 3. Test dark mode and RTL mode, then reload to confirm persistence.
-4. Register or log in with sample details.
+4. Open the Dashboard directly; optionally review the account interfaces.
 5. Open all nine parent dashboard views.
 6. Start, pause, reset, and switch the tracking simulation.
-7. Select a plan and download the generated PDF receipt.
-8. Replace all demonstration content described in `CONTENT-GUIDE.md`.
+7. Select a plan preference and download the clearly labeled example PDF receipt.
+8. Replace all illustrative content described in `CONTENT-GUIDE.md`.

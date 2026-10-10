@@ -1,6 +1,6 @@
 # Content Guide
 
-The delivered copy is polished demonstration content, not a statement about a real transport operator.
+The delivered copy is polished illustrative content, not a statement about a real transport operator.
 
 ## Replace before launch
 
@@ -11,7 +11,7 @@ The delivered copy is polished demonstration content, not a statement about a re
 - Vehicle, driver, tracking, notification, and safety claims
 - Testimonials and operational statistics
 - Privacy policy, terms, governing law, and child-data practices
-- Sitemap placeholder domain
+- Published sitemap origin if hosting changes
 
 ## Where content lives
 

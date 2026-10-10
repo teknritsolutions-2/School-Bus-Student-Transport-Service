@@ -2,7 +2,7 @@
 
 ## Photography
 
-The six included WebP files are local derivatives of five Pexels photographs. The filenames, source pages, and photographers are recorded below.
+The project includes optimized local WebP derivatives of Pexels and Unsplash photography.
 
 | Local file | Photographer | Original source |
 | --- | --- | --- |
@@ -12,8 +12,12 @@ The six included WebP files are local derivatives of five Pexels photographs. Th
 | `assets/images/about/bus-urban.webp` | Yumi | [Yellow School Bus Parked Between Tall Buildings — Pexels](https://www.pexels.com/photo/yellow-school-bus-parked-between-tall-buildings-11637343/) |
 | `assets/images/routes/bus-parked.webp` | Laker | [Parked Yellow School Bus — Pexels](https://www.pexels.com/photo/parked-yellow-school-bus-6156582/) |
 | `assets/images/safety/bus-ready.webp` | Tim Gouw | [Parked Yellow School Bus — Pexels](https://www.pexels.com/photo/parked-yellow-school-bus-5781358/) |
+| `assets/images/common/bus-interior.webp` | David Nicolai | [Gray leather bus seat during daytime — Unsplash](https://unsplash.com/photos/gray-leather-bus-seat-during-daytime-6L5GyiPopu0) |
+| `assets/images/plans/bus-city.webp` | Diane Picchiottino | [School bus parked in a lot — Unsplash](https://unsplash.com/it/foto/uno-scuolabus-giallo-parcheggiato-in-un-parcheggio-_bL5NCgkaW8) |
+| `assets/images/routes/bus-signal.webp` | Danny Taing | [School bus stopped at a traffic light — Unsplash](https://unsplash.com/photos/a-school-bus-stopped-at-a-traffic-light-pftXyDyTx70) |
+| `assets/images/safety/bus-stop.webp` | Melisa Figueroa | [School bus on a tree-lined road — Unsplash](https://unsplash.com/photos/yellow-school-bus-on-road-near-brown-bare-trees-during-daytime-yAHnFw687Sk) |
 
-The photographs were available under the [Pexels license](https://www.pexels.com/license/) when verified on 10 October 2026. Pexels permits use and modification without mandatory attribution, subject to its restrictions; this document keeps voluntary creator credit and source traceability. Recheck the source and license terms before redistribution.
+Source and license terms were verified on 10 October 2026. Recheck them before redistribution.
 
 ## Third-party libraries
 
@@ -23,6 +27,6 @@ The photographs were available under the [Pexels license](https://www.pexels.com
 
 Leaflet and jsPDF runtime files are vendored under `assets/js/plugins/`. OpenStreetMap attribution is displayed by the map control.
 
-## Icons
+## Brand and interface icons
 
-Interface symbols use Unicode characters; no separate icon font is bundled.
+The logo, favicon, route artwork, and interface icons are original SVG assets included in the project. Controls use inline SVG rather than an icon font or Unicode symbols.

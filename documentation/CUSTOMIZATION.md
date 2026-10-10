@@ -18,7 +18,7 @@ Each file in `pages/` is a real HTML document. Edit its content directly. Preser
 
 ## Dashboard
 
-All nine dashboard views live in `pages/parent-dashboard.html`. `assets/js/dashboard.js` changes views in place and updates the URL hash. Route simulation logic lives in `assets/js/tracking.js`; editable demo datasets live in `assets/js/data.js`.
+All nine dashboard views live in `pages/parent-dashboard.html`. `assets/js/dashboard.js` changes views in place and updates the URL hash. Route playback logic lives in `assets/js/tracking.js`; editable illustrative datasets live in `assets/js/data.js`.
 
 ## Maps and PDF receipts
 
@@ -26,4 +26,4 @@ Leaflet and jsPDF are vendored in `assets/js/plugins/`. OpenStreetMap tiles requ
 
 ## Dark mode and RTL
 
-Theme and direction are stored as `waybell:theme` and `waybell:dir` in localStorage. Dark-specific rules belong in `dark-mode.css`; direction-specific rules belong in `rtl.css`.
+Theme and direction are stored as `schoolTransport:theme` and `schoolTransport:dir` in localStorage. Dark-specific rules belong in `dark-mode.css`; direction-specific rules belong in `rtl.css`.

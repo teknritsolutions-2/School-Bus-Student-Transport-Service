@@ -24,8 +24,8 @@ Copy the directory by SFTP or a hosting file manager. Make sure `index.html` is 
 
 ## Before production
 
-- Replace `https://your-domain.example` in `robots.txt` and `sitemap.xml`.
-- Replace sample routes, schools, people, prices, schedules, safety statements, and legal text.
+- If the hosting origin changes, update the published GitHub Pages origin in `robots.txt` and `sitemap.xml`.
+- Replace illustrative routes, schools, people, prices, schedules, safety statements, and legal text.
 - Add verified contact and company information.
 - Test every page at the final domain and deployment subpath.
 - Configure authentication, payment, vehicle telemetry, and messaging services if those features are required.

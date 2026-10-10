@@ -29,7 +29,7 @@
 
 - [x] Overview, tracking, students, subscription, receipts, logs, notifications, settings, and help
 - [x] Interactive Leaflet route map
-- [x] Local payment simulation and jsPDF receipt download
+- [x] Local plan preference and clearly labeled jsPDF example receipt
 - [x] Start, pause, reset, route switch, trip switch, ETA, and progress state
 - [x] Interval and event de-duplication
 
@@ -41,12 +41,12 @@
 - [x] Runtime canonical URLs and WebSite structured data
 - [x] Exactly one H1 per content page
 - [x] Local images and attribution documentation
-- [x] Demo claims clearly identified
+- [x] Illustrative route, tracking, and receipt boundaries clearly identified
 
 ## Manual production actions
 
-- [ ] Replace the sitemap and robots placeholder domain
-- [ ] Replace and legally review demo business, route, pricing, safety, and legal content
+- [x] Publish the GitHub Pages origin in sitemap and robots files
+- [ ] Replace and legally review illustrative business, route, pricing, safety, and legal content
 - [ ] Confirm the commercial license chain for all production photography
 - [ ] Connect production authentication, payment, forms, telemetry, and messaging if needed
 - [ ] Run browser and assistive-technology QA on the final deployed domain

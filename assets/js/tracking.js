@@ -1,6 +1,7 @@
 import { routes, students, initialLogs, initialNotifications, storeGet, storeSet } from './data.js';
 
 let map;
+let publicMap;
 let routeLine;
 let busMarker;
 let stopLayer;
@@ -30,9 +31,9 @@ function drawRoute() {
   if (!map || !window.L) return;
   const latlngs = points();
   routeLine?.remove(); busMarker?.remove(); stopLayer?.remove();
-  routeLine = window.L.polyline(latlngs, { color:'#ffb703', weight:6, opacity:.9 }).addTo(map);
-  stopLayer = window.L.layerGroup(route.stops.map(stop => window.L.circleMarker([stop.lat,stop.lng], { radius:7, color:'#10233f', weight:3, fillColor:'#fff', fillOpacity:1 }).bindPopup(`<strong>${stop.name}</strong><br>${direction === 'pickup' ? stop.pickup : stop.drop}`))).addTo(map);
-  busMarker = window.L.circleMarker(interpolate(latlngs,progress/100), { radius:11, color:'#fff', weight:4, fillColor:'#248c68', fillOpacity:1 }).addTo(map).bindTooltip('WAYBELL bus', { permanent:false });
+  routeLine = window.L.polyline(latlngs, { color:'#a66b12', weight:6, opacity:.92 }).addTo(map);
+  stopLayer = window.L.layerGroup(route.stops.map(stop => window.L.circleMarker([stop.lat,stop.lng], { radius:7, color:'#6a470f', weight:3, fillColor:'#fff', fillOpacity:1 }).bindPopup(`<strong>${stop.name}</strong><br>${direction === 'pickup' ? stop.pickup : stop.drop}`))).addTo(map);
+  busMarker = window.L.circleMarker(interpolate(latlngs,progress/100), { radius:11, color:'#fff', weight:4, fillColor:'#c48b27', fillOpacity:1 }).addTo(map).bindTooltip('School transport bus', { permanent:false });
   map.fitBounds(routeLine.getBounds(), { padding:[34,34] });
 }
 
@@ -66,3 +67,21 @@ export function startTrip() { if (timer || progress >= 100) return; timer = setI
 export function pauseTrip() { clearInterval(timer); timer = undefined; }
 export function resetTrip() { pauseTrip(); progress = 0; emittedStops = new Set(); update(); drawRoute(); }
 export function setTrip(routeId, nextDirection='pickup') { pauseTrip(); route = routes.find(item => item.id === routeId) || routes[0]; direction = nextDirection; progress = 0; emittedStops = new Set(); drawRoute(); update(); }
+
+function buildPublicMap() {
+  const target = document.querySelector('[data-public-map]');
+  if (publicMap || !target || !window.L) return;
+  publicMap = window.L.map(target, { scrollWheelZoom:false });
+  window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'&copy; OpenStreetMap contributors' }).addTo(publicMap);
+  const colors = ['#a66b12','#6a470f'];
+  const bounds = [];
+  routes.forEach((item,index) => {
+    const latlngs = item.stops.map(stop => [stop.lat,stop.lng]);
+    bounds.push(...latlngs);
+    window.L.polyline(latlngs,{color:colors[index],weight:6,opacity:.9}).addTo(publicMap).bindTooltip(`${item.id} · ${item.name}`);
+    item.stops.forEach(stop => window.L.circleMarker([stop.lat,stop.lng],{radius:6,color:colors[index],weight:3,fillColor:'#fff',fillOpacity:1}).addTo(publicMap).bindPopup(`<strong>${stop.name}</strong><br>${item.id} · ${stop.pickup}`));
+  });
+  publicMap.fitBounds(bounds,{padding:[38,38]});
+}
+
+buildPublicMap();

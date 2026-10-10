@@ -1,10 +1,10 @@
-# WAYBELL — School Bus & Student Transport
+# School Bus & Student Transport Service
 
-A complete static website template built with HTML, CSS, and vanilla JavaScript. It includes two public homepages, service and information pages, authentication demonstrations, and a unified nine-view parent dashboard with an interactive route simulation and local PDF receipts.
+A responsive static website built with HTML, CSS, and vanilla JavaScript. It includes two distinct homepages, route and safety information, subscription comparison, support content, and a nine-view parent dashboard with local route playback and an example PDF receipt.
 
-## Quick start
+## Run locally
 
-No installation or build is required.
+No installation or build step is required.
 
 ```sh
 python3 -m http.server 8080
@@ -12,16 +12,23 @@ python3 -m http.server 8080
 
 Open `http://localhost:8080/`.
 
-## Source structure
+## Project structure
 
-- `assets/css/` — global, dark-mode, and RTL styles
-- `assets/js/` — shared navigation, data, dashboard, tracking, forms, and receipt modules
-- `assets/js/plugins/` — local Leaflet and jsPDF distributions
-- `assets/images/` — local WebP photography
-- `assets/brand/` — SVG logos and favicon
-- `pages/` — every standalone HTML page
-- `documentation/` — installation, deployment, customization, content, forms, attribution, and compliance notes
+- `assets/brand/` — light, dark-background, and favicon SVG brand assets
+- `assets/css/` — global responsive, dark-mode, and RTL styles
+- `assets/images/` — optimized local WebP photography
+- `assets/js/` — shared shell, forms, data, dashboard, tracking, and receipt modules
+- `assets/js/plugins/` — vendored Leaflet and jsPDF distributions
+- `pages/` — standalone customer and dashboard pages
+- `documentation/` — installation, deployment, customization, content, form, attribution, and launch notes
+- `tests/` — structural and content regression checks
 
-## Important
+## Important operating boundary
 
-Routes, people, schools, prices, schedules, testimonials, and operational claims are demonstration content. Authentication, payments, contact submissions, notifications, and live tracking require secure production integrations. Review `documentation/CONTENT-GUIDE.md` and `documentation/REQUIREMENTS-CHECKLIST.md` before launch.
+Routes, people, schools, prices, schedules, notices, and journey events are illustrative. The frontend does not provide secure authentication, send form submissions, collect payment information, or report a live vehicle. Connect approved production services and replace all illustrative content before operating a real transport service.
+
+## Published site
+
+The repository is configured for GitHub Pages at:
+
+`https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/`

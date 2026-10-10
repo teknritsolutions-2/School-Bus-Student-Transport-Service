@@ -23,4 +23,4 @@ Browser validation is not a security boundary. Validate and sanitize all submiss
 
 ## Authentication and payments
 
-The login, registration, and payment experiences are deliberate front-end simulations. Connect a secure server-side identity provider and payment processor for production. Never collect credentials or payment card data with only client-side JavaScript.
+The login and registration pages are optional front-end interfaces, and plan selection stores only a local preference. Connect a secure server-side identity provider and payment processor if those services are required. Never collect credentials or payment card data with only client-side JavaScript.

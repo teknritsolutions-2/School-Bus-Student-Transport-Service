@@ -1,40 +1,8 @@
-import { pageUrl } from './main.js';
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function validate(form) {
-  let okay = true;
-  form.querySelectorAll('[required]').forEach(input => {
-    const error = input.closest('.field')?.querySelector('.field-error');
-    const value = input.value.trim();
-    const message = !value ? 'This field is required.' : input.type === 'email' && !emailPattern.test(value) ? 'Enter a valid email address.' : '';
-    input.setAttribute('aria-invalid', String(Boolean(message)));
-    if (error) error.textContent = message;
-    if (message) okay = false;
-  });
-  return okay;
-}
-
-document.querySelectorAll('form[data-local-form]').forEach(form => {
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!validate(form)) return;
-    const status = form.querySelector('.form-status');
-    if (status) status.textContent = form.dataset.success || 'Thanks — your request has been saved for this demo.';
-    form.reset();
-  });
-});
-
-document.querySelector('[data-login-form]')?.addEventListener('submit', event => {
-  event.preventDefault(); const form = event.currentTarget;
-  if (!validate(form)) return;
-  localStorage.setItem('waybell:session', JSON.stringify({ name: 'Riya Rao', loggedIn: true }));
-  location.href = pageUrl('parent-dashboard.html');
-});
-
-document.querySelector('[data-register-form]')?.addEventListener('submit', event => {
-  event.preventDefault(); const form = event.currentTarget;
-  if (!validate(form)) return;
-  localStorage.setItem('waybell:session', JSON.stringify({ name: form.elements.name.value.trim(), loggedIn: true }));
-  location.href = pageUrl('parent-dashboard.html');
-});
+import{routes,plans,money,storeSet}from'./data.js';import{pageUrl}from'./main.js';
+const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function validate(form){let okay=true;form.querySelectorAll('[required]').forEach(input=>{const error=input.closest('.field')?.querySelector('.field-error'),value=input.value.trim(),message=!value?'This field is required.':input.type==='email'&&!emailPattern.test(value)?'Enter a valid email address.':'';input.setAttribute('aria-invalid',String(Boolean(message)));if(error)error.textContent=message;if(message)okay=false});return okay}
+document.querySelectorAll('form[data-local-form]').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();if(!validate(form))return;const status=form.querySelector('.form-status');if(status)status.textContent=form.dataset.success||'Your details are ready. Connect a form service to send this request.';form.reset()}));
+document.querySelectorAll('[data-route-finder]').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();const area=form.elements.area?.value,school=form.elements.school?.value,type=form.elements.journey?.value,match=routes.find(route=>(!area||route.area===area)&&(!school||route.school===school))||routes[0],result=form.querySelector('[data-route-result]');result.innerHTML=`<strong>${match.id} · ${match.name}</strong><br>${match.area} to ${match.school}<br><span class="muted">${type||'Morning pickup'} · approximately ${match.duration} minutes · ${match.stops.length} stops</span>`;result.hidden=false}));
+document.querySelector('[data-cost-calculator]')?.addEventListener('input',event=>{const form=event.currentTarget,plan=plans.find(item=>item.id===form.elements.plan.value)||plans[1],students=Math.max(1,Number(form.elements.students.value)||1),months=Math.max(1,Number(form.elements.months.value)||1),base=plan.id==='family'?plan.price:plan.price*students;form.querySelector('[data-calc-total]').textContent=money(base*months);form.querySelector('[data-calc-note]').textContent=`${plan.name} · ${students} student${students>1?'s':''} · ${months} month${months>1?'s':''}`});
+const search=document.querySelector('[data-faq-search]'),filters=[...document.querySelectorAll('[data-faq-filter]')];function filterFaq(){if(!search)return;const term=search.value.toLowerCase(),category=document.querySelector('[data-faq-filter].active')?.dataset.faqFilter||'all';document.querySelectorAll('.faq-item').forEach(item=>item.hidden=!((category==='all'||item.dataset.category===category)&&item.textContent.toLowerCase().includes(term)))}search?.addEventListener('input',filterFaq);filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(item=>item.classList.remove('active'));btn.classList.add('active');filterFaq()}));
+document.querySelector('[data-login-form]')?.addEventListener('submit',event=>{event.preventDefault();if(!validate(event.currentTarget))return;location.href=pageUrl('parent-dashboard.html')});document.querySelector('[data-register-form]')?.addEventListener('submit',event=>{event.preventDefault();const form=event.currentTarget;if(!validate(form))return;storeSet('profile',{name:form.elements.name.value.trim()});location.href=pageUrl('parent-dashboard.html')});
