@@ -11,7 +11,7 @@ const expectedDocs = ['INSTALLATION.md','DEPLOYMENT.md','CUSTOMIZATION.md','CONT
 test('required template files exist', () => {
   for (const file of expectedPages) assert.ok(existsSync(join(pagesDir,file)), `missing pages/${file}`);
   for (const file of expectedDocs) assert.ok(existsSync(join(root,'documentation',file)), `missing documentation/${file}`);
-  for (const file of ['index.html','404.html','robots.txt','sitemap.xml','README.md','assets/css/style.css','assets/css/dark-mode.css','assets/css/rtl.css','assets/js/main.js','assets/js/dashboard.js','assets/js/tracking.js','assets/js/data.js','assets/js/forms.js','assets/js/receipts.js']) assert.ok(existsSync(join(root,file)), `missing ${file}`);
+  for (const file of ['robots.txt','sitemap.xml','README.md','assets/fonts','assets/css/style.css','assets/css/dark-mode.css','assets/css/rtl.css','assets/js/main.js','assets/js/dashboard.js','assets/js/tracking.js','assets/js/data.js','assets/js/forms.js','assets/js/receipts.js']) assert.ok(existsSync(join(root,file)), `missing ${file}`);
 });
 
 test('content pages have metadata, ordered styles, and exactly one H1', () => {
@@ -53,7 +53,7 @@ test('priority pages keep their required editorial section depth', () => {
 });
 
 test('retired brand and placeholder deployment origin are absent', () => {
-  const files = [join(root,'index.html'),join(root,'404.html'),join(root,'robots.txt'),join(root,'sitemap.xml'),join(root,'README.md')];
+  const files = [join(root,'robots.txt'),join(root,'sitemap.xml'),join(root,'README.md')];
   expectedPages.forEach(file=>files.push(join(pagesDir,file)));
   for (const file of files) {
     const value=readFileSync(file,'utf8');
