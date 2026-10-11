@@ -73,12 +73,49 @@ document.addEventListener('click',event=>{
   if(event.target.closest('[data-receipt]'))createReceipt(exampleReceipt);
 });
 const dashSidebar=document.querySelector('[data-dash-sidebar]'),dashMenu=document.querySelector('[data-dash-menu]'),dashClose=document.querySelector('[data-dash-close]'),dashScrim=document.querySelector('[data-dash-scrim]'),dashMobile=matchMedia('(max-width: 1180px)');
-function syncDashNavigation(){if(!dashSidebar)return;if(dashMobile.matches&&!dashSidebar.classList.contains('open'))dashSidebar.inert=true;else dashSidebar.removeAttribute('inert')}
-function openDashNavigation(){dashSidebar?.classList.add('open');if(dashScrim){dashScrim.hidden=false;requestAnimationFrame(()=>dashScrim.classList.add('open'))}dashMenu?.setAttribute('aria-expanded','true');syncDashNavigation();dashClose?.focus()}
-function closeDashNavigation(restore=true){dashSidebar?.classList.remove('open');dashScrim?.classList.remove('open');dashMenu?.setAttribute('aria-expanded','false');setTimeout(()=>{if(dashScrim)dashScrim.hidden=true},200);syncDashNavigation();if(restore)dashMenu?.focus()}
+let dashScrimTimer;
+function syncDashNavigation(){
+  if(!dashSidebar)return;
+  const hidden=dashMobile.matches&&!dashSidebar.classList.contains('open');
+  dashSidebar.toggleAttribute('inert',hidden);
+  dashSidebar.setAttribute('aria-hidden',String(hidden));
+}
+function openDashNavigation(){
+  clearTimeout(dashScrimTimer);
+  dashSidebar?.classList.add('open');
+  if(dashScrim){dashScrim.hidden=false;requestAnimationFrame(()=>dashScrim.classList.add('open'))}
+  document.body.classList.add('nav-open');
+  dashMenu?.setAttribute('aria-expanded','true');
+  syncDashNavigation();
+  dashClose?.focus();
+}
+function closeDashNavigation(restore=true){
+  clearTimeout(dashScrimTimer);
+  dashSidebar?.classList.remove('open');
+  dashScrim?.classList.remove('open');
+  document.body.classList.remove('nav-open');
+  dashMenu?.setAttribute('aria-expanded','false');
+  dashScrimTimer=setTimeout(()=>{if(dashScrim)dashScrim.hidden=true},200);
+  syncDashNavigation();
+  if(restore)dashMenu?.focus();
+}
 dashMenu?.addEventListener('click',openDashNavigation);dashClose?.addEventListener('click',()=>closeDashNavigation());dashScrim?.addEventListener('click',()=>closeDashNavigation());dashMobile.addEventListener('change',()=>{if(!dashMobile.matches)closeDashNavigation(false);syncDashNavigation()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&dashSidebar?.classList.contains('open'))closeDashNavigation()});syncDashNavigation();
-document.querySelector('[data-theme-toggle]')?.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;localStorage.setItem('schoolTransport:theme',theme)});
-document.querySelector('[data-dir-toggle]')?.addEventListener('click',()=>{const dir=document.documentElement.dir==='rtl'?'ltr':'rtl';document.documentElement.dir=dir;localStorage.setItem('schoolTransport:dir',dir)});
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Tab'||!dashSidebar?.classList.contains('open'))return;
+  const focusable=[...dashSidebar.querySelectorAll('a, button:not([disabled])')];
+  const first=focusable[0],last=focusable.at(-1);
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus()}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus()}
+});
+const dashThemeToggle=document.querySelector('[data-theme-toggle]'),dashDirToggle=document.querySelector('[data-dir-toggle]');
+function syncDashControls(){
+  const isDark=document.documentElement.dataset.theme==='dark';
+  if(dashThemeToggle){const label=isDark?'Switch to light mode':'Switch to dark mode';dashThemeToggle.setAttribute('aria-label',label);dashThemeToggle.title=label;dashThemeToggle.innerHTML=isDark?'<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.3A8.4 8.4 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3Z"/></svg>'}
+  if(dashDirToggle){const label=document.documentElement.dir==='rtl'?'Switch to left-to-right text':'Switch to right-to-left text';dashDirToggle.setAttribute('aria-label',label);dashDirToggle.title=label}
+}
+dashThemeToggle?.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;localStorage.setItem('schoolTransport:theme',theme);syncDashControls()});
+dashDirToggle?.addEventListener('click',()=>{const dir=document.documentElement.dir==='rtl'?'ltr':'rtl';document.documentElement.dir=dir;localStorage.setItem('schoolTransport:dir',dir);syncDashControls()});
+syncDashControls();
 document.querySelector('[data-trip-start]')?.addEventListener('click',startTrip);document.querySelector('[data-trip-pause]')?.addEventListener('click',pauseTrip);document.querySelector('[data-trip-reset]')?.addEventListener('click',resetTrip);
 document.querySelector('[data-route-select]')?.addEventListener('change',event=>setTrip(event.target.value,document.querySelector('[data-direction-select]').value));
 document.querySelector('[data-direction-select]')?.addEventListener('change',event=>setTrip(document.querySelector('[data-route-select]').value,event.target.value));

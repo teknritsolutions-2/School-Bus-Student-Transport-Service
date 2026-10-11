@@ -10,6 +10,7 @@ const page = document.body.dataset.page || '';
 const icons = {
   chevron: '<path d="m7 10 5 5 5-5"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon: '<path d="M20.2 15.3A8.4 8.4 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3Z"/>',
   direction: '<path d="M4 7h13M14 4l3 3-3 3M20 17H7M10 14l-3 3 3 3"/>',
   menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
   close: '<path d="m6 6 12 12M18 6 6 18"/>',
@@ -45,15 +46,15 @@ function renderHeader() {
         <a class="brand" href="${pageUrl('index.html')}" aria-label="${BRAND.name} home">${brandMarkup()}</a>
         <nav class="desktop-nav" aria-label="Primary navigation">
           <div class="nav-drop${activeClass(['home', 'home2'])}">
-            <button type="button" aria-haspopup="true" aria-expanded="false">Home ${icon('chevron')}</button>
-            <div class="dropdown">
+            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="home-navigation">Home ${icon('chevron')}</button>
+            <div class="dropdown" id="home-navigation">
               ${dropdownLink('Home 1', 'index.html', 'home')}
               ${dropdownLink('Home 2', 'home2.html', 'home2')}
             </div>
           </div>
           <div class="nav-drop${activeClass(['services', 'routes', 'safety', 'how'])}">
-            <button type="button" aria-haspopup="true" aria-expanded="false">Services ${icon('chevron')}</button>
-            <div class="dropdown">
+            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="services-navigation">Services ${icon('chevron')}</button>
+            <div class="dropdown" id="services-navigation">
               ${dropdownLink('Services', 'services.html', 'services')}
               ${dropdownLink('Routes', 'routes.html', 'routes')}
               ${dropdownLink('Safety Features', 'safety-features.html', 'safety')}
@@ -66,8 +67,8 @@ function renderHeader() {
         </nav>
         <div class="nav-tools">
           <a class="btn btn-sm dashboard-link" href="${pageUrl('parent-dashboard.html')}">Dashboard</a>
-          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch color theme">${icon('sun')}</button>
-          <button class="icon-btn" type="button" data-dir-toggle aria-label="Switch text direction">${icon('direction')}</button>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">${icon('moon')}</button>
+          <button class="icon-btn" type="button" data-dir-toggle aria-label="Switch to right-to-left text">${icon('direction')}</button>
           <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="Open menu" aria-expanded="false">${icon('menu')}</button>
         </div>
       </div>
@@ -91,8 +92,8 @@ function renderHeader() {
         <a href="${pageUrl('parent-dashboard.html')}">Dashboard</a>
       </nav>
       <div class="mobile-controls">
-        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch color theme">${icon('sun')}</button>
-        <button class="icon-btn" type="button" data-dir-toggle aria-label="Switch text direction">${icon('direction')}</button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">${icon('moon')}</button>
+        <button class="icon-btn" type="button" data-dir-toggle aria-label="Switch to right-to-left text">${icon('direction')}</button>
       </div>
     </aside>`;
 }
@@ -118,19 +119,42 @@ function renderFooter() {
 function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem('schoolTransport:theme', theme);
+  syncThemeControls();
 }
 
 function setDirection(direction) {
   document.documentElement.dir = direction;
   localStorage.setItem('schoolTransport:dir', direction);
+  syncDirectionControls();
+}
+
+function syncThemeControls() {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+  const actionIcon = isDark ? 'sun' : 'moon';
+  document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+    button.setAttribute('aria-label', label);
+    button.title = label;
+    button.innerHTML = icon(actionIcon);
+  });
+}
+
+function syncDirectionControls() {
+  const isRtl = document.documentElement.dir === 'rtl';
+  const label = isRtl ? 'Switch to left-to-right text' : 'Switch to right-to-left text';
+  document.querySelectorAll('[data-dir-toggle]').forEach(button => {
+    button.setAttribute('aria-label', label);
+    button.title = label;
+  });
 }
 
 function initDropdowns() {
   const drops = [...document.querySelectorAll('.nav-drop')];
+  const hoverInput = matchMedia('(hover: hover) and (pointer: fine)');
 
   const closeDrop = (drop, restoreFocus = false) => {
     drop.classList.remove('open');
-    delete drop.dataset.clickOpen;
+    delete drop.dataset.pinned;
     const trigger = drop.querySelector(':scope > button');
     trigger?.setAttribute('aria-expanded', 'false');
     if (restoreFocus) trigger?.focus();
@@ -142,9 +166,10 @@ function initDropdowns() {
     });
   };
 
-  const openDrop = drop => {
+  const openDrop = (drop, pinned = false) => {
     closeDrops(drop);
     drop.classList.add('open');
+    if (pinned) drop.dataset.pinned = 'true';
     drop.querySelector(':scope > button')?.setAttribute('aria-expanded', 'true');
   };
 
@@ -152,22 +177,24 @@ function initDropdowns() {
     const trigger = drop.querySelector(':scope > button');
     trigger.addEventListener('click', event => {
       event.stopPropagation();
-      const shouldOpen = !drop.classList.contains('open') || !drop.dataset.clickOpen;
-      if (shouldOpen) {
-        openDrop(drop);
-        drop.dataset.clickOpen = 'true';
-      } else {
+      if (drop.classList.contains('open') && drop.dataset.pinned) {
         closeDrop(drop);
+      } else {
+        openDrop(drop, true);
       }
     });
-    drop.addEventListener('mouseenter', () => openDrop(drop));
-    drop.addEventListener('mouseleave', () => {
-      if (!drop.dataset.clickOpen && !drop.contains(document.activeElement)) closeDrop(drop);
+    drop.addEventListener('pointerenter', event => {
+      if (hoverInput.matches && event.pointerType !== 'touch') openDrop(drop, Boolean(drop.dataset.pinned));
     });
-    drop.addEventListener('focusin', () => openDrop(drop));
+    drop.addEventListener('pointerleave', event => {
+      if (hoverInput.matches && event.pointerType !== 'touch' && !drop.dataset.pinned && !drop.contains(document.activeElement)) closeDrop(drop);
+    });
+    drop.addEventListener('focusin', () => {
+      if (!drop.classList.contains('open')) openDrop(drop);
+    });
     drop.addEventListener('focusout', () => {
       requestAnimationFrame(() => {
-        if (!drop.dataset.clickOpen && !drop.contains(document.activeElement)) closeDrop(drop);
+        if (!drop.dataset.pinned && !drop.contains(document.activeElement)) closeDrop(drop);
       });
     });
   });
@@ -186,19 +213,22 @@ function initDrawer() {
   const opener = document.querySelector('[data-drawer-open]');
   const closeButton = document.querySelector('[data-drawer-close]');
   if (!drawer || !scrim || !opener) return;
+  let scrimHideTimer;
 
   const close = (restoreFocus = true) => {
+    clearTimeout(scrimHideTimer);
     drawer.classList.remove('open');
     scrim.classList.remove('open');
     document.body.classList.remove('nav-open');
     drawer.setAttribute('aria-hidden', 'true');
     drawer.inert = true;
     opener.setAttribute('aria-expanded', 'false');
-    setTimeout(() => { scrim.hidden = true; }, 240);
+    scrimHideTimer = setTimeout(() => { scrim.hidden = true; }, 240);
     if (restoreFocus) opener.focus();
   };
 
   const open = () => {
+    clearTimeout(scrimHideTimer);
     scrim.hidden = false;
     requestAnimationFrame(() => {
       drawer.classList.add('open');
@@ -235,7 +265,7 @@ function initDrawer() {
     }
   });
 
-  matchMedia('(min-width: 1181px)').addEventListener('change', event => {
+  matchMedia('(min-width: 961px)').addEventListener('change', event => {
     if (event.matches && drawer.classList.contains('open')) close(false);
   });
 }
@@ -250,6 +280,8 @@ function initInteractions() {
   document.querySelectorAll('[data-dir-toggle]').forEach(button => {
     button.addEventListener('click', () => setDirection(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl'));
   });
+  syncThemeControls();
+  syncDirectionControls();
 
   const header = document.querySelector('[data-header]');
   const backTop = document.querySelector('[data-back-top]');

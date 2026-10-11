@@ -53,20 +53,22 @@ html[dir="rtl"] .dash-sidebar {
 }
 
 @media (max-width: 1180px) {
+  html[dir="rtl"] .dash-sidebar {
+    transform: translateX(105%);
+  }
+
+  html[dir="rtl"] .dash-sidebar.open {
+    transform: none;
+  }
+}
+
+@media (max-width: 960px) {
   html[dir="rtl"] .mobile-drawer {
     inset: 0 auto 0 0;
     transform: translateX(-105%);
   }
 
   html[dir="rtl"] .mobile-drawer.open {
-    transform: none;
-  }
-
-  html[dir="rtl"] .dash-sidebar {
-    transform: translateX(105%);
-  }
-
-  html[dir="rtl"] .dash-sidebar.open {
     transform: none;
   }
 }

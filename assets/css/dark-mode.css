@@ -26,6 +26,11 @@ html[data-theme="dark"] .site-header {
   background: color-mix(in srgb, var(--surface) 96%, transparent);
 }
 
+html[data-theme="dark"] .site-header.scrolled {
+  background: color-mix(in srgb, var(--surface) 99%, transparent);
+  box-shadow: 0 7px 24px rgb(0 0 0 / 32%);
+}
+
 html[data-theme="dark"] .dark-surface,
 html[data-theme="dark"] .site-footer,
 html[data-theme="dark"] .dash-sidebar {

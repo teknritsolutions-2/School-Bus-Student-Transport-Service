@@ -67,9 +67,23 @@ test('shared navigation exposes the required customer paths and direct dashboard
   for (const label of ['Home 1','Home 2','Services','Routes','Safety Features','How It Works','Subscription Plans','About','Contact','Dashboard']) assert.match(main,new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
   assert.match(main,/href="\$\{pageUrl\('parent-dashboard\.html'\)\}"/);
   assert.doesNotMatch(main,/register\.html'\)\}">Dashboard/);
-  assert.match(main,/mouseenter/);
+  assert.match(main,/pointerenter/);
   assert.match(main,/data-drawer[^>]+inert/);
   assert.match(main,/aria-current="page"/);
+});
+
+test('navigation has one authoritative open state and correct sticky ownership', () => {
+  const css=readFileSync(join(root,'assets/css/style.css'),'utf8');
+  const main=readFileSync(join(root,'assets/js/main.js'),'utf8');
+  assert.match(css,/\[data-site-header\]\s*\{[^}]*position:\s*sticky/s);
+  assert.match(css,/\.site-header\s*\{[^}]*position:\s*relative/s);
+  assert.doesNotMatch(css,/\.nav-drop:(?:hover|focus-within)\s+\.dropdown/);
+  assert.match(css,/\.nav-drop\.open\s+\.dropdown/);
+  assert.match(css,/@media\s*\(max-width:\s*960px\)/);
+  assert.match(main,/\(hover:\s*hover\) and \(pointer:\s*fine\)/);
+  assert.match(main,/aria-expanded/);
+  assert.match(main,/Switch to light mode/);
+  assert.match(main,/Switch to dark mode/);
 });
 
 test('public pages share the central header and footer', () => {
