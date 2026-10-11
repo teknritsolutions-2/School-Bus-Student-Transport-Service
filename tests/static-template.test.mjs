@@ -45,7 +45,7 @@ test('dashboard includes all nine views without duplicate ids', () => {
 });
 
 test('priority pages keep their required editorial section depth', () => {
-  const minimums = { 'index.html':9, 'home2.html':7, 'how-it-works.html':7, 'subscription-plans.html':7, 'services.html':7, 'routes.html':8, 'safety-features.html':8, 'about.html':6, 'contact.html':5 };
+  const minimums = { 'index.html':11, 'home2.html':9, 'how-it-works.html':8, 'subscription-plans.html':8, 'services.html':8, 'routes.html':9, 'safety-features.html':9, 'about.html':8, 'contact.html':6 };
   for (const [file,minimum] of Object.entries(minimums)) {
     const html = readFileSync(join(pagesDir,file),'utf8');
     assert.ok((html.match(/<section\b/gi)||[]).length >= minimum, `${file} needs at least ${minimum} sections`);
@@ -79,11 +79,21 @@ test('navigation has one authoritative open state and correct sticky ownership',
   assert.match(css,/\.site-header\s*\{[^}]*position:\s*relative/s);
   assert.doesNotMatch(css,/\.nav-drop:(?:hover|focus-within)\s+\.dropdown/);
   assert.match(css,/\.nav-drop\.open\s+\.dropdown/);
-  assert.match(css,/@media\s*\(max-width:\s*960px\)/);
+  assert.match(css,/@media\s*\(max-width:\s*1100px\)/);
   assert.match(main,/\(hover:\s*hover\) and \(pointer:\s*fine\)/);
   assert.match(main,/aria-expanded/);
   assert.match(main,/Switch to light mode/);
   assert.match(main,/Switch to dark mode/);
+});
+
+test('dark surfaces and expanded editorial sections remain readable', () => {
+  const css=readFileSync(join(root,'assets/css/style.css'),'utf8');
+  for (const selector of ['.dark-surface .faq-item > button','.dark-surface .journey-stop h3','.hero-wide .eyebrow','.service-tile.media .eyebrow']) {
+    assert.ok(css.includes(selector),`missing visibility rule for ${selector}`);
+  }
+  for (const file of ['index.html','home2.html','about.html','services.html','how-it-works.html']) {
+    assert.match(readFileSync(join(pagesDir,file),'utf8'),/assurance-grid/,`${file} needs the expanded transport guidance section`);
+  }
 });
 
 test('public pages share the central header and footer', () => {

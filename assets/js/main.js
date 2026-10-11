@@ -265,7 +265,7 @@ function initDrawer() {
     }
   });
 
-  matchMedia('(min-width: 961px)').addEventListener('change', event => {
+  matchMedia('(min-width: 1101px)').addEventListener('change', event => {
     if (event.matches && drawer.classList.contains('open')) close(false);
   });
 }
