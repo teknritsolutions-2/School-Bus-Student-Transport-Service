@@ -2,7 +2,7 @@
 
 ## Brand
 
-Replace the SVG files in `assets/brand/` while keeping their filenames: `logo.svg` for light backgrounds, `logo-white.svg` for dark backgrounds, and `favicon.svg` for the browser icon.
+Replace the SVG files in `assets/images/brand/` while keeping their filenames: `logo.svg` for light backgrounds, `logo-white.svg` for dark backgrounds, and `favicon.svg` for the browser icon.
 
 ## Colors and layout
 
@@ -22,7 +22,7 @@ Each file in `pages/` is a real HTML document. Edit its content directly. Preser
 
 ## Dashboard
 
-All nine dashboard views live in `pages/parent-dashboard.html`. `assets/js/dashboard.js` changes views in place and updates the URL hash. Route playback logic lives in `assets/js/tracking.js`; editable illustrative datasets live in `assets/js/data.js`.
+All nine dashboard views live in `pages/parent-dashboard.html`. `assets/js/dashboard.js` changes views in place, provides route playback, and updates the URL hash; editable datasets live in `assets/js/main.js`.
 
 ## Maps and PDF receipts
 

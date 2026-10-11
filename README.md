@@ -14,14 +14,29 @@ Open `http://localhost:8080/`.
 
 ## Project structure
 
-- `assets/brand/` — light, dark-background, and favicon SVG brand assets
-- `assets/css/` — global responsive, dark-mode, and RTL styles
-- `assets/images/` — optimized local WebP photography
-- `assets/js/` — shared shell, forms, data, dashboard, tracking, and receipt modules
-- `assets/js/plugins/` — vendored Leaflet and jsPDF distributions
-- `pages/` — standalone customer and dashboard pages
-- `documentation/` — installation, deployment, customization, content, form, attribution, and launch notes
-- `tests/` — structural and content regression checks
+```text
+School-Bus-Student-Transport-Service/
+├── assets/
+│   ├── css/
+│   │   ├── style.css (main styles)
+│   │   ├── dark-mode.css
+│   │   └── rtl.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── dashboard.js (if applicable)
+│   │   └── plugins/
+│   ├── images/
+│   └── fonts/
+├── pages/
+│   ├── index.html (home)
+│   ├── about.html
+│   ├── services.html
+│   ├── blog.html
+│   ├── contact.html
+│   └── [template-specific pages]
+├── documentation/
+└── README.md
+```
 
 ## Important operating boundary
 

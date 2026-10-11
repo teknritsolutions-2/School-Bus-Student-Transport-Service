@@ -5,14 +5,14 @@
 - [x] Standalone HTML, CSS, and vanilla JavaScript source
 - [x] No framework or build tool required
 - [x] Central `assets/`, `pages/`, and `documentation/` directories
-- [x] Root redirect, root 404, robots file, sitemap, and README
+- [x] Clean root structure matching client technical specifications and README
 - [x] Relative and script-derived paths support hosting subdirectories
 
 ## Pages
 
 - [x] Home One and Home Two
 - [x] About, Services, Routes, Safety Features, Subscription Plans
-- [x] How It Works, Contact, FAQ
+- [x] How It Works, Blog, Contact, FAQ
 - [x] Login and Register
 - [x] One parent dashboard containing all nine modules
 - [x] Privacy, Terms, Coming Soon, and custom 404

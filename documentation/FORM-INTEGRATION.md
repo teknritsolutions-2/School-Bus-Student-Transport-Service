@@ -8,7 +8,7 @@ The contact, route finder, and coming-soon forms validate and respond locally. T
 2. On the contact form in `pages/contact.html`, remove `data-local-form`.
 3. Add `action="https://formspree.io/f/YOUR_ID"` and `method="post"`.
 4. Ensure every field has a `name` attribute.
-5. Remove or adapt the local submit handler in `assets/js/forms.js` if you want an AJAX submission.
+5. Remove or adapt the local submit handler in `assets/js/main.js` if you want an AJAX submission.
 
 ## Netlify Forms
 

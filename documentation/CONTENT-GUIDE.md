@@ -17,8 +17,8 @@ The delivered copy is polished illustrative content, not a statement about a rea
 
 - Public editorial content: individual files in `pages/`
 - Header and footer labels: `assets/js/main.js`
-- Routes, students, plans, initial notifications, and logs: `assets/js/data.js`
-- Tracking event text: `assets/js/tracking.js`
+- Routes, students, plans, initial notifications, and logs: `assets/js/main.js`
+- Tracking event text: `assets/js/dashboard.js`
 - Dashboard view copy: `pages/parent-dashboard.html`
 
 ## Writing recommendations
