@@ -10,9 +10,9 @@ html[data-theme="dark"] {
   --primary-medium: #9fc5da;
   --primary-light: #3d6177;
   --primary-pale: #1d303b;
-  --signal: #f0bd55;
-  --signal-dark: #ffd781;
-  --signal-pale: #3d311d;
+  --signal: #8bb8d2;
+  --signal-dark: #dcecf4;
+  --signal-pale: #1d303b;
   --shadow-sm: 0 8px 28px rgb(0 0 0 / 24%);
   --shadow-md: 0 20px 55px rgb(0 0 0 / 38%);
 }
@@ -88,15 +88,37 @@ html[data-theme="dark"] .btn-secondary:hover {
   color: #111211;
 }
 
-html[data-theme="dark"] .dark-surface .btn-outline {
+html[data-theme="dark"] .dark-surface .btn:not(.btn-outline),
+html[data-theme="dark"] .hero-wide .btn:not(.btn-outline),
+html[data-theme="dark"] .hero-center .btn:not(.btn-outline) {
+  background: #ffffff;
+  color: #0e1e2e;
+  border-color: #ffffff;
+  font-weight: 700;
+}
+
+html[data-theme="dark"] .dark-surface .btn:not(.btn-outline):hover,
+html[data-theme="dark"] .hero-wide .btn:not(.btn-outline):hover,
+html[data-theme="dark"] .hero-center .btn:not(.btn-outline):hover {
+  background: #d7e5ed;
+  color: #0e1e2e;
   border-color: #d7e5ed;
+}
+
+html[data-theme="dark"] .dark-surface .btn-outline,
+html[data-theme="dark"] .hero-wide .btn-outline,
+html[data-theme="dark"] .hero-center .btn-outline {
+  border-color: #d7e5ed;
+  background: transparent;
   color: #ffffff;
 }
 
-html[data-theme="dark"] .dark-surface .btn-outline:hover {
+html[data-theme="dark"] .dark-surface .btn-outline:hover,
+html[data-theme="dark"] .hero-wide .btn-outline:hover,
+html[data-theme="dark"] .hero-center .btn-outline:hover {
   border-color: #ffffff;
   background: #ffffff;
-  color: #17324d;
+  color: #0e1e2e;
 }
 
 html[data-theme="dark"] .field input,
@@ -127,3 +149,215 @@ html[data-theme="dark"] .hero-wide-content {
 html[data-theme="dark"] .switch::after {
   background: #ffffff;
 }
+
+html[data-theme="dark"] .desktop-nav .nav-link,
+html[data-theme="dark"] .desktop-nav .nav-drop > button {
+  color: #f1f1ef;
+}
+
+html[data-theme="dark"] .desktop-nav .nav-link:hover,
+html[data-theme="dark"] .desktop-nav .nav-drop > button:hover,
+html[data-theme="dark"] .desktop-nav .nav-link.active,
+html[data-theme="dark"] .nav-drop.active > button {
+  color: #ffffff;
+  background: #233440;
+}
+
+html[data-theme="dark"] .dropdown {
+  border-color: rgb(255 255 255 / 16%);
+  background: #191a19;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 52%);
+}
+
+html[data-theme="dark"] .dropdown a {
+  color: #f1f1ef;
+}
+
+html[data-theme="dark"] .dropdown a:hover,
+html[data-theme="dark"] .dropdown a.active {
+  background: #243a4a;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .icon-btn {
+  border-color: #3d3f3d;
+  background: #202220;
+  color: #f1f1ef;
+}
+
+html[data-theme="dark"] .icon-btn:hover {
+  border-color: var(--primary-medium);
+  color: #ffffff;
+  background: #292d29;
+}
+
+html[data-theme="dark"] .filter-btn {
+  background: #202220;
+  border-color: #3d3f3d;
+  color: #f1f1ef;
+}
+
+html[data-theme="dark"] .filter-btn:hover {
+  border-color: var(--primary-medium);
+  color: #ffffff;
+  background: #292d29;
+}
+
+html[data-theme="dark"] .filter-btn.active {
+  border-color: #2f6b8f;
+  background: #2f6b8f;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .faq-item > button:hover {
+  color: var(--primary-medium);
+}
+
+html[data-theme="dark"] .mobile-links a {
+  color: #f1f1ef;
+}
+
+html[data-theme="dark"] .mobile-links a:hover,
+html[data-theme="dark"] .mobile-links a.active {
+  color: #ffffff;
+  background: #233440;
+}
+
+html[data-theme="dark"] .segmented button {
+  color: #b8bbb7;
+}
+
+html[data-theme="dark"] .segmented button:hover {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .segmented button.active {
+  background: #202220;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+}
+
+html[data-theme="dark"] .back-top {
+  background: #243a4a;
+  color: #ffffff;
+  border: 1px solid rgb(255 255 255 / 16%);
+}
+
+html[data-theme="dark"] .back-top:hover {
+  background: #2f6b8f;
+}
+
+html[data-theme="dark"] .cta-card {
+  background: radial-gradient(120% 120% at 50% -10%, #17324d 0%, #0e1e2e 55%, #081119 100%);
+  border: 1px solid rgba(139, 184, 210, 0.32);
+  box-shadow: 0 32px 80px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(79, 120, 146, 0.25);
+}
+
+html[data-theme="dark"] .cta-btn-primary {
+  background: #ffffff;
+  color: #0e1e2e;
+  border-color: #ffffff;
+}
+
+html[data-theme="dark"] .cta-btn-primary:hover {
+  background: #d7e5ed;
+  border-color: #d7e5ed;
+  color: #17324d;
+}
+
+html[data-theme="dark"] .sso-btn {
+  background: #202220;
+  border-color: #3d3f3d;
+  color: #f1f1ef;
+}
+
+html[data-theme="dark"] .sso-btn:hover {
+  background: #292d29;
+  border-color: var(--primary-medium);
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .auth-switch a,
+html[data-theme="dark"] .auth-link-forgot {
+  color: var(--primary-medium);
+}
+
+html[data-theme="dark"] .password-toggle {
+  color: #b8bbb7;
+}
+
+html[data-theme="dark"] .password-toggle:hover {
+  color: #ffffff;
+}
+
+/* Brighter typography across dark mode to avoid dark primary colors */
+html[data-theme="dark"] .eyebrow {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .eyebrow::before {
+  background: #ffffff;
+}
+
+html[data-theme="dark"] .kicker {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .feature-index {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .rail-number {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .status-tag {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .price {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .price small {
+  color: #eff5f8;
+}
+
+html[data-theme="dark"] .lead {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .muted {
+  color: #d7e5ed;
+}
+
+html[data-theme="dark"] a:not(.btn):not(.brand) {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] a:not(.btn):not(.brand):hover {
+  color: #d7e5ed;
+}
+
+html[data-theme="dark"] .site-footer a {
+  color: #ffffff;
+  opacity: 0.88;
+}
+
+html[data-theme="dark"] .site-footer a:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+html[data-theme="dark"] .site-footer .footer-brand p {
+  color: #eff5f8;
+}
+
+html[data-theme="dark"] .site-footer .footer-bottom {
+  color: #ffffff;
+  opacity: 0.8;
+}
+

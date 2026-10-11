@@ -38,6 +38,10 @@ function dropdownLink(label, file, id) {
 function renderHeader() {
   const target = document.querySelector('[data-site-header]');
   if (!target) return;
+  if (['login', 'signin', 'register'].includes(page)) {
+    target.style.display = 'none';
+    return;
+  }
 
   target.innerHTML = `
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -52,23 +56,24 @@ function renderHeader() {
               ${dropdownLink('Home 2', 'home2.html', 'home2')}
             </div>
           </div>
-          <div class="nav-drop${activeClass(['services', 'routes', 'safety', 'how'])}">
+          ${navLink('About', 'about.html', ['about'])}
+          <div class="nav-drop${activeClass(['services', 'routes', 'how'])}">
             <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="services-navigation">Services ${icon('chevron')}</button>
             <div class="dropdown" id="services-navigation">
               ${dropdownLink('Services', 'services.html', 'services')}
               ${dropdownLink('Routes', 'routes.html', 'routes')}
-              ${dropdownLink('Safety Features', 'safety-features.html', 'safety')}
               ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
             </div>
           </div>
+          ${navLink('Safety Features', 'safety-features.html', ['safety'])}
           ${navLink('Subscription Plans', 'subscription-plans.html', ['plans'])}
-          ${navLink('About', 'about.html', ['about'])}
           ${navLink('Contact', 'contact.html', ['contact'])}
+          ${navLink('Dashboard', 'parent-dashboard.html', ['dashboard'])}
         </nav>
         <div class="nav-tools">
-          <a class="btn btn-sm dashboard-link" href="${pageUrl('parent-dashboard.html')}">Dashboard</a>
           <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">${icon('moon')}</button>
-          <button class="icon-btn" type="button" data-dir-toggle aria-label="Switch to right-to-left text">${icon('direction')}</button>
+          <button class="icon-btn dir-toggle-btn" type="button" data-dir-toggle aria-label="Switch to right-to-left text"><span class="dir-badge">RTL</span></button>
+          <a class="btn btn-sm login-btn" href="${pageUrl('login.html')}">Log In</a>
           <button class="icon-btn menu-btn" type="button" data-drawer-open aria-label="Open menu" aria-expanded="false">${icon('menu')}</button>
         </div>
       </div>
@@ -82,18 +87,21 @@ function renderHeader() {
       <nav class="mobile-links">
         ${dropdownLink('Home 1', 'index.html', 'home')}
         ${dropdownLink('Home 2', 'home2.html', 'home2')}
+        ${dropdownLink('About', 'about.html', 'about')}
         ${dropdownLink('Services', 'services.html', 'services')}
         ${dropdownLink('Routes', 'routes.html', 'routes')}
-        ${dropdownLink('Safety Features', 'safety-features.html', 'safety')}
         ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
+        ${dropdownLink('Safety Features', 'safety-features.html', 'safety')}
         ${dropdownLink('Subscription Plans', 'subscription-plans.html', 'plans')}
-        ${dropdownLink('About', 'about.html', 'about')}
         ${dropdownLink('Contact', 'contact.html', 'contact')}
         <a href="${pageUrl('parent-dashboard.html')}">Dashboard</a>
       </nav>
-      <div class="mobile-controls">
-        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">${icon('moon')}</button>
-        <button class="icon-btn" type="button" data-dir-toggle aria-label="Switch to right-to-left text">${icon('direction')}</button>
+      <div class="mobile-drawer-footer">
+        <a class="btn mobile-drawer-login" href="${pageUrl('login.html')}">Log In</a>
+        <div class="mobile-controls">
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">${icon('moon')}</button>
+          <button class="icon-btn dir-toggle-btn" type="button" data-dir-toggle aria-label="Switch to right-to-left text"><span class="dir-badge">RTL</span></button>
+        </div>
       </div>
     </aside>`;
 }
@@ -101,6 +109,10 @@ function renderHeader() {
 function renderFooter() {
   const target = document.querySelector('[data-site-footer]');
   if (!target) return;
+  if (['login', 'signin', 'register'].includes(page)) {
+    target.style.display = 'none';
+    return;
+  }
 
   target.innerHTML = `
     <footer class="site-footer">
@@ -108,7 +120,7 @@ function renderFooter() {
         <div class="footer-brand">${brandMarkup(true)}<p>Clear route information, practical school-day planning, and useful parent tools in one connected service.</p></div>
         <div><h3>Explore</h3><a href="${pageUrl('index.html')}">Home 1</a><a href="${pageUrl('home2.html')}">Home 2</a><a href="${pageUrl('about.html')}">About</a><a href="${pageUrl('contact.html')}">Contact</a></div>
         <div><h3>Transport</h3><a href="${pageUrl('services.html')}">Services</a><a href="${pageUrl('routes.html')}">Routes</a><a href="${pageUrl('safety-features.html')}">Safety Features</a><a href="${pageUrl('how-it-works.html')}">How It Works</a></div>
-        <div><h3>Parents</h3><a href="${pageUrl('parent-dashboard.html')}">Dashboard</a><a href="${pageUrl('subscription-plans.html')}">Subscription Plans</a><a href="${pageUrl('faq.html')}">FAQ</a><a href="${pageUrl('login.html')}">Login</a></div>
+        <div><h3>Parents</h3><a href="${pageUrl('parent-dashboard.html')}">Dashboard</a><a href="${pageUrl('subscription-plans.html')}">Subscription Plans</a><a href="${pageUrl('faq.html')}">FAQ</a><a href="${pageUrl('login.html')}">Login</a><a href="${pageUrl('signin.html')}">Sign In</a></div>
         <div><h3>Legal</h3><a href="${pageUrl('privacy.html')}">Privacy</a><a href="${pageUrl('terms.html')}">Terms</a></div>
       </div>
       <div class="container footer-bottom"><span>© <span data-year></span> ${BRAND.name}</span><span>${BRAND.fullName}</span></div>
@@ -142,9 +154,11 @@ function syncThemeControls() {
 function syncDirectionControls() {
   const isRtl = document.documentElement.dir === 'rtl';
   const label = isRtl ? 'Switch to left-to-right text' : 'Switch to right-to-left text';
+  const badgeText = isRtl ? 'LTR' : 'RTL';
   document.querySelectorAll('[data-dir-toggle]').forEach(button => {
     button.setAttribute('aria-label', label);
     button.title = label;
+    button.innerHTML = `<span class="dir-badge">${badgeText}</span>`;
   });
 }
 

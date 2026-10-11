@@ -111,7 +111,7 @@ const dashThemeToggle=document.querySelector('[data-theme-toggle]'),dashDirToggl
 function syncDashControls(){
   const isDark=document.documentElement.dataset.theme==='dark';
   if(dashThemeToggle){const label=isDark?'Switch to light mode':'Switch to dark mode';dashThemeToggle.setAttribute('aria-label',label);dashThemeToggle.title=label;dashThemeToggle.innerHTML=isDark?'<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.3A8.4 8.4 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3Z"/></svg>'}
-  if(dashDirToggle){const label=document.documentElement.dir==='rtl'?'Switch to left-to-right text':'Switch to right-to-left text';dashDirToggle.setAttribute('aria-label',label);dashDirToggle.title=label}
+  if(dashDirToggle){const isRtl=document.documentElement.dir==='rtl',label=isRtl?'Switch to left-to-right text':'Switch to right-to-left text';dashDirToggle.setAttribute('aria-label',label);dashDirToggle.title=label;const badge=dashDirToggle.querySelector('.dir-badge');if(badge){badge.textContent=isRtl?'LTR':'RTL'}else{dashDirToggle.innerHTML=`<span class="dir-badge">${isRtl?'LTR':'RTL'}</span>`}}
 }
 dashThemeToggle?.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;localStorage.setItem('schoolTransport:theme',theme);syncDashControls()});
 dashDirToggle?.addEventListener('click',()=>{const dir=document.documentElement.dir==='rtl'?'ltr':'rtl';document.documentElement.dir=dir;localStorage.setItem('schoolTransport:dir',dir);syncDashControls()});

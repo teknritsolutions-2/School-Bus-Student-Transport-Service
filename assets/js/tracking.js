@@ -33,7 +33,7 @@ function drawRoute() {
   routeLine?.remove(); busMarker?.remove(); stopLayer?.remove();
   routeLine = window.L.polyline(latlngs, { color:'#24557a', weight:6, opacity:.92 }).addTo(map);
   stopLayer = window.L.layerGroup(route.stops.map(stop => window.L.circleMarker([stop.lat,stop.lng], { radius:7, color:'#17324d', weight:3, fillColor:'#fff', fillOpacity:1 }).bindPopup(`<strong>${stop.name}</strong><br>${direction === 'pickup' ? stop.pickup : stop.drop}`))).addTo(map);
-  busMarker = window.L.circleMarker(interpolate(latlngs,progress/100), { radius:11, color:'#fff', weight:4, fillColor:'#e2a32b', fillOpacity:1 }).addTo(map).bindTooltip('School transport bus', { permanent:false });
+  busMarker = window.L.circleMarker(interpolate(latlngs,progress/100), { radius:11, color:'#fff', weight:4, fillColor:'#e2a32b', fillOpacity:1 }).addTo(map).bindTooltip('KinderRide bus', { permanent:false });
   map.fitBounds(routeLine.getBounds(), { padding:[34,34] });
 }
 

@@ -1,6 +1,6 @@
 # Installation
 
-SCHOOL TRANSPORT is a standalone static website. It has no package manager, build command, framework runtime, or server-side requirement.
+KinderRide Transit is a standalone static website. It has no package manager, build command, framework runtime, or server-side requirement.
 
 ## Preview locally
 

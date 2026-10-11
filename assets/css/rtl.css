@@ -72,3 +72,16 @@ html[dir="rtl"] .dash-sidebar {
     transform: none;
   }
 }
+
+html[dir="rtl"] .cta-arrow {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] .cta-btn-primary:hover .cta-arrow {
+  transform: translateX(-4px) rotate(180deg);
+}
+
+html[dir="rtl"] .auth-visual-brand {
+  left: auto;
+  right: 36px;
+}

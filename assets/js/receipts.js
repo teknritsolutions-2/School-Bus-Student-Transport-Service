@@ -5,7 +5,7 @@ export function createReceipt(record) {
   if (!api?.jsPDF) { alert('The PDF library could not be loaded.'); return; }
   const doc = new api.jsPDF();
   doc.setFillColor(23,50,77); doc.rect(0,0,210,39,'F');
-  doc.setTextColor(215,229,237); doc.setFontSize(20); doc.text('SCHOOL TRANSPORT', 18, 24);
+  doc.setTextColor(215,229,237); doc.setFontSize(20); doc.text('KINDERRIDE TRANSIT', 18, 24);
   doc.setTextColor(36,85,122); doc.setFontSize(17); doc.text('EXAMPLE RECEIPT', 18, 59);
   doc.setFontSize(10); doc.setTextColor(104,107,104);
   const rows = [['Reference', record.id], ['Example date', record.date], ['Plan', record.plan], ['Student', record.student], ['Illustrative amount', money(record.amount)], ['Status', 'Example only — no payment processed']];

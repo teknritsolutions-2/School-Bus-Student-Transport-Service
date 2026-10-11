@@ -5,7 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const pagesDir = join(root, 'pages');
-const expectedPages = ['index','home2','about','services','routes','safety-features','subscription-plans','how-it-works','contact','faq','login','register','parent-dashboard','privacy','terms','coming-soon','404'].map(name=>`${name}.html`);
+const expectedPages = ['index','home2','about','services','routes','safety-features','subscription-plans','how-it-works','contact','faq','login','signin','register','parent-dashboard','privacy','terms','coming-soon','404'].map(name=>`${name}.html`);
 const expectedDocs = ['INSTALLATION.md','DEPLOYMENT.md','CUSTOMIZATION.md','CONTENT-GUIDE.md','FORM-INTEGRATION.md','ATTRIBUTION.md','REQUIREMENTS-CHECKLIST.md'];
 
 test('required template files exist', () => {
