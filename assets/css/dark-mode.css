@@ -5,11 +5,14 @@ html[data-theme="dark"] {
   --text: #f1f1ef;
   --text-muted: #b8bbb7;
   --border: #3d3f3d;
-  --primary: #b58b8e;
-  --primary-dark: #efdfe0;
-  --primary-medium: #c49fa2;
-  --primary-light: #60494c;
-  --primary-pale: #33292b;
+  --primary: #8bb8d2;
+  --primary-dark: #dcecf4;
+  --primary-medium: #9fc5da;
+  --primary-light: #3d6177;
+  --primary-pale: #1d303b;
+  --signal: #f0bd55;
+  --signal-dark: #ffd781;
+  --signal-pale: #3d311d;
   --shadow-sm: 0 8px 28px rgb(0 0 0 / 24%);
   --shadow-md: 0 20px 55px rgb(0 0 0 / 38%);
 }
@@ -44,21 +47,21 @@ html[data-theme="dark"] .route-ticket {
 }
 
 html[data-theme="dark"] .btn {
-  border-color: #91676a;
-  background: #91676a;
+  border-color: #2f6b8f;
+  background: #2f6b8f;
   color: #ffffff;
 }
 
 html[data-theme="dark"] .btn:hover {
-  border-color: #c09a9d;
-  background: #c09a9d;
+  border-color: #9cc5db;
+  background: #9cc5db;
   color: #171817;
 }
 
 html[data-theme="dark"] .btn-outline {
   border-color: var(--primary-medium);
   background: transparent;
-  color: #f2e7e8;
+  color: #edf6fa;
 }
 
 html[data-theme="dark"] .btn-outline:hover {
@@ -70,7 +73,7 @@ html[data-theme="dark"] .btn-outline:hover {
 html[data-theme="dark"] .btn-text {
   border-color: transparent;
   background: transparent;
-  color: #e7d9da;
+  color: #d7e5ed;
 }
 
 html[data-theme="dark"] .btn-secondary {
@@ -86,14 +89,14 @@ html[data-theme="dark"] .btn-secondary:hover {
 }
 
 html[data-theme="dark"] .dark-surface .btn-outline {
-  border-color: #e7d9da;
+  border-color: #d7e5ed;
   color: #ffffff;
 }
 
 html[data-theme="dark"] .dark-surface .btn-outline:hover {
   border-color: #ffffff;
   background: #ffffff;
-  color: #482b30;
+  color: #17324d;
 }
 
 html[data-theme="dark"] .field input,

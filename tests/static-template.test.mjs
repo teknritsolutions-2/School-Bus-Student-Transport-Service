@@ -106,8 +106,8 @@ test('public pages share the central header and footer', () => {
 
 test('brand palette, fonts, map, and honest receipt behavior are present', () => {
   const css=readFileSync(join(root,'assets/css/style.css'),'utf8');
-  for (const color of ['#704447','#482b30','#91676a','#e7d9da','#f6eff0','#faf9f7','#252625','#686b68','#dfdfdc']) assert.match(css,new RegExp(color,'i'));
-  for (const color of ['#6a470f','#a66b12','#c48b27','#e9d29e','#fbf5e8']) assert.doesNotMatch(css,new RegExp(color,'i'));
+  for (const color of ['#24557a','#17324d','#4f7892','#d7e5ed','#eff5f8','#e2a32b','#fff4d6','#faf9f7','#252625','#686b68','#dfdfdc']) assert.match(css,new RegExp(color,'i'));
+  for (const color of ['#704447','#482b30','#91676a','#e7d9da','#f6eff0']) assert.doesNotMatch(css,new RegExp(color,'i'));
   assert.match(css,/family=DM\+Sans/);
   assert.match(css,/family=Outfit/);
   assert.match(css,/--font-heading:\s*"Outfit"/);

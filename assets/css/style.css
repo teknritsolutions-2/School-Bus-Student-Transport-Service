@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap");
 
 :root {
-  --primary: #704447;
-  --primary-dark: #482b30;
-  --primary-medium: #91676a;
-  --primary-light: #e7d9da;
-  --primary-pale: #f6eff0;
+  --primary: #24557a;
+  --primary-dark: #17324d;
+  --primary-medium: #4f7892;
+  --primary-light: #d7e5ed;
+  --primary-pale: #eff5f8;
+  --signal: #e2a32b;
+  --signal-dark: #704800;
+  --signal-pale: #fff4d6;
   --white: #ffffff;
   --off-white: #faf9f7;
   --charcoal: #252625;
@@ -138,7 +141,7 @@ a {
 
 .dark-surface {
   background: var(--primary-dark);
-  color: #f8f5f5;
+  color: #f5f9fb;
 }
 
 .dark-surface h2,
@@ -150,21 +153,21 @@ a {
 .dark-surface .muted,
 .dark-surface .lead,
 .dark-surface small {
-  color: #e4dddd;
+  color: #dce8ee;
 }
 
 .dark-surface .eyebrow,
 .hero-wide .eyebrow,
 .auth-caption .eyebrow,
 .service-tile.media .eyebrow {
-  color: #f6eff0;
+  color: #eef6fa;
 }
 
 .dark-surface .eyebrow::before,
 .hero-wide .eyebrow::before,
 .auth-caption .eyebrow::before,
 .service-tile.media .eyebrow::before {
-  background: #e7d9da;
+  background: #d7e5ed;
 }
 
 .dark-surface .journey-stop h3,
@@ -177,7 +180,7 @@ a {
 }
 
 .dark-surface .faq-answer {
-  color: #e4dddd;
+  color: #dce8ee;
 }
 
 .dark-surface .btn-outline {
@@ -314,7 +317,7 @@ p {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--primary);
+  background: var(--signal);
   content: "";
 }
 
@@ -729,7 +732,7 @@ p {
   height: 4px;
   margin: 14px 0 9px;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--primary) 0 62%, var(--primary-light) 62%);
+  background: linear-gradient(90deg, var(--primary) 0 62%, var(--signal) 62% 66%, var(--primary-light) 66%);
 }
 
 .hero-wide {
@@ -770,12 +773,12 @@ p {
 }
 
 .hero-wide .lead {
-  color: #f0ecec;
+  color: #edf4f7;
 }
 
 .hero-wide .breadcrumbs,
 .hero-wide .breadcrumbs a {
-  color: #f0ecec;
+  color: #edf4f7;
 }
 
 .hero-wide .btn-outline {

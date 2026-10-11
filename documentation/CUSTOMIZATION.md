@@ -6,7 +6,7 @@ Replace the SVG files in `assets/brand/` while keeping their filenames: `logo.sv
 
 ## Colors and layout
 
-Edit the custom properties at the top of `assets/css/style.css`. The interface uses one oxblood family (`#704447`, `#482B30`, `#91676A`, `#E7D9DA`, and `#F6EFF0`) with neutral surfaces and text. Keep stylesheet order unchanged in every page: `style.css`, then `dark-mode.css`, then `rtl.css`.
+Edit the custom properties at the top of `assets/css/style.css`. The interface uses a transit-blue family (`#24557A`, `#17324D`, `#4F7892`, `#D7E5ED`, and `#EFF5F8`) with a restrained safety-gold signal (`#E2A32B`) and neutral surfaces and text. Keep stylesheet order unchanged in every page: `style.css`, then `dark-mode.css`, then `rtl.css`.
 
 ## Typography
 
