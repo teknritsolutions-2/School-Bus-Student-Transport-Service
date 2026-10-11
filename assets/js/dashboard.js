@@ -14,7 +14,7 @@ function showView(name,push=true){
   document.querySelectorAll('[data-view-target]').forEach(button=>button.classList.toggle('active',button.dataset.viewTarget===name));
   document.querySelector('[data-dash-title]').textContent=titles[name];
   if(push)history.replaceState(null,'',`#${name}`);
-  document.querySelector('[data-dash-sidebar]')?.classList.remove('open');
+  if(typeof dashMobile!=='undefined'&&dashMobile.matches)closeDashNavigation(false);
   if(name==='track')showTracking();
 }
 
@@ -29,7 +29,8 @@ function renderOverview(){
   document.querySelector('[data-overview-route]').textContent=`${route.id} · ${route.name}`;
   document.querySelector('[data-overview-time]').textContent=`Pickup at ${stop.pickup}`;
   document.querySelector('[data-overview-detail]').textContent=`${selected.name} · ${selected.stop} · ${route.school}`;
-  document.querySelector('[data-overview-stop]').textContent=selected.stop;
+  document.querySelectorAll('[data-overview-stop]').forEach(node=>node.textContent=selected.stop);
+  document.querySelectorAll('[data-overview-time-short]').forEach(node=>node.textContent=stop.pickup.replace(/\s[AP]M$/,''));
   document.querySelector('[data-overview-arrival]').textContent=school.pickup;
   document.querySelector('[data-overview-events]').innerHTML=`<div class="mini-event"><strong>${stop.pickup} · Assigned pickup</strong><br><small>${selected.stop}</small></div><div class="mini-event"><strong>${school.pickup} · School arrival</strong><br><small>${route.school}</small></div>`;
 }
@@ -71,7 +72,11 @@ document.addEventListener('click',event=>{
   const plan=event.target.closest('[data-select-plan]');if(plan){storeSet('plan',plan.dataset.selectPlan);renderPlan()}
   if(event.target.closest('[data-receipt]'))createReceipt(exampleReceipt);
 });
-document.querySelector('[data-dash-menu]')?.addEventListener('click',()=>document.querySelector('[data-dash-sidebar]').classList.toggle('open'));
+const dashSidebar=document.querySelector('[data-dash-sidebar]'),dashMenu=document.querySelector('[data-dash-menu]'),dashClose=document.querySelector('[data-dash-close]'),dashScrim=document.querySelector('[data-dash-scrim]'),dashMobile=matchMedia('(max-width: 1180px)');
+function syncDashNavigation(){if(!dashSidebar)return;if(dashMobile.matches&&!dashSidebar.classList.contains('open'))dashSidebar.inert=true;else dashSidebar.removeAttribute('inert')}
+function openDashNavigation(){dashSidebar?.classList.add('open');if(dashScrim){dashScrim.hidden=false;requestAnimationFrame(()=>dashScrim.classList.add('open'))}dashMenu?.setAttribute('aria-expanded','true');syncDashNavigation();dashClose?.focus()}
+function closeDashNavigation(restore=true){dashSidebar?.classList.remove('open');dashScrim?.classList.remove('open');dashMenu?.setAttribute('aria-expanded','false');setTimeout(()=>{if(dashScrim)dashScrim.hidden=true},200);syncDashNavigation();if(restore)dashMenu?.focus()}
+dashMenu?.addEventListener('click',openDashNavigation);dashClose?.addEventListener('click',()=>closeDashNavigation());dashScrim?.addEventListener('click',()=>closeDashNavigation());dashMobile.addEventListener('change',()=>{if(!dashMobile.matches)closeDashNavigation(false);syncDashNavigation()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&dashSidebar?.classList.contains('open'))closeDashNavigation()});syncDashNavigation();
 document.querySelector('[data-theme-toggle]')?.addEventListener('click',()=>{const theme=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=theme;localStorage.setItem('schoolTransport:theme',theme)});
 document.querySelector('[data-dir-toggle]')?.addEventListener('click',()=>{const dir=document.documentElement.dir==='rtl'?'ltr':'rtl';document.documentElement.dir=dir;localStorage.setItem('schoolTransport:dir',dir)});
 document.querySelector('[data-trip-start]')?.addEventListener('click',startTrip);document.querySelector('[data-trip-pause]')?.addEventListener('click',pauseTrip);document.querySelector('[data-trip-reset]')?.addEventListener('click',resetTrip);

@@ -31,9 +31,9 @@ function drawRoute() {
   if (!map || !window.L) return;
   const latlngs = points();
   routeLine?.remove(); busMarker?.remove(); stopLayer?.remove();
-  routeLine = window.L.polyline(latlngs, { color:'#a66b12', weight:6, opacity:.92 }).addTo(map);
-  stopLayer = window.L.layerGroup(route.stops.map(stop => window.L.circleMarker([stop.lat,stop.lng], { radius:7, color:'#6a470f', weight:3, fillColor:'#fff', fillOpacity:1 }).bindPopup(`<strong>${stop.name}</strong><br>${direction === 'pickup' ? stop.pickup : stop.drop}`))).addTo(map);
-  busMarker = window.L.circleMarker(interpolate(latlngs,progress/100), { radius:11, color:'#fff', weight:4, fillColor:'#c48b27', fillOpacity:1 }).addTo(map).bindTooltip('School transport bus', { permanent:false });
+  routeLine = window.L.polyline(latlngs, { color:'#704447', weight:6, opacity:.92 }).addTo(map);
+  stopLayer = window.L.layerGroup(route.stops.map(stop => window.L.circleMarker([stop.lat,stop.lng], { radius:7, color:'#482b30', weight:3, fillColor:'#fff', fillOpacity:1 }).bindPopup(`<strong>${stop.name}</strong><br>${direction === 'pickup' ? stop.pickup : stop.drop}`))).addTo(map);
+  busMarker = window.L.circleMarker(interpolate(latlngs,progress/100), { radius:11, color:'#fff', weight:4, fillColor:'#91676a', fillOpacity:1 }).addTo(map).bindTooltip('School transport bus', { permanent:false });
   map.fitBounds(routeLine.getBounds(), { padding:[34,34] });
 }
 
@@ -73,7 +73,7 @@ function buildPublicMap() {
   if (publicMap || !target || !window.L) return;
   publicMap = window.L.map(target, { scrollWheelZoom:false });
   window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:19, attribution:'&copy; OpenStreetMap contributors' }).addTo(publicMap);
-  const colors = ['#a66b12','#6a470f'];
+  const colors = ['#704447','#482b30'];
   const bounds = [];
   routes.forEach((item,index) => {
     const latlngs = item.stops.map(stop => [stop.lat,stop.lng]);

@@ -29,4 +29,4 @@ Leaflet and jsPDF runtime files are vendored under `assets/js/plugins/`. OpenStr
 
 ## Brand and interface icons
 
-The logo, favicon, route artwork, and interface icons are original SVG assets included in the project. Controls use inline SVG rather than an icon font or Unicode symbols.
+The logo, favicon, and interface icons are original SVG assets included in the project. Controls use inline SVG rather than an icon font or Unicode symbols.

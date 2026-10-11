@@ -67,13 +67,33 @@ test('shared navigation exposes the required customer paths and direct dashboard
   for (const label of ['Home 1','Home 2','Services','Routes','Safety Features','How It Works','Subscription Plans','About','Contact','Dashboard']) assert.match(main,new RegExp(label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
   assert.match(main,/href="\$\{pageUrl\('parent-dashboard\.html'\)\}"/);
   assert.doesNotMatch(main,/register\.html'\)\}">Dashboard/);
+  assert.match(main,/mouseenter/);
+  assert.match(main,/data-drawer[^>]+inert/);
+  assert.match(main,/aria-current="page"/);
 });
 
-test('brand palette, map, and honest receipt behavior are present', () => {
+test('public pages share the central header and footer', () => {
+  for (const file of expectedPages.filter(file=>file!=='parent-dashboard.html')) {
+    const html=readFileSync(join(pagesDir,file),'utf8');
+    assert.match(html,/data-site-header/,`${file} needs shared header`);
+    assert.match(html,/data-site-footer/,`${file} needs shared footer`);
+  }
+});
+
+test('brand palette, fonts, map, and honest receipt behavior are present', () => {
   const css=readFileSync(join(root,'assets/css/style.css'),'utf8');
-  for (const color of ['#6a470f','#a66b12','#c48b27','#e9d29e','#fbf5e8']) assert.match(css,new RegExp(color,'i'));
+  for (const color of ['#704447','#482b30','#91676a','#e7d9da','#f6eff0','#faf9f7','#252625','#686b68','#dfdfdc']) assert.match(css,new RegExp(color,'i'));
+  for (const color of ['#6a470f','#a66b12','#c48b27','#e9d29e','#fbf5e8']) assert.doesNotMatch(css,new RegExp(color,'i'));
+  assert.match(css,/family=DM\+Sans/);
+  assert.match(css,/family=Outfit/);
+  assert.match(css,/--font-heading:\s*"Outfit"/);
+  assert.match(css,/--font-body:\s*"DM Sans"/);
+  for (const breakpoint of ['1180px','820px','768px','430px','360px']) assert.match(css,new RegExp(`max-width:\\s*${breakpoint}`));
   const routes=readFileSync(join(pagesDir,'routes.html'),'utf8');
   assert.match(routes,/data-public-map/);
+  for (const pageName of ['index.html','home2.html','how-it-works.html','services.html','safety-features.html','parent-dashboard.html']) {
+    assert.doesNotMatch(readFileSync(join(pagesDir,pageName),'utf8'),/map-preview|route-path|map-pin/,`ornamental map remains in ${pageName}`);
+  }
   const receipts=readFileSync(join(root,'assets/js/receipts.js'),'utf8');
   assert.match(receipts,/EXAMPLE RECEIPT/);
   assert.match(receipts,/no payment processed/i);

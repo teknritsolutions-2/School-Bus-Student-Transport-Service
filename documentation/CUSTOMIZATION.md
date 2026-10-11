@@ -6,7 +6,11 @@ Replace the SVG files in `assets/brand/` while keeping their filenames: `logo.sv
 
 ## Colors and layout
 
-Edit the custom properties at the top of `assets/css/style.css`. Keep stylesheet order unchanged in every page: `style.css`, then `dark-mode.css`, then `rtl.css`.
+Edit the custom properties at the top of `assets/css/style.css`. The interface uses one oxblood family (`#704447`, `#482B30`, `#91676A`, `#E7D9DA`, and `#F6EFF0`) with neutral surfaces and text. Keep stylesheet order unchanged in every page: `style.css`, then `dark-mode.css`, then `rtl.css`.
+
+## Typography
+
+Headings use Outfit and body/interface copy uses DM Sans. Both families and their declared weights are loaded from Google Fonts at the top of `assets/css/style.css` with `display=swap`. If the font provider changes, retain only these two family roles or update the typography tokens together.
 
 ## Shared navigation and footer
 
