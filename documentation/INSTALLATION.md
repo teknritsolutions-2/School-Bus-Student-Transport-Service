@@ -10,7 +10,7 @@ From the project folder, use any static web server. For example:
 python3 -m http.server 8080
 ```
 
-Then open `http://localhost:8080/`. The root `index.html` redirects to `pages/index.html`.
+Then open `http://localhost:8080/pages/index.html`.
 
 Do not open pages through an editor's private preview protocol. JavaScript modules are most reliable over `http://` or `https://`.
 

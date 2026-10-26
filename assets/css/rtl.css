@@ -85,3 +85,8 @@ html[dir="rtl"] .auth-visual-brand {
   left: auto;
   right: 36px;
 }
+
+html[dir="rtl"] .featured-card .featured-content {
+  padding: 16px 8px 16px 20px;
+}
+

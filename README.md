@@ -1,3 +1,12 @@
+<script>
+  if (typeof window !== 'undefined' && !location.pathname.includes('/pages/')) {
+    location.replace('pages/index.html' + location.search + location.hash);
+  }
+</script>
+<noscript>
+  <meta http-equiv="refresh" content="0; url=pages/index.html">
+</noscript>
+
 # KinderRide Transit - School Bus & Student Transport Service
 
 A responsive static website built with HTML, CSS, and vanilla JavaScript. It includes two distinct homepages, route and safety information, subscription comparison, support content, and a nine-view parent dashboard with local route playback and an example PDF receipt.
