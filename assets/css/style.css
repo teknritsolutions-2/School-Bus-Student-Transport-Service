@@ -51,14 +51,14 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
-  scrollbar-gutter: stable;
 }
 
 body {
   margin: 0;
-  overflow-x: clip;
+  overflow-x: hidden;
   background: var(--surface);
   color: var(--text);
   font-family: var(--font-body);
@@ -2194,12 +2194,19 @@ p {
 }
 
 /* Filter Bar & Category Controls */
+.filter-section {
+  overflow: hidden;
+}
+
 .filter-bar-wrap {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 18px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .filter-tags {
@@ -2207,6 +2214,8 @@ p {
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .filter-tags button.tag {
@@ -2214,6 +2223,8 @@ p {
   transition: all 0.2s ease;
   font-family: inherit;
   margin-bottom: 0;
+  font-size: 0.82rem;
+  padding: 8px 16px;
 }
 
 .filter-tags button.tag:hover {
@@ -2225,6 +2236,34 @@ p {
   background: var(--primary);
   border-color: var(--primary);
   color: #ffffff;
+}
+
+.filter-search-field {
+  margin: 0;
+  width: 280px;
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.filter-search-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-form);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.filter-search-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(36, 85, 122, 0.2);
 }
 
 /* Blog Grid & Cards */
@@ -3412,22 +3451,44 @@ th {
   .filter-bar-wrap {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .filter-bar-wrap .field {
-    min-width: 100% !important;
+    gap: 14px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .filter-tags {
+    display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     flex-wrap: nowrap;
-    padding-bottom: 8px;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .filter-tags::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-tags button.tag {
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .filter-search-field {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .filter-search-field input {
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .rail-intro,

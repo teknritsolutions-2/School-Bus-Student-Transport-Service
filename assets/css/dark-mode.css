@@ -448,4 +448,19 @@ html[data-theme="dark"] .newsletter-submit-btn:hover {
   color: #24557a !important;
 }
 
+html[data-theme="dark"] .filter-search-field input {
+  background: #242524;
+  color: #ffffff;
+  border-color: #3d3f3d;
+}
+
+html[data-theme="dark"] .filter-search-field input:focus {
+  border-color: #8bb8d2;
+}
+
+html[data-theme="dark"] .filter-search-field input::placeholder {
+  color: #8a8d8a;
+}
+
+
 

@@ -77,8 +77,10 @@ export function storeSet(key, value) {
 }
 
 const scriptUrl = import.meta.url;
-export const siteRoot = new URL('../../', scriptUrl);
-export const pageUrl = file => new URL(`pages/${file}`, siteRoot).href;
+export const pageUrl = file => {
+  if (file === 'index.html') return new URL('index.html', siteRoot).href;
+  return new URL(`pages/${file}`, siteRoot).href;
+};
 export const assetUrl = path => new URL(`assets/${path}`, siteRoot).href;
 
 const page = document.body.dataset.page || '';
