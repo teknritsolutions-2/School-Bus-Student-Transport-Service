@@ -77,6 +77,7 @@ export function storeSet(key, value) {
 }
 
 const scriptUrl = import.meta.url;
+export const siteRoot = new URL('../../', scriptUrl);
 export const pageUrl = file => {
   if (file === 'index.html') return new URL('index.html', siteRoot).href;
   return new URL(`pages/${file}`, siteRoot).href;
