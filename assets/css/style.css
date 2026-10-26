@@ -51,14 +51,14 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: 84px;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--surface);
   color: var(--text);
   font-family: var(--font-body);
@@ -504,16 +504,22 @@ p {
 /* Shared public navigation */
 [data-site-header] {
   position: sticky;
+  top: 0;
   inset-block-start: 0;
-  z-index: 200;
+  z-index: 1000;
   display: block;
+  width: 100%;
 }
 
 .site-header {
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  inset-block-start: 0;
+  z-index: 1000;
+  width: 100%;
   border-bottom: 1px solid transparent;
-  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  background: color-mix(in srgb, var(--surface) 95%, transparent);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
@@ -521,7 +527,7 @@ p {
 .site-header.scrolled {
   border-color: var(--border);
   background: color-mix(in srgb, var(--surface) 98%, transparent);
-  box-shadow: 0 7px 24px rgb(37 38 37 / 9%);
+  box-shadow: 0 4px 20px rgba(14, 30, 46, 0.08);
 }
 
 .nav-wrap {
@@ -582,7 +588,9 @@ p {
 
 .nav-link:hover,
 .nav-drop > button:hover,
-.nav-drop.open > button {
+.nav-drop:focus-within > button,
+.nav-drop.open > button,
+.nav-drop > button[aria-expanded="true"] {
   background: var(--primary-pale);
   color: var(--primary-dark);
 }
@@ -604,7 +612,10 @@ p {
   content: "";
 }
 
-.nav-drop.active.open > button {
+.nav-drop.active.open > button,
+.nav-drop.active:hover > button,
+.nav-drop.active:focus-within > button,
+.nav-drop.active > button[aria-expanded="true"] {
   background: var(--primary-pale);
 }
 
@@ -618,49 +629,64 @@ p {
   transition: transform var(--transition);
 }
 
-.nav-drop.open > button .icon {
+.nav-drop.open > button .icon,
+.nav-drop:hover > button .icon,
+.nav-drop:focus-within > button .icon,
+.nav-drop > button[aria-expanded="true"] .icon {
   transform: rotate(180deg);
 }
 
 .dropdown {
   position: absolute;
-  inset-block-start: calc(100% + 8px);
+  inset-block-start: 100%;
   inset-inline-start: 0;
-  width: 226px;
+  min-width: 216px;
+  width: max-content;
+  max-width: 270px;
+  margin-top: 4px;
   padding: 8px;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 32px rgba(14, 30, 46, 0.12);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-5px);
-  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  z-index: 1050;
 }
 
 .dropdown::before {
   position: absolute;
-  inset-block-start: -10px;
-  inset-inline: 0;
-  height: 11px;
+  inset-block-start: -12px;
+  inset-inline: -8px;
+  height: 16px;
   content: "";
 }
 
-.nav-drop.open .dropdown {
+.nav-drop:hover .dropdown,
+.nav-drop:focus-within .dropdown,
+.nav-drop.open .dropdown,
+.nav-drop > button[aria-expanded="true"] + .dropdown {
   opacity: 1;
   visibility: visible;
-  transform: none;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .dropdown a {
   min-height: 42px;
   display: flex;
   align-items: center;
-  padding: 9px 11px;
-  border-radius: 7px;
+  padding: 9px 14px;
+  border-radius: 8px;
   color: var(--text);
   font-size: 0.88rem;
   font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
 }
 
 .dropdown a:hover,
@@ -706,7 +732,7 @@ p {
 .mobile-drawer {
   position: fixed;
   inset: 0 0 0 auto;
-  z-index: 110;
+  z-index: 1250;
   width: min(390px, 92vw);
   display: block;
   padding: 22px;
@@ -3253,7 +3279,7 @@ th {
   .drawer-scrim {
     position: fixed;
     inset: 0;
-    z-index: 108;
+    z-index: 1200;
     display: block;
     background: rgb(20 20 20 / 58%);
     opacity: 0;

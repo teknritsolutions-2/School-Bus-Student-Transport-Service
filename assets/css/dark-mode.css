@@ -163,6 +163,18 @@ html[data-theme="dark"] .nav-drop.active > button {
   background: #233440;
 }
 
+html[data-theme="dark"] .nav-drop:hover > button,
+html[data-theme="dark"] .nav-drop:focus-within > button,
+html[data-theme="dark"] .nav-drop.open > button,
+html[data-theme="dark"] .nav-drop > button[aria-expanded="true"],
+html[data-theme="dark"] .nav-drop.active:hover > button,
+html[data-theme="dark"] .nav-drop.active:focus-within > button,
+html[data-theme="dark"] .nav-drop.active.open > button,
+html[data-theme="dark"] .nav-drop.active > button[aria-expanded="true"] {
+  background: #233440;
+  color: #ffffff;
+}
+
 html[data-theme="dark"] .dropdown {
   border-color: rgb(255 255 255 / 16%);
   background: #191a19;

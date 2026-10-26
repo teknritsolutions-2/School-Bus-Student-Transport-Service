@@ -301,18 +301,61 @@ function initDrawer() {
 }
 
 function initDropdowns() {
-  document.querySelectorAll('.nav-drop').forEach(drop => {
+  const drops = document.querySelectorAll('.nav-drop');
+
+  const closeAll = (except = null) => {
+    drops.forEach(drop => {
+      if (drop !== except) {
+        drop.classList.remove('open');
+        drop.querySelector('button')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  };
+
+  drops.forEach(drop => {
     const btn = drop.querySelector('button');
-    btn?.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      document.querySelectorAll('.nav-drop button').forEach(b => b.setAttribute('aria-expanded', 'false'));
-      btn.setAttribute('aria-expanded', String(!expanded));
+    if (!btn) return;
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const willOpen = !drop.classList.contains('open');
+      closeAll();
+      if (willOpen) {
+        drop.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close when clicking any link inside the dropdown
+    drop.querySelectorAll('.dropdown a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeAll();
+      });
+    });
+
+    // Hover helper to sync aria-expanded
+    drop.addEventListener('mouseenter', () => {
+      btn.setAttribute('aria-expanded', 'true');
+    });
+    drop.addEventListener('mouseleave', () => {
+      if (!drop.classList.contains('open')) {
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Keyboard support: Escape closes dropdown and refocuses button
+    drop.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeAll();
+        btn.focus();
+      }
     });
   });
 
+  // Click outside to close
   document.addEventListener('click', e => {
     if (!e.target.closest('.nav-drop')) {
-      document.querySelectorAll('.nav-drop button').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      closeAll();
     }
   });
 }
@@ -470,10 +513,11 @@ function initInteractions() {
   const header = document.querySelector('[data-header]');
   const backTop = document.querySelector('[data-back-top]');
   const onScroll = () => {
-    header?.classList.toggle('scrolled', scrollY > 8);
-    backTop?.classList.toggle('visible', scrollY > 500);
+    const y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    header?.classList.toggle('scrolled', y > 8);
+    backTop?.classList.toggle('visible', y > 500);
   };
-  addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
   backTop?.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
