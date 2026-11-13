@@ -12,6 +12,9 @@
 
 - [x] Home One and Home Two
 - [x] About, Services, Routes, Safety Features, Subscription Plans
+- [x] Detailed Transport & Route Coverage and Student Safety & Fleet Standards pages
+- [x] Detailed Parent Portal & Registration and Pricing & Policies pages
+- [x] Detailed Case Studies & Proof page with clearly labeled illustrative scenarios
 - [x] How It Works, Blog, Contact, FAQ
 - [x] Login and Register
 - [x] One parent dashboard containing all nine modules
@@ -41,6 +44,7 @@
 - [x] Runtime canonical URLs and WebSite structured data
 - [x] Exactly one H1 per content page
 - [x] Local images and attribution documentation
+- [x] Unique image-led introductions for Home 1, Home 2, About, Services, and each detailed service page
 - [x] Illustrative route, tracking, and receipt boundaries clearly identified
 
 ## Manual production actions

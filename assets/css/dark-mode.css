@@ -474,5 +474,27 @@ html[data-theme="dark"] .filter-search-field input::placeholder {
   color: #8a8d8a;
 }
 
+html[data-theme="dark"] .hero-proof-card {
+  border-color: rgb(255 255 255 / 16%);
+  background: rgb(27 28 27 / 94%);
+}
+
+html[data-theme="dark"] .hero-proof-card div + div {
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .hero-proof-card strong {
+  color: var(--primary-dark);
+}
+
+html[data-theme="dark"] .service-path-nav a {
+  background: var(--surface);
+}
+
+html[data-theme="dark"] .dark-surface .response-card {
+  border-color: rgb(255 255 255 / 18%);
+  background: #181a19;
+}
+
 
 

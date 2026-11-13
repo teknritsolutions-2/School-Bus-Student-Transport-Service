@@ -19,6 +19,16 @@ The project includes optimized local WebP derivatives of Pexels and Unsplash pho
 
 Source and license terms were verified on 10 October 2026. Recheck them before redistribution.
 
+## Generated project photography
+
+The following original project assets were generated with OpenAI's built-in ImageGen workflow on 13 November 2026. They contain no supplied customer identities or brand marks.
+
+- `assets/images/generated/pickup-boarding.webp` — supervised neighborhood school-bus pickup
+- `assets/images/generated/field-trip-shuttle.webp` — students and chaperones boarding for an educational field trip
+- `assets/images/generated/fleet-inspection.webp` — pre-trip driver and fleet inspection
+- `assets/images/generated/parent-route-registration.webp` — parent reviewing route information at a bus stop
+- `assets/images/generated/dispatch-operations.webp` — transport coordinators reviewing route operations
+
 ## Third-party libraries
 
 - Leaflet — interactive maps, BSD-2-Clause license: https://leafletjs.com/

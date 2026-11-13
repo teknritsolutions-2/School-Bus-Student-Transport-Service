@@ -1,6 +1,6 @@
 # KinderRide Transit - School Bus & Student Transport Service
 
-A responsive static website built with HTML, CSS, and vanilla JavaScript. It includes two distinct homepages, route and safety information, subscription comparison, support content, and a nine-view parent dashboard with local route playback and an example PDF receipt.
+A responsive static website built with HTML, CSS, and vanilla JavaScript. It includes two distinct homepages, detailed transport and route coverage, fleet safety standards, parent registration guidance, pricing and policies, service proof, support content, and a nine-view parent dashboard with local route playback and an example PDF receipt.
 
 ## Run locally
 
@@ -32,6 +32,11 @@ School-Bus-Student-Transport-Service/
 ├── pages/
 │   ├── about.html
 │   ├── services.html
+│   ├── transport-services.html
+│   ├── safety-fleet.html
+│   ├── parent-portal-registration.html
+│   ├── pricing-policies.html
+│   ├── case-studies.html
 │   ├── blog.html
 │   ├── contact.html
 │   └── [template-specific pages]

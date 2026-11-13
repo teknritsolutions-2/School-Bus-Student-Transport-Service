@@ -136,18 +136,28 @@ function renderHeader() {
             </div>
           </div>
           ${navLink('About', 'about.html', ['about'])}
-          <div class="nav-drop${activeClass(['services', 'routes', 'how'])}">
+          <div class="nav-drop${activeClass(['services', 'transport', 'fleet', 'portal', 'routes', 'safety'])}">
             <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="services-navigation">Services ${icon('chevron')}</button>
             <div class="dropdown" id="services-navigation">
-              ${dropdownLink('Services', 'services.html', 'services')}
-              ${dropdownLink('Routes', 'routes.html', 'routes')}
-              ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
+              ${dropdownLink('Services Overview', 'services.html', 'services')}
+              ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
+              ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
+              ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
+              ${dropdownLink('Find a Route', 'routes.html', 'routes')}
+              ${dropdownLink('Safety Guide', 'safety-features.html', 'safety')}
             </div>
           </div>
-          ${navLink('Safety Features', 'safety-features.html', ['safety'])}
-          ${navLink('Subscription Plans', 'subscription-plans.html', ['plans'])}
-          ${navLink('Blog', 'blog.html', ['blog'])}
-          ${navLink('Contact', 'contact.html', ['contact'])}
+          ${navLink('Pricing', 'pricing-policies.html', ['pricing', 'plans'])}
+          ${navLink('Proof', 'case-studies.html', ['proof'])}
+          <div class="nav-drop${activeClass(['how', 'blog', 'faq', 'contact'])}">
+            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resources-navigation">Resources ${icon('chevron')}</button>
+            <div class="dropdown" id="resources-navigation">
+              ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
+              ${dropdownLink('Blog & Guides', 'blog.html', 'blog')}
+              ${dropdownLink('FAQ', 'faq.html', 'faq')}
+              ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}
+            </div>
+          </div>
           ${navLink('Dashboard', 'parent-dashboard.html', ['dashboard'])}
         </nav>
         <div class="nav-tools">
@@ -168,13 +178,18 @@ function renderHeader() {
         ${dropdownLink('Home 1', 'index.html', 'home')}
         ${dropdownLink('Home 2', 'home2.html', 'home2')}
         ${dropdownLink('About', 'about.html', 'about')}
-        ${dropdownLink('Services', 'services.html', 'services')}
-        ${dropdownLink('Routes', 'routes.html', 'routes')}
+        ${dropdownLink('Services Overview', 'services.html', 'services')}
+        ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
+        ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
+        ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
+        ${dropdownLink('Pricing & Policies', 'pricing-policies.html', 'pricing')}
+        ${dropdownLink('Case Studies & Proof', 'case-studies.html', 'proof')}
+        ${dropdownLink('Route Finder', 'routes.html', 'routes')}
         ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
-        ${dropdownLink('Safety Features', 'safety-features.html', 'safety')}
-        ${dropdownLink('Subscription Plans', 'subscription-plans.html', 'plans')}
-        ${dropdownLink('Blog', 'blog.html', 'blog')}
-        ${dropdownLink('Contact', 'contact.html', 'contact')}
+        ${dropdownLink('Safety Guide', 'safety-features.html', 'safety')}
+        ${dropdownLink('Blog & Guides', 'blog.html', 'blog')}
+        ${dropdownLink('FAQ', 'faq.html', 'faq')}
+        ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}
         <a href="${pageUrl('parent-dashboard.html')}">Dashboard</a>
       </nav>
       <div class="mobile-drawer-footer">
@@ -199,10 +214,10 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-main">
         <div class="footer-brand">${brandMarkup(true)}<p>Clear route information, practical school-day planning, and useful parent tools in one connected service.</p></div>
-        <div><h3>Explore</h3><a href="${pageUrl('index.html')}">Home 1</a><a href="${pageUrl('home2.html')}">Home 2</a><a href="${pageUrl('about.html')}">About</a><a href="${pageUrl('blog.html')}">Blog</a><a href="${pageUrl('contact.html')}">Contact</a></div>
-        <div><h3>Transport</h3><a href="${pageUrl('services.html')}">Services</a><a href="${pageUrl('routes.html')}">Routes</a><a href="${pageUrl('safety-features.html')}">Safety Features</a><a href="${pageUrl('how-it-works.html')}">How It Works</a></div>
-        <div><h3>Parents</h3><a href="${pageUrl('parent-dashboard.html')}">Dashboard</a><a href="${pageUrl('subscription-plans.html')}">Subscription Plans</a><a href="${pageUrl('faq.html')}">FAQ</a><a href="${pageUrl('login.html')}">Login</a></div>
-        <div><h3>Legal</h3><a href="${pageUrl('privacy.html')}">Privacy</a><a href="${pageUrl('terms.html')}">Terms</a></div>
+        <div><h3>Explore</h3><a href="${pageUrl('index.html')}">Home 1</a><a href="${pageUrl('home2.html')}">Home 2</a><a href="${pageUrl('about.html')}">About</a><a href="${pageUrl('case-studies.html')}">Case Studies & Proof</a><a href="${pageUrl('blog.html')}">Blog & Guides</a></div>
+        <div><h3>Services</h3><a href="${pageUrl('services.html')}">Overview</a><a href="${pageUrl('transport-services.html')}">Transport & Routes</a><a href="${pageUrl('safety-fleet.html')}">Safety & Fleet</a><a href="${pageUrl('routes.html')}">Route Finder</a><a href="${pageUrl('how-it-works.html')}">How It Works</a></div>
+        <div><h3>Parents</h3><a href="${pageUrl('parent-portal-registration.html')}">Portal & Registration</a><a href="${pageUrl('pricing-policies.html')}">Pricing & Policies</a><a href="${pageUrl('parent-dashboard.html')}">Dashboard</a><a href="${pageUrl('register.html')}">Enroll a Student</a><a href="${pageUrl('login.html')}">Login</a></div>
+        <div><h3>Support</h3><a href="${pageUrl('contact.html')}">Contact & Dispatch</a><a href="${pageUrl('faq.html')}">FAQ</a><a href="${pageUrl('safety-features.html')}">Safety Guide</a><a href="${pageUrl('privacy.html')}">Privacy</a><a href="${pageUrl('terms.html')}">Terms</a></div>
       </div>
       <div class="container footer-bottom"><span>© <span data-year></span> ${BRAND.name}</span><span>${BRAND.fullName}</span></div>
     </footer>

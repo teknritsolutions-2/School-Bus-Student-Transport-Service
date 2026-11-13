@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pages/parent-dashboard.html
+Disallow: /pages/login.html
+
+Sitemap: https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/sitemap.xml
