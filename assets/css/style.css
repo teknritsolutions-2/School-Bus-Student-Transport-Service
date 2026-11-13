@@ -2151,6 +2151,14 @@ p {
   box-shadow: 0 20px 48px rgba(15, 34, 53, 0.12);
 }
 
+.featured-card.text-only {
+  grid-template-columns: 1fr;
+}
+
+.featured-card.text-only .featured-content {
+  max-width: 880px;
+}
+
 .featured-card .featured-media {
   height: 380px;
   width: 100%;
@@ -3288,6 +3296,13 @@ th {
   object-fit: cover;
 }
 
+.visual-service-card.text-only {
+  display: grid;
+  align-content: center;
+  min-height: 360px;
+  background: linear-gradient(145deg, var(--surface), var(--primary-pale));
+}
+
 .visual-service-card > div {
   padding: 24px;
 }
@@ -3343,6 +3358,10 @@ th {
   border-radius: var(--radius-lg);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
+}
+
+.service-band.single {
+  grid-template-columns: 1fr;
 }
 
 .service-band-media {
@@ -3714,8 +3733,7 @@ th {
   .auth-page {
     grid-template-columns: 1fr;
     min-height: 100vh;
-    background: linear-gradient(180deg, rgba(14, 30, 46, 0.78) 0%, rgba(14, 30, 46, 0.88) 100%),
-                url('../images/home/bus-road.webp') center/cover no-repeat fixed;
+    background: linear-gradient(155deg, var(--primary-deep) 0%, var(--primary) 100%);
     padding: clamp(32px, 6vw, 64px) var(--page-gutter);
     align-items: center;
     justify-items: center;
