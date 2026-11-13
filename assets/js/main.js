@@ -128,13 +128,7 @@ function renderHeader() {
       <div class="container nav-wrap">
         <a class="brand" href="${pageUrl('index.html')}" aria-label="${BRAND.name} home">${brandMarkup()}</a>
         <nav class="desktop-nav" aria-label="Primary navigation">
-          <div class="nav-drop${activeClass(['home', 'home2'])}">
-            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="home-navigation">Home ${icon('chevron')}</button>
-            <div class="dropdown" id="home-navigation">
-              ${dropdownLink('Home 1', 'index.html', 'home')}
-              ${dropdownLink('Home 2', 'home2.html', 'home2')}
-            </div>
-          </div>
+          ${navLink('Home', 'index.html', ['home', 'home2'])}
           ${navLink('About', 'about.html', ['about'])}
           <div class="nav-drop${activeClass(['services', 'transport', 'fleet', 'portal', 'routes', 'safety'])}">
             <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="services-navigation">Services ${icon('chevron')}</button>
@@ -148,11 +142,12 @@ function renderHeader() {
             </div>
           </div>
           ${navLink('Pricing', 'pricing-policies.html', ['pricing', 'plans'])}
-          ${navLink('Proof', 'case-studies.html', ['proof'])}
+          ${navLink('Routes', 'routes.html', ['routes'])}
           <div class="nav-drop${activeClass(['how', 'blog', 'faq', 'contact'])}">
             <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resources-navigation">Resources ${icon('chevron')}</button>
             <div class="dropdown" id="resources-navigation">
               ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
+              ${dropdownLink('Case Studies & Proof', 'case-studies.html', 'proof')}
               ${dropdownLink('Blog & Guides', 'blog.html', 'blog')}
               ${dropdownLink('FAQ', 'faq.html', 'faq')}
               ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}
