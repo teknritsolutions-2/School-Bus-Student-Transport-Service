@@ -10,95 +10,20 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/images/brand/favicon.svg">
   <script>(()=>{const t=localStorage.getItem('schoolTransport:theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),d=localStorage.getItem('schoolTransport:dir')||'ltr';document.documentElement.dataset.theme=t;document.documentElement.dir=d})()</script>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/dark-mode.css">
-  <link rel="stylesheet" href="assets/css/rtl.css">
-<link rel="stylesheet" href="assets/css/refinement.css"></head>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261113-r3">
+  <link rel="stylesheet" href="assets/css/dark-mode.css?v=20261113-r3">
+  <link rel="stylesheet" href="assets/css/rtl.css?v=20261113-r3">
+</head>
 <body data-page="home">
 <div data-site-header></div>
 <main id="main-content">
-  <section class="page-hero">
-    <div class="container page-hero-grid">
-      <div class="page-hero-copy">
-        <div class="breadcrumbs"><a href="index.html">Home</a> / School transport</div>
-        <span class="eyebrow">School bus service for everyday journeys</span>
-        <h1>From your door to the school gate, with every step explained.</h1>
-        <p class="lead">KinderRide brings route coverage, pickup routines, student enrollment, safety information and parent journey tools into one clear place.</p>
-        <div class="button-row"><a class="btn btn-lg" href="pages/routes.html">Check Route Coverage</a><a class="btn btn-lg btn-outline" href="pages/register.html">Enroll a Student</a></div>
-        <nav class="service-path-nav" aria-label="Popular school transport links"><a href="pages/transport-services.html">Door-to-door service</a><a href="pages/safety-fleet.html">Safety &amp; fleet</a><a href="pages/pricing-policies.html">Pricing &amp; policies</a></nav>
-      </div>
-      <div class="page-hero-media contain-right">
-        <img src="assets/images/real/root-hero.webp" alt="A real yellow school bus ready at the curb">
-        <div class="hero-proof-card" aria-label="Service planning priorities"><div><strong>Route fit</strong><small>Area, school and stop</small></div><div><strong>Safe handoff</strong><small>Pickup to arrival</small></div><div><strong>Parent context</strong><small>Notices and records</small></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section surface">
-    <div class="container info-rail">
-      <div class="rail-intro"><span class="eyebrow">Find what you need</span><h2>Start with one practical question.</h2></div>
-      <div class="rail-item"><span class="rail-number">01</span><strong>Does my area have coverage?</strong><p class="muted"><a href="pages/routes.html">Search routes and stops</a></p></div>
-      <div class="rail-item"><span class="rail-number">02</span><strong>How is safety managed?</strong><p class="muted"><a href="pages/safety-fleet.html">Review fleet standards</a></p></div>
-      <div class="rail-item"><span class="rail-number">03</span><strong>How do I register?</strong><p class="muted"><a href="pages/parent-portal-registration.html">See enrollment steps</a></p></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split wide-copy">
-      <div><span class="eyebrow">Route and bus-stop finder</span><h2>Check the school day before choosing a plan.</h2><p class="lead">Select an area, school and journey direction to preview the closest sample route, stop order and indicative travel time.</p><p class="availability-note"><strong>Coverage note:</strong> Published routes are illustrative until the transport operator confirms live service areas and stop availability.</p></div>
-      <form class="route-finder" data-route-finder>
-        <div class="finder-grid">
-          <div class="field"><label for="home-area">Area</label><select id="home-area" name="area"><option value="">Any area</option><option>Lakeside &amp; Cedar Park</option><option>Meadow View &amp; Hillcrest</option></select></div>
-          <div class="field"><label for="home-school">School</label><select id="home-school" name="school"><option value="">Any school</option><option>Northfield Academy</option><option>Riverside Public School</option></select></div>
-          <div class="field"><label for="home-journey">Journey</label><select id="home-journey" name="journey"><option>Morning pickup</option><option>Afternoon return</option></select></div>
-          <button class="btn" type="submit">Show Matching Route</button>
-        </div>
-        <div class="finder-result" data-route-result hidden aria-live="polite"></div>
-      </form>
-    </div>
-  </section>
-
-  <section class="section brand-surface">
-    <div class="container">
-      <div class="section-head"><span class="eyebrow">Transport options</span><h2>More than one kind of school journey.</h2><p class="lead">Explore the service type, operating details and next action that match your family or school.</p></div>
-      <div class="visual-service-grid">
-        <article class="visual-service-card text-only"><div><span class="tag">Weekday service</span><h3>Daily door-to-door pickup</h3><p>Planned morning pickup and afternoon return with stop, handoff and schedule information.</p><a class="btn btn-text" href="pages/transport-services.html#daily-pickup">View daily transport</a></div></article>
-        <article class="visual-service-card"><img src="assets/images/real/student-journey.webp" alt="Students travelling inside a real school bus" loading="lazy"><div><span class="tag">Schools &amp; groups</span><h3>After-school and field-trip transport</h3><p>Shuttle and event transport planning with passenger lists, timing, chaperone and dispatch requirements.</p><a class="btn btn-text" href="pages/transport-services.html#special-journeys">Explore special journeys</a></div></article>
-        <article class="visual-service-card"><img src="assets/images/real/driver-view.webp" alt="A real bus driver's view of the road and onboard controls" loading="lazy"><div><span class="tag">Operational standards</span><h3>Drivers, vehicles and onboard safety</h3><p>See the verification records families should expect for drivers, inspections, cameras and emergency equipment.</p><a class="btn btn-text" href="pages/safety-fleet.html">Review safety standards</a></div></article>
-        <article class="visual-service-card text-only"><div><span class="tag">Parent tools</span><h3>Registration, digital pass and alerts</h3><p>Understand student enrollment, route assignment, digital pass readiness and journey notifications.</p><a class="btn btn-text" href="pages/parent-portal-registration.html">Open parent guide</a></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head"><span class="eyebrow">A clear school-day sequence</span><h2>One route, four coordinated handoffs.</h2></div>
-      <div class="journey-line"><article class="journey-stop active"><h3>Pickup ready</h3><small>Parent checks the assigned time and safe waiting point</small></article><article class="journey-stop"><h3>Boarding</h3><small>Student identity and route assignment are confirmed</small></article><article class="journey-stop"><h3>School arrival</h3><small>Arrival follows the school’s approved handoff routine</small></article><article class="journey-stop"><h3>Afternoon return</h3><small>Authorized collection follows the planned stop sequence</small></article></div>
-      <div class="button-row" style="margin-top:28px"><a class="btn" href="pages/how-it-works.html">See How It Works</a><a class="btn btn-outline" href="pages/safety-features.html">Read Bus Rules</a></div>
-    </div>
-  </section>
-
-  <section class="section surface">
-    <div class="container service-band single">
-      <div class="service-band-copy"><span class="eyebrow">Journey visibility</span><h2>Route information belongs in context.</h2><p class="lead">The parent workspace connects the selected student, assigned stop, scheduled journey, alerts and travel records. GPS location, security-camera access and emergency messaging require verified operator integrations.</p><ul class="check-list"><li>Illustrative GPS route playback</li><li>Journey and emergency notice area</li><li>Chronological boarding and arrival records</li></ul><a class="btn" href="pages/parent-dashboard.html">Open Dashboard Demo</a></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split wide-copy">
-      <div><span class="eyebrow">Pricing &amp; policies</span><h2>Understand the plan before enrollment.</h2><p class="lead">Compare single-journey, daily-return and family coverage, then review sibling savings, payment readiness, cancellation guidance and the rules that apply on board.</p><div class="button-row"><a class="btn" href="pages/pricing-policies.html">Compare Pricing</a><a class="btn btn-outline" href="pages/case-studies.html">See Service Proof</a></div></div>
-      <div class="detail-card-grid"><article class="detail-card"><span class="feature-index">01</span><h3>Single journey</h3><p class="muted">Morning or afternoon coverage for one student.</p></article><article class="detail-card emphasis"><span class="feature-index">02</span><h3>Daily return</h3><p class="muted">Pickup and afternoon return for one student.</p></article><article class="detail-card"><span class="feature-index">03</span><h3>Family return</h3><p class="muted">Two-student coverage with an illustrative sibling saving.</p></article></div>
-    </div>
-  </section>
-
-  <section class="section dark-surface">
-    <div class="container split">
-      <div><span class="eyebrow">Support &amp; dispatch</span><h2>Use the right channel for the right moment.</h2><p class="lead">Route and plan questions belong in general support. An active-trip concern belongs with the operator’s verified dispatch desk. Emergencies always go to local emergency services first.</p></div>
-      <div><div class="response-grid"><div class="response-card"><strong>Route question</strong><span>Target reply: 1 business day*</span></div><div class="response-card"><strong>Active journey</strong><span>Target dispatch acknowledgement: 10 minutes*</span></div><div class="response-card"><strong>Enrollment review</strong><span>Target update: 2 business days*</span></div></div><p class="muted" style="margin-top:16px">*Illustrative response targets for operator approval before launch.</p><a class="btn" href="pages/contact.html">Contact &amp; Dispatch Details</a></div>
-    </div>
-  </section>
-
-  <section class="page-next"><div class="container"><div><h2>Find your school route</h2><p>Check coverage, pickup stops and available journey options.</p></div><div class="button-row"><a class="btn" href="pages/routes.html">Check coverage</a></div></div></section>
+<section class="school-intro"><div class="container"><div class="intro-heading"><div><span class="eyebrow">A better start to the school day</span><h1>Little journeys.<br> <span>Big peace of mind.</span></h1></div><p>From the neighborhood stop to the school gate. Find the right route, understand the safety standards, and keep your family’s school journey together.</p></div><div class="intro-stage"><div class="intro-photo"><img src="assets/images/real/root-hero.webp" alt="Yellow school bus waiting beside the curb" fetchpriority="high"></div><div class="intro-action"><span class="section-number">01 / YOUR DAILY JOURNEY</span><h2>A familiar route.<br> A calmer morning.</h2><p>Start with your area and school. Then review the stops, timing and coverage that fit your routine.</p><a class="btn" href="pages/routes.html">Find your school route <span aria-hidden="true">↗</span></a><a class="quiet-link" href="pages/parent-portal-registration.html">New here? See how enrollment works →</a><div class="intro-note">Daily pickup · Afternoon return · Activity shuttles</div></div></div></div></section>
+<div class="journey-ribbon"><div class="container"><span>Route &amp; stop information</span><span>Student safety guidance</span><span>Connected parent tools</span><a href="pages/how-it-works.html">See how it works ↗</a></div></div>
+<section class="section"><div class="container"><div class="section-top"><div><span class="eyebrow">02 / Find your fit</span><h2>School-day transport,<br> with the details in view.</h2></div><a class="quiet-link" href="pages/services.html">All transport services ↗</a></div><div class="service-editorial"><article><span class="service-digit">01</span><h3>Everyday school runs</h3><p>Morning pickup and afternoon return planned around the school, assigned stop and approved handoff.</p><a href="pages/transport-services.html#daily-pickup">Daily transport →</a></article><article><span class="service-digit">02</span><h3>Beyond the timetable</h3><p>After-school clubs, field trips and group journeys with their own passenger, timing and supervision needs.</p><a href="pages/transport-services.html#special-journeys">Special journeys →</a></article><article><span class="service-digit">03</span><h3>Parents in the loop</h3><p>Student profiles, route assignments, journey notices and plan records, connected in the parent workspace.</p><a href="pages/parent-portal-registration.html">Parent guide →</a></article></div></div></section>
+<section class="route-workbench section"><div class="container route-workbench-grid"><div><span class="eyebrow">03 / Before the first pickup</span><h2>Your school.<br> Your stop.<br> Your starting point.</h2><p>Preview sample coverage by area, school and journey direction.</p><small>Sample routes are shown for planning. The operator confirms available seats and stops.</small></div><form class="route-finder" data-route-finder><h3>Find a matching route</h3><div class="finder-grid"><div class="field"><label for="home-area">Your area</label><select id="home-area" name="area"><option value="">Any area</option><option>Lakeside &amp; Cedar Park</option><option>Meadow View &amp; Hillcrest</option></select></div><div class="field"><label for="home-school">School</label><select id="home-school" name="school"><option value="">Any school</option><option>Northfield Academy</option><option>Riverside Public School</option></select></div><div class="field"><label for="home-journey">Journey direction</label><select id="home-journey" name="journey"><option>Morning pickup</option><option>Afternoon return</option></select></div><button class="btn" type="submit">Show matching route →</button></div><div class="finder-result" data-route-result hidden aria-live="polite"></div></form></div></section>
+<section class="section"><div class="container story-pair"><div class="story-image"><img src="assets/images/real/student-journey.webp" alt="Students seated inside a school bus" loading="lazy"><span>Small routines. Shared confidence.</span></div><div class="story-copy"><span class="eyebrow">04 / The people on board</span><h2>Good journeys start<br> with clear expectations.</h2><p class="lead">A visible waiting point. A careful boarding routine. A school handoff everyone understands.</p><div class="numbered-list"><div><span>01</span><p><strong>Before pickup</strong>Review the stop, scheduled time and collection arrangement.</p></div><div><span>02</span><p><strong>During the ride</strong>Follow seating, belongings and onboard behavior guidance.</p></div><div><span>03</span><p><strong>At the school gate</strong>Use the agreed arrival and dismissal handoff.</p></div></div><a class="quiet-link" href="pages/safety-features.html">Read the student safety guide ↗</a></div></div></section>
+<section class="section warm-section"><div class="container"><div class="section-top"><div><span class="eyebrow">05 / Practical peace of mind</span><h2>Know what to check.<br> Know where to look.</h2></div><p>Useful information for the decisions families make before every school term.</p></div><div class="resource-board"><a href="pages/safety-fleet.html"><span>SAFETY &amp; FLEET</span><h3>Behind every school run</h3><p>Driver credentials, vehicle readiness, onboard safeguards and emergency procedures.</p><b aria-hidden="true">↗</b></a><a href="pages/pricing-policies.html"><span>PLANS &amp; POLICIES</span><h3>Choose with the full picture</h3><p>Journey coverage, sibling savings, payment information and the conditions that apply.</p><b aria-hidden="true">↗</b></a><a href="pages/parent-dashboard.html"><span>PARENT WORKSPACE</span><h3>A place for the daily details</h3><p>Explore sample student profiles, route playback, notices and journey history.</p><b aria-hidden="true">↗</b></a></div></div></section>
+<section class="section"><div class="container operations-story"><div><span class="eyebrow">06 / Support along the way</span><h2>A question before school?<br> Take the right next step.</h2><p>Find help with routes, enrollment and plans. For an active journey, use the transport operator’s verified dispatch contact.</p><div class="button-row"><a class="btn" href="pages/contact.html">Contact &amp; dispatch →</a><a class="quiet-link" href="pages/faq.html">Parent questions ↗</a></div></div><img src="assets/images/real/driver-view.webp" alt="View of the road from a bus driver's seat" loading="lazy"></div></section>
 </main>
 <div data-site-footer></div>
 <script type="module" src="assets/js/main.js"></script>

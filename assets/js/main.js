@@ -153,7 +153,8 @@ function renderHeader() {
               ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}
             </div>
           </div>
-          ${navLink('Dashboard', 'parent-dashboard.html', ['dashboard'])}
+          ${navLink('Contact', 'contact.html', ['contact'])}
+          ${navLink('Dashboard ↗', 'parent-dashboard.html', ['dashboard'])}
         </nav>
         <div class="nav-tools">
           <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">${icon('moon')}</button>
@@ -208,13 +209,12 @@ function renderFooter() {
   target.innerHTML = `
     <footer class="site-footer">
       <div class="container footer-main">
-        <div class="footer-brand">${brandMarkup(true)}<p>Clear route information, practical school-day planning, and useful parent tools in one connected service.</p></div>
-        <div><h3>Explore</h3><a href="${pageUrl('index.html')}">Home 1</a><a href="${pageUrl('home2.html')}">Home 2</a><a href="${pageUrl('about.html')}">About</a><a href="${pageUrl('case-studies.html')}">Case Studies & Proof</a><a href="${pageUrl('blog.html')}">Blog & Guides</a></div>
-        <div><h3>Services</h3><a href="${pageUrl('services.html')}">Overview</a><a href="${pageUrl('transport-services.html')}">Transport & Routes</a><a href="${pageUrl('safety-fleet.html')}">Safety & Fleet</a><a href="${pageUrl('routes.html')}">Route Finder</a><a href="${pageUrl('how-it-works.html')}">How It Works</a></div>
-        <div><h3>Parents</h3><a href="${pageUrl('parent-portal-registration.html')}">Portal & Registration</a><a href="${pageUrl('pricing-policies.html')}">Pricing & Policies</a><a href="${pageUrl('parent-dashboard.html')}">Dashboard</a><a href="${pageUrl('register.html')}">Enroll a Student</a><a href="${pageUrl('login.html')}">Login</a></div>
-        <div><h3>Support</h3><a href="${pageUrl('contact.html')}">Contact & Dispatch</a><a href="${pageUrl('faq.html')}">FAQ</a><a href="${pageUrl('safety-features.html')}">Safety Guide</a><a href="${pageUrl('privacy.html')}">Privacy</a><a href="${pageUrl('terms.html')}">Terms</a></div>
+        <div class="footer-brand">${brandMarkup(true)}<p>Little journeys. Big peace of mind.<br>School transport, thoughtfully connected.</p><span class="footer-tagline">A BETTER START TO THE SCHOOL DAY</span></div>
+        <div><h3>Explore KinderRide</h3><a href="${pageUrl('about.html')}">Our approach</a><a href="${pageUrl('services.html')}">Transport services</a><a href="${pageUrl('how-it-works.html')}">How it works</a><a href="${pageUrl('case-studies.html')}">Service proof</a><a href="${pageUrl('blog.html')}">Parent guides</a></div>
+        <div><h3>Plan your journey</h3><a href="${pageUrl('routes.html')}">Find a school route</a><a href="${pageUrl('safety-fleet.html')}">Safety &amp; fleet standards</a><a href="${pageUrl('safety-features.html')}">Student safety guide</a><a href="${pageUrl('pricing-policies.html')}">Pricing &amp; policies</a><a href="${pageUrl('subscription-plans.html')}">Compare plans</a></div>
+        <div><h3>For your family</h3><a href="${pageUrl('parent-portal-registration.html')}">Registration guide</a><a href="${pageUrl('register.html')}">Create an account</a><a href="${pageUrl('parent-dashboard.html')}">Parent dashboard</a><a href="${pageUrl('contact.html')}">Contact &amp; dispatch</a><a href="${pageUrl('faq.html')}">Questions &amp; answers</a></div>
       </div>
-      <div class="container footer-bottom"><span>© <span data-year></span> ${BRAND.name}</span><span>${BRAND.fullName}</span></div>
+      <div class="container footer-bottom"><span>© <span data-year></span> KinderRide. Every school day, connected.</span><div><a href="${pageUrl('privacy.html')}">Privacy policy</a><a href="${pageUrl('terms.html')}">Terms of service</a></div></div>
     </footer>
     <button class="back-top" data-back-top type="button" aria-label="Back to top">${icon('up')}</button>`;
 }
