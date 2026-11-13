@@ -1,7 +1,7 @@
 # Rebuild acceptance checklist
 
 - Physical HTML/CSS/vanilla JS with all 23 previous URLs preserved.
-- New Wayfinder palette, self-hosted typography, header, footer, heroes and component system.
+- One teal primary color, neutral charcoal dark mode, self-hosted typography, header, footer, heroes and component system.
 - Distinct Home 1, Home 2, Services overview, Transport Details, route, safety, registration and supporting pages.
 - Home 1/Home 2 dropdown; direct Services; standalone account forms; direct Dashboard.
 - Combined route filters, true no-results state, reversible stop times and enquiry action.

@@ -13,7 +13,7 @@
   border: 1px solid var(--line);
   padding: 34px;
   background: var(--surface);
-  border-top: 5px solid var(--teal);
+  border-top: 5px solid var(--primary);
 }
 .auth-card h1 {
   font-size: 32px;

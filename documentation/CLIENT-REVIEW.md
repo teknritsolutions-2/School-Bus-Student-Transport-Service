@@ -2,7 +2,7 @@
 
 ## Implementation
 
-All 23 physical pages and the nine-view dashboard have new layouts and styling. The design uses deep teal, transport yellow, mint, Lexend and Source Sans 3. Home 1 is brand-led; Home 2 follows the school-day stages. Services and Transport Details have distinct scopes.
+All 23 physical pages and the nine-view dashboard have new layouts and styling. The revised design uses one teal primary color, neutral light/charcoal surfaces, Lexend and Source Sans 3. Home 1 is brand-led; Home 2 follows the school-day stages. Services and Transport Details have distinct scopes.
 
 The route/stop model, journey directions, plan categories, URL resolution, browser preferences and jsPDF concept informed the replacement. The old accumulated CSS, service overrides, bus-logo artwork and unused Leaflet runtime were removed. The previous commit remains recoverable on the archive branch.
 
@@ -10,7 +10,7 @@ Route filtering no longer falls back to an unrelated route. Root contact links r
 
 ## Browser QA
 
-Local verification passed: 19 functional groups, all 23 physical routes and 24 unique genuine photographs, with no failed asset requests or browser exceptions. The responsive matrix passed 1,488 states (23 pages plus eight additional dashboard views × 12 widths × two themes × two directions). Axe-core WCAG A/AA automated checks reported no violations across the 31 page/view destinations in both themes after the progress and notice labels were corrected. This does not claim manual screen-reader certification or cross-browser coverage; the real-browser run used Chromium through Brave.
+Local verification passed: 20 functional groups, all 23 physical routes and 23 unique genuine photographs, with no failed asset requests or browser exceptions. The responsive matrix passed 1,584 states (23 pages plus two additional service selections and eight additional dashboard views × 12 widths × two themes × two directions). Axe-core WCAG A/AA automated checks reported no violations across the public pages and dashboard views in both themes after the progress and notice labels were corrected. This does not claim manual screen-reader certification or cross-browser coverage; the real-browser run used Chromium through Brave.
 
 The committed `scripts/browser-qa.cjs` can run against an HTTP preview or published subpath with a development Playwright installation:
 
@@ -25,3 +25,9 @@ Responsive checks use 320, 360, 390, 425, 430, 768, 820, 960, 1024, 1180, 1280 a
 ## Remaining services
 
 Authentication/OAuth/recovery, secure student records, approved routes/rates, live fleet telemetry, enquiry delivery, dispatch/alerts, payments and official receipts need real backend integrations. Business and policy content needs operator approval. No real student information is exposed in this reference frontend.
+
+## Color, Services and image correction
+
+Teal is now the only UI primary color; yellow action styling and green-tinted dark backgrounds were removed. Dark mode uses neutral #121416 canvas, #1B1E20 panels and #24282B secondary surfaces. Services now has three accessible service selections, each with its own uncropped landscape photo, planning details and detail-page link. Selection supports keyboard navigation and direct hash access. Alternating service-photo rows were removed.
+
+Photo layouts follow actual source orientation. Portrait columns use their own narrower grid tracks; landscape photos fill their frames. Height caps and mismatched wrapper dimensions were removed, and mobile portrait/landscape sizing is handled separately. No AI images or repeated content photographs were introduced.

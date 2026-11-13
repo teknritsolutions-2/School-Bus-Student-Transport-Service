@@ -6,14 +6,14 @@
     <title>School transport services | KinderRide Transit</title>
     <meta
       name="description"
-      content="Daily school transport, activity shuttles and group journeys, with practical details."
+      content="Choose daily school transport, after-school shuttles or group journeys and see the details that matter."
     />
     <meta
       property="og:title"
       content="School transport services | KinderRide Transit"
     />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="../assets/images/brand/favicon.svg" />
+    <link rel="icon" href="../assets/images/brand/favicon.svg?v=wayfinder-2" />
     <link
       rel="canonical"
       href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/pages/services.html"
@@ -32,175 +32,259 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-1" />
-    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-1" />
-    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-1" />
-    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-2" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-2" />
+    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-2" />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-2" />
   </head>
   <body data-page="services">
     <div data-site-header></div>
     <main id="main-content">
-      <section class="page-intro">
-        <div class="container split">
-          <div>
-            <div class="breadcrumbs">
-              <a href="../index.html">Home</a> / Transport services
+      <section class="service-catalog">
+        <div class="container">
+          <div class="breadcrumbs">
+            <a href="../index.html">Home</a> / Services
+          </div>
+          <div class="service-heading">
+            <div>
+              <span class="eyebrow">Three ways to get there</span>
+              <h1>School travel, built around your day.</h1>
             </div>
-            <span class="eyebrow">Transport services</span>
-            <h1>Every school journey has its own rhythm.</h1>
-            <p class="lead">
-              Choose daily pickup, later activity travel or a group journey.
-              Start with what your school day needs.
+            <p>
+              Every journey needs a different plan. Choose the service that fits
+              your school routine.
             </p>
           </div>
-          <figure class="editorial-photo portrait-photo">
-            <img
-              src="../assets/images/real/register.webp"
-              width="1800"
-              height="2400"
-              alt="A complete school bus viewed from the front"
-              loading="lazy"
-            />
-          </figure>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container">
-          <article class="service-photo-row">
-            <figure class="editorial-photo">
-              <img
-                src="../assets/images/real/daily-route.webp"
-                width="1800"
-                height="1200"
-                alt="A complete school bus travelling along a city street"
-                loading="lazy"
-              />
-            </figure>
-            <div>
-              <span class="eyebrow">01 / Home to school</span>
-              <h2>The everyday school run.</h2>
-              <p>
-                Morning pickup and afternoon return organized around an assigned
-                stop and school timetable.
-              </p>
-              <p class="muted">
-                Consider the pickup area, travel days, waiting routine and
-                authorized collection arrangement.
-              </p>
-              <a class="button" href="transport-services.html#daily-pickup"
-                >Daily transport details <span aria-hidden="true">→</span></a
+          <div data-service-selector>
+            <div
+              class="service-tabs"
+              role="tablist"
+              aria-label="Transport services"
+            >
+              <button
+                id="tab-daily"
+                role="tab"
+                type="button"
+                data-service-tab="0"
+                aria-selected="true"
+                aria-controls="service-daily"
               >
-            </div>
-          </article>
-          <article class="service-photo-row reverse">
-            <figure class="editorial-photo">
-              <img
-                src="../assets/images/real/students-riding.webp"
-                width="1400"
-                height="933"
-                alt="Students travelling together inside a bus"
-                loading="lazy"
-              />
-            </figure>
-            <div>
-              <span class="eyebrow">02 / After the bell</span>
-              <h2>Room for the rest of the day.</h2>
-              <p>
-                Later departures for clubs, tutoring and supervised activities.
-              </p>
-              <p class="muted">
-                Confirm dismissal time, the passenger list, the return route and
-                the collection contact.
-              </p>
-              <a class="button" href="transport-services.html#special-journeys"
-                >After-school shuttles <span aria-hidden="true">→</span></a
+                <span class="service-tab-index">01</span
+                ><span>Daily school transport</span
+                ><span class="service-tab-arrow" aria-hidden="true"
+                  >↗</span
+                ></button
+              ><button
+                id="tab-activities"
+                role="tab"
+                type="button"
+                data-service-tab="1"
+                aria-selected="false"
+                aria-controls="service-activities"
               >
-            </div>
-          </article>
-          <article class="service-photo-row">
-            <figure class="editorial-photo">
-              <img
-                src="../assets/images/home/bus-road.webp"
-                width="1600"
-                height="1066"
-                alt="School transport vehicle travelling on a road"
-                loading="lazy"
-              />
-            </figure>
-            <div>
-              <span class="eyebrow">03 / Beyond the classroom</span>
-              <h2>A journey for shared discoveries.</h2>
-              <p>
-                Educational visits, sports and school group travel with an
-                outbound and return plan.
-              </p>
-              <p class="muted">
-                Plan capacity, destination access, accessibility, chaperones and
-                dispatch arrangements.
-              </p>
-              <a class="button" href="transport-services.html#field-trips"
-                >Trips & group transport <span aria-hidden="true">→</span></a
+                <span class="service-tab-index">02</span
+                ><span>After-school shuttles</span
+                ><span class="service-tab-arrow" aria-hidden="true"
+                  >↗</span
+                ></button
+              ><button
+                id="tab-groups"
+                role="tab"
+                type="button"
+                data-service-tab="2"
+                aria-selected="false"
+                aria-controls="service-groups"
               >
+                <span class="service-tab-index">03</span
+                ><span>Trips & group journeys</span
+                ><span class="service-tab-arrow" aria-hidden="true">↗</span>
+              </button>
             </div>
-          </article>
+            <article
+              class="service-panel"
+              id="service-daily"
+              role="tabpanel"
+              aria-labelledby="tab-daily"
+              data-service-panel="0"
+            >
+              <div class="service-panel-photo">
+                <figure class="editorial-photo photo-landscape">
+                  <img
+                    src="../assets/images/real/daily-route.webp"
+                    width="1800"
+                    height="1200"
+                    alt="A complete school bus travelling along a city street"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="service-photo-caption">
+                  <span>01 / The school week</span><span>School transport</span>
+                </div>
+              </div>
+              <div class="service-panel-copy">
+                <h2>A familiar route. Every school day.</h2>
+                <p>
+                  Morning pickup and afternoon return, planned around the school
+                  timetable and an agreed collection point.
+                </p>
+                <dl class="service-facts">
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>Regular school-day travel</dd>
+                  </div>
+                  <div>
+                    <dt>Plan ahead</dt>
+                    <dd>Area, school, travel days and direction</dd>
+                  </div>
+                  <div>
+                    <dt>Confirm together</dt>
+                    <dd>Pickup window and authorized collection</dd>
+                  </div>
+                </dl>
+                <a class="button" href="transport-services.html#daily-pickup"
+                  >Explore daily transport <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              class="service-panel"
+              id="service-activities"
+              role="tabpanel"
+              aria-labelledby="tab-activities"
+              data-service-panel="1"
+              hidden
+            >
+              <div class="service-panel-photo">
+                <figure class="editorial-photo photo-landscape">
+                  <img
+                    src="../assets/images/real/students-riding.webp"
+                    width="1400"
+                    height="933"
+                    alt="Students travelling together inside a bus"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="service-photo-caption">
+                  <span>02 / After the bell</span><span>School transport</span>
+                </div>
+              </div>
+              <div class="service-panel-copy">
+                <h2>Make room for the rest of the day.</h2>
+                <p>
+                  Later travel for clubs, tutoring and supervised activities,
+                  with a clear departure and return arrangement.
+                </p>
+                <dl class="service-facts">
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>Clubs, activities and later dismissals</dd>
+                  </div>
+                  <div>
+                    <dt>Plan ahead</dt>
+                    <dd>Activity calendar and passenger list</dd>
+                  </div>
+                  <div>
+                    <dt>Confirm together</dt>
+                    <dd>Supervision and return collection</dd>
+                  </div>
+                </dl>
+                <a
+                  class="button"
+                  href="transport-services.html#special-journeys"
+                  >Explore activity shuttles
+                  <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <article
+              class="service-panel"
+              id="service-groups"
+              role="tabpanel"
+              aria-labelledby="tab-groups"
+              data-service-panel="2"
+              hidden
+            >
+              <div class="service-panel-photo">
+                <figure class="editorial-photo photo-landscape">
+                  <img
+                    src="../assets/images/home/bus-road.webp"
+                    width="1600"
+                    height="1066"
+                    alt="A school bus travelling along an open road"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="service-photo-caption">
+                  <span>03 / Beyond the classroom</span
+                  ><span>School transport</span>
+                </div>
+              </div>
+              <div class="service-panel-copy">
+                <h2>The return plan starts before you leave.</h2>
+                <p>
+                  School visits, sports and educational trips with the
+                  destination, passenger needs and return journey considered
+                  together.
+                </p>
+                <dl class="service-facts">
+                  <div>
+                    <dt>Best for</dt>
+                    <dd>School visits, sports and group travel</dd>
+                  </div>
+                  <div>
+                    <dt>Plan ahead</dt>
+                    <dd>Date, destination and passenger count</dd>
+                  </div>
+                  <div>
+                    <dt>Confirm together</dt>
+                    <dd>Access, chaperones and dispatch contact</dd>
+                  </div>
+                </dl>
+                <a class="button" href="transport-services.html#field-trips"
+                  >Explore group transport <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+          </div>
         </div>
       </section>
       <section class="section surface">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="eyebrow">Before you choose</span>
-              <h2>Get the details that matter.</h2>
-            </div>
+        <div class="container service-enquiry">
+          <div>
+            <span class="eyebrow">Before we confirm</span>
+            <h2>Start with the journey.<br />We’ll help with the details.</h2>
+            <p>
+              Have your school, pickup area, travel days and preferred start
+              date ready. Availability, vehicle suitability and the final
+              timetable are confirmed by the operator.
+            </p>
+            <a class="button" href="contact.html"
+              >Prepare a transport enquiry <span aria-hidden="true">→</span></a
+            >
           </div>
-          <div class="directory">
-            <a href="safety-fleet.html"
-              ><span class="number">01</span>
-              <div>
-                <h3>Safety & fleet</h3>
-                <p>
-                  Driver preparation, vehicle checks and onboard safeguards.
-                </p>
-              </div>
-              <span>↗</span></a
+          <div class="service-guide-links">
+            <a href="routes.html"
+              ><strong>Route coverage</strong
+              ><span>Find an area, school and stop.</span
+              ><b aria-hidden="true">↗</b></a
+            ><a href="safety-fleet.html"
+              ><strong>Safety & fleet</strong
+              ><span>Know what to ask before travel.</span
+              ><b aria-hidden="true">↗</b></a
             ><a href="parent-portal-registration.html"
-              ><span class="number">02</span>
-              <div>
-                <h3>Parent registration</h3>
-                <p>Student, guardian and route-request information.</p>
-              </div>
-              <span>↗</span></a
+              ><strong>Registration guide</strong
+              ><span>Prepare the right family information.</span
+              ><b aria-hidden="true">↗</b></a
             ><a href="pricing-policies.html"
-              ><span class="number">03</span>
-              <div>
-                <h3>Pricing & policies</h3>
-                <p>Coverage, sibling eligibility and billing questions.</p>
-              </div>
-              <span>↗</span></a
-            ><a href="case-studies.html"
-              ><span class="number">04</span>
-              <div>
-                <h3>Service scenarios</h3>
-                <p>The planning behind common transport needs.</p>
-              </div>
-              <span>↗</span></a
+              ><strong>Pricing & policies</strong
+              ><span>Understand coverage and written terms.</span
+              ><b aria-hidden="true">↗</b></a
             >
           </div>
         </div>
       </section>
-      <section class="closing">
-        <div class="container">
-          <div>
-            <h2>Let’s plan a better school morning.</h2>
-            <p>Start with the school, your area and the journeys you need.</p>
-          </div>
-          <a class="button" href="contact.html"
-            >Make a route enquiry <span aria-hidden="true">→</span></a
-          >
-        </div>
-      </section>
     </main>
     <div data-site-footer></div>
-    <script type="module" src="../assets/js/main.js?v=wayfinder-1"></script>
+    <script type="module" src="../assets/js/main.js?v=wayfinder-2"></script>
   </body>
 </html>

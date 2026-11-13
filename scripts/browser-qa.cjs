@@ -13,6 +13,8 @@ const pages = [
 ];
 const matrixPages = [
   ...pages,
+  "pages/services.html#service-activities",
+  "pages/services.html#service-groups",
   ...[
     "track",
     "students",
@@ -180,6 +182,49 @@ async function test(name, run) {
     await p.keyboard.press("Escape");
     await p.setViewportSize({ width: 1440, height: 1000 });
     await p.locator(".header-tools [data-dir-toggle]").click();
+  });
+  await go("pages/services.html");
+  await test("service selector photos, details, links, keyboard and direct selection", async () => {
+    for (let index = 0; index < 3; index++) {
+      await p.locator(`[data-service-tab="${index}"]`).click();
+      assert.equal(await p.locator("[data-service-panel]:visible").count(), 1);
+      const panel = p.locator(`[data-service-panel="${index}"]`);
+      assert(await panel.isVisible());
+      assert.match(
+        await panel.locator("a.button").getAttribute("href"),
+        /transport-services.html#/,
+      );
+      const dimensions = await panel.locator("img").evaluate(async (image) => {
+        await image.decode();
+        return {
+          width: image.naturalWidth,
+          height: image.naturalHeight,
+          renderedWidth: image.clientWidth,
+          renderedHeight: image.clientHeight,
+          frameWidth: image.parentElement.clientWidth,
+        };
+      });
+      assert(
+        Math.abs(
+          dimensions.renderedWidth / dimensions.renderedHeight -
+            dimensions.width / dimensions.height,
+        ) < 0.02,
+      );
+      assert(dimensions.renderedWidth >= dimensions.frameWidth - 2);
+    }
+    await p.reload();
+    assert(await p.locator("#service-groups").isVisible());
+    await p.locator('[data-service-tab="2"]').focus();
+    await p.keyboard.press("Home");
+    assert.equal(
+      await p.locator('[data-service-tab="0"]').getAttribute("aria-selected"),
+      "true",
+    );
+    await p.keyboard.press("ArrowRight");
+    assert.equal(
+      await p.locator('[data-service-tab="1"]').getAttribute("aria-selected"),
+      "true",
+    );
   });
   await go("pages/home2.html");
   await test("Home 2 tabs and keyboard selection", async () => {

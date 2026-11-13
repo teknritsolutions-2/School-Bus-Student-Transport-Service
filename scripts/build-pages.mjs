@@ -1,13 +1,13 @@
 // Authoring helper. Output is ordinary physical HTML; no runtime build is required.
 import fs from "node:fs";
-const version = "wayfinder-1";
+const version = "wayfinder-2";
 const imageDimensions = JSON.parse(
   fs.readFileSync(new URL("./image-dimensions.json", import.meta.url), "utf8"),
 );
 const imageSize = (src) =>
   `width="${imageDimensions[src].width}" height="${imageDimensions[src].height}"`;
 export const photo = (src, alt, caption = "", extra = "") =>
-  `<figure class="editorial-photo ${extra}"><img src="../assets/images/${src}.webp" ${imageSize(src)} alt="${alt}" loading="lazy">${caption ? `<figcaption>${caption}</figcaption>` : ""}</figure>`;
+  `<figure class="editorial-photo ${imageDimensions[src].height > imageDimensions[src].width ? "photo-portrait" : "photo-landscape"} ${extra}"><img src="../assets/images/${src}.webp" ${imageSize(src)} alt="${alt}" loading="lazy">${caption ? `<figcaption>${caption}</figcaption>` : ""}</figure>`;
 export const button = (label, file, secondary = false) =>
   `<a class="button${secondary ? " secondary" : ""}" href="${file}">${label} <span aria-hidden="true">→</span></a>`;
 export const rail = () =>
@@ -26,7 +26,7 @@ export const scope = (items) =>
 export const policies = (items) =>
   `<div class="policy-grid">${items.map(([title, text]) => `<article><h3>${title}</h3><p>${text}</p></article>`).join("")}</div>`;
 export const intro = (tag, title, copy, img = "", alt = "") =>
-  `<section class="page-intro${img ? "" : " text-only"}"><div class="container${img ? " split" : ""}"><div><div class="breadcrumbs"><a href="../index.html">Home</a> / ${tag}</div><span class="eyebrow">${tag}</span><h1>${title}</h1><p class="lead">${copy}</p></div>${img ? photo(img, alt, "", "portrait-photo") : ""}</div></section>`;
+  `<section class="page-intro${img ? "" : " text-only"}"><div class="container${img ? " split" : ""}"><div><div class="breadcrumbs"><a href="../index.html">Home</a> / ${tag}</div><span class="eyebrow">${tag}</span><h1>${title}</h1><p class="lead">${copy}</p></div>${img ? photo(img, alt) : ""}</div></section>`;
 export const section = (tag, title, body, theme = "") =>
   `<section class="section ${theme}"><div class="container"><div class="section-head"><div><span class="eyebrow">${tag}</span><h2>${title}</h2></div></div>${body}</div></section>`;
 export const preview = () =>
@@ -43,12 +43,12 @@ add(
   "Clear routes, thoughtful school transport planning and useful parent information.",
   `
 <section class="hero"><div class="container"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">The school-day wayfinder</span><h1>The school day starts with a better journey.</h1><p class="lead">Clear routes, thoughtful transport planning, and the information families need from pickup to school arrival.</p><div class="button-row">${button("Explore routes", "routes.html")}${button("How it works", "how-it-works.html", true)}</div></div><div class="hero-picture"><img src="../assets/images/real/root-hero.webp" ${imageSize("real/root-hero")} alt="Complete yellow school bus waiting beside a curb" fetchpriority="high"><div class="photo-label"><span>01 — A good place to start.</span><span>Home → School</span></div></div></div><div class="hero-foot"><span><b class="marker">1</b> Find the route</span><span><b class="marker">2</b> Prepare for pickup</span><span><b class="marker">3</b> Stay informed</span></div></div></section>
-<section class="section-sm mint"><div class="container">${routeTool("home")}</div></section>
+<section class="section-sm subtle"><div class="container">${routeTool("home")}</div></section>
 ${section("A journey for every school day", "One routine. More ways to travel.", `<div class="feature-service"><div class="feature-service-copy"><span class="eyebrow">01 / Daily school transport</span><h3>From the neighborhood to the school gate.</h3><p>Morning pickup and afternoon return with an assigned stop, a school timetable and a clear collection arrangement.</p>${button("Daily transport", "transport-services.html#daily-pickup")}</div><div class="compact-list"><article><span class="number">02</span><div><h3>After-school shuttles</h3><p>Later travel for clubs, tutoring and supervised activities.</p><a class="text-link" href="transport-services.html#special-journeys">Activity transport ↗</a></div></article><article><span class="number">03</span><div><h3>Trips beyond the classroom</h3><p>Group journeys with passenger, supervision and return plans.</p><a class="text-link" href="transport-services.html#field-trips">School trips ↗</a></div></article></div></div>`)}
 ${section("The whole journey", "Four moments. One connected school day.", rail(), "ink")}
 <section class="section"><div class="container split">${photo("safety/bus-ready", "School bus parked before a journey")}<div><span class="eyebrow">Prepared before pickup</span><h2>Confidence comes from the details.</h2><p>Understand the checks and routines to discuss with your transport operator.</p><ul class="check-list"><li>Vehicle readiness and maintenance records</li><li>Driver verification and route preparation</li><li>Boarding and authorized handoff arrangements</li><li>Verified dispatch and emergency communication</li></ul><div class="button-row">${button("Explore safety", "safety-fleet.html", true)}</div></div></div></section>
 <section class="section surface"><div class="container split"><div><span class="eyebrow">Your family, in the picture</span><h2>Less searching.<br>More useful information.</h2><p>Keep student, stop, schedule and journey notices together. Explore the parent workspace without signing in.</p>${button("Open Parent Dashboard", "parent-dashboard.html")}</div>${preview()}</div></section>
-<section class="section"><div class="container split">${photo("real/fleet-row", "Rows of real school buses with mirrors and windscreens visible", "", "portrait-photo")}<div><span class="eyebrow">Fleet &amp; environment</span><h2>The right vehicle for the journey.</h2><p>Vehicle suitability depends on passenger capacity, access, maintenance and the route itself. Ask your operator about vehicle checks and any environmental commitments.</p><p class="muted">Photography is representative stock imagery, not a claim about the KinderRide fleet.</p><a class="text-link" href="safety-fleet.html">What to ask about the fleet ↗</a></div></div></section>
+<section class="section"><div class="container split">${photo("real/fleet-row", "Rows of real school buses with mirrors and windscreens visible")}<div><span class="eyebrow">Fleet &amp; environment</span><h2>The right vehicle for the journey.</h2><p>Vehicle suitability depends on passenger capacity, access, maintenance and the route itself. Ask your operator about vehicle checks and any environmental commitments.</p><p class="muted">Photography is representative stock imagery, not a claim about the KinderRide fleet.</p><a class="text-link" href="safety-fleet.html">What to ask about the fleet ↗</a></div></div></section>
 ${closing()}`,
 );
 
@@ -60,7 +60,7 @@ add(
   `
 <section class="page-intro"><div class="container split"><div><div class="breadcrumbs"><a href="../index.html">Home</a> / Home 2</div><span class="eyebrow">For the everyday journey</span><h1>From the morning stop to the school gate.</h1><p class="lead">A clear view of what matters before pickup, at school arrival and on the way home.</p><div class="button-row">${button("Explore the journey", "#daily-journey")}${button("Find a route", "routes.html", true)}</div></div>${photo("real/field-trip", "Children boarding a bus with adult supervision")}</div></section>
 <section class="section" id="daily-journey"><div class="container"><div class="section-head"><div><span class="eyebrow">One day, three perspectives</span><h2>What happens next?</h2></div><p>Choose a stage to see the information and preparation that help the day run smoothly.</p></div><div class="journey-selector" data-journey-selector><div class="stage-tabs" role="tablist" aria-label="Journey stage" aria-orientation="horizontal">${["Morning pickup", "School arrival", "Afternoon return"].map((v, i) => `<button role="tab" data-stage="${i}" aria-selected="${i === 0}" aria-controls="daily-stage">${v}</button>`).join("")}</div><div class="stage-panel" id="daily-stage" role="tabpanel" data-stage-content aria-live="polite"></div><ol class="journey-rail"><li><strong>Morning pickup</strong><p>Prepare at the stop.</p></li><li><strong>School arrival</strong><p>Complete the handoff.</p></li><li><strong>Afternoon return</strong><p>Follow the collection plan.</p></li></ol></div></div></section>
-<section class="section mint"><div class="container split">${photo("real/school-arrival", "Students gathering beside school transport at a school entrance")}<div><span class="eyebrow">Boarding &amp; school handoff</span><h2>Small routines make the journey familiar.</h2><p>Practice the waiting point, boarding signal and collection arrangement together before the first school day.</p><ul class="check-list"><li>Use the agreed stop and school entrance</li><li>Keep belongings contained and aisles clear</li><li>Report changes through the confirmed contact</li></ul><a class="text-link" href="safety-features.html">The student safety guide ↗</a></div></div></section>
+<section class="section subtle"><div class="container split">${photo("real/school-arrival", "Students gathering beside school transport at a school entrance")}<div><span class="eyebrow">Boarding &amp; school handoff</span><h2>Small routines make the journey familiar.</h2><p>Practice the waiting point, boarding signal and collection arrangement together before the first school day.</p><ul class="check-list"><li>Use the agreed stop and school entrance</li><li>Keep belongings contained and aisles clear</li><li>Report changes through the confirmed contact</li></ul><a class="text-link" href="safety-features.html">The student safety guide ↗</a></div></div></section>
 ${section("Routes & stops", "See the sequence before you travel.", routeTool("home2"))}
 <section class="section surface"><div class="container split">${preview()}<div><span class="eyebrow">Parent workspace</span><h2>The right context for each child.</h2><p>Switch between student profiles, review the assigned route, browse journey records and keep notices in one place.</p>${button("Visit the dashboard", "parent-dashboard.html")}</div></div></section>
 ${section(
@@ -80,47 +80,88 @@ ${section(
 ${closing("Ready to plan your school routine?")}`,
 );
 
+const serviceOptions = [
+  {
+    id: "daily",
+    name: "Daily school transport",
+    tag: "01 / The school week",
+    title: "A familiar route. Every school day.",
+    description:
+      "Morning pickup and afternoon return, planned around the school timetable and an agreed collection point.",
+    image: "real/daily-route",
+    alt: "A complete school bus travelling along a city street",
+    facts: [
+      ["Best for", "Regular school-day travel"],
+      ["Plan ahead", "Area, school, travel days and direction"],
+      ["Confirm together", "Pickup window and authorized collection"],
+    ],
+    cta: "Explore daily transport",
+    href: "transport-services.html#daily-pickup",
+  },
+  {
+    id: "activities",
+    name: "After-school shuttles",
+    tag: "02 / After the bell",
+    title: "Make room for the rest of the day.",
+    description:
+      "Later travel for clubs, tutoring and supervised activities, with a clear departure and return arrangement.",
+    image: "real/students-riding",
+    alt: "Students travelling together inside a bus",
+    facts: [
+      ["Best for", "Clubs, activities and later dismissals"],
+      ["Plan ahead", "Activity calendar and passenger list"],
+      ["Confirm together", "Supervision and return collection"],
+    ],
+    cta: "Explore activity shuttles",
+    href: "transport-services.html#special-journeys",
+  },
+  {
+    id: "groups",
+    name: "Trips & group journeys",
+    tag: "03 / Beyond the classroom",
+    title: "The return plan starts before you leave.",
+    description:
+      "School visits, sports and educational trips with the destination, passenger needs and return journey considered together.",
+    image: "home/bus-road",
+    alt: "A school bus travelling along an open road",
+    facts: [
+      ["Best for", "School visits, sports and group travel"],
+      ["Plan ahead", "Date, destination and passenger count"],
+      ["Confirm together", "Access, chaperones and dispatch contact"],
+    ],
+    cta: "Explore group transport",
+    href: "transport-services.html#field-trips",
+  },
+];
 add(
   "services.html",
   "services",
   "School transport services",
-  "Daily school transport, activity shuttles and group journeys, with practical details.",
+  "Choose daily school transport, after-school shuttles or group journeys and see the details that matter.",
   `
-${intro("Transport services", "Every school journey has its own rhythm.", "Choose daily pickup, later activity travel or a group journey. Start with what your school day needs.", "real/register", "A complete school bus viewed from the front")}
-<section class="section"><div class="container"><article class="service-photo-row">${photo("real/daily-route", "A complete school bus travelling along a city street")}<div><span class="eyebrow">01 / Home to school</span><h2>The everyday school run.</h2><p>Morning pickup and afternoon return organized around an assigned stop and school timetable.</p><p class="muted">Consider the pickup area, travel days, waiting routine and authorized collection arrangement.</p>${button("Daily transport details", "transport-services.html#daily-pickup")}</div></article><article class="service-photo-row reverse">${photo("real/students-riding", "Students travelling together inside a bus")}<div><span class="eyebrow">02 / After the bell</span><h2>Room for the rest of the day.</h2><p>Later departures for clubs, tutoring and supervised activities.</p><p class="muted">Confirm dismissal time, the passenger list, the return route and the collection contact.</p>${button("After-school shuttles", "transport-services.html#special-journeys")}</div></article><article class="service-photo-row">${photo("home/bus-road", "School transport vehicle travelling on a road")}<div><span class="eyebrow">03 / Beyond the classroom</span><h2>A journey for shared discoveries.</h2><p>Educational visits, sports and school group travel with an outbound and return plan.</p><p class="muted">Plan capacity, destination access, accessibility, chaperones and dispatch arrangements.</p>${button("Trips & group transport", "transport-services.html#field-trips")}</div></article></div></section>
-${section(
-  "Before you choose",
-  "Get the details that matter.",
-  `<div class="directory">${[
+<section class="service-catalog"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a> / Services</div><div class="service-heading"><div><span class="eyebrow">Three ways to get there</span><h1>School travel, built around your day.</h1></div><p>Every journey needs a different plan. Choose the service that fits your school routine.</p></div>
+<div data-service-selector><div class="service-tabs" role="tablist" aria-label="Transport services">${serviceOptions.map((s, i) => `<button id="tab-${s.id}" role="tab" type="button" data-service-tab="${i}" aria-selected="${i === 0}" aria-controls="service-${s.id}"><span class="service-tab-index">0${i + 1}</span><span>${s.name}</span><span class="service-tab-arrow" aria-hidden="true">↗</span></button>`).join("")}</div>
+${serviceOptions.map((s, i) => `<article class="service-panel" id="service-${s.id}" role="tabpanel" aria-labelledby="tab-${s.id}" data-service-panel="${i}"${i ? " hidden" : ""}><div class="service-panel-photo">${photo(s.image, s.alt)}<div class="service-photo-caption"><span>${s.tag}</span><span>School transport</span></div></div><div class="service-panel-copy"><h2>${s.title}</h2><p>${s.description}</p><dl class="service-facts">${s.facts.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join("")}</dl>${button(s.cta, s.href)}</div></article>`).join("")}
+</div></div></section>
+<section class="section surface"><div class="container service-enquiry"><div><span class="eyebrow">Before we confirm</span><h2>Start with the journey.<br>We’ll help with the details.</h2><p>Have your school, pickup area, travel days and preferred start date ready. Availability, vehicle suitability and the final timetable are confirmed by the operator.</p>${button("Prepare a transport enquiry", "contact.html")}</div><div class="service-guide-links">${[
+    ["Route coverage", "Find an area, school and stop.", "routes.html"],
+    ["Safety & fleet", "Know what to ask before travel.", "safety-fleet.html"],
     [
-      "Safety & fleet",
-      "Driver preparation, vehicle checks and onboard safeguards.",
-      "safety-fleet.html",
-    ],
-    [
-      "Parent registration",
-      "Student, guardian and route-request information.",
+      "Registration guide",
+      "Prepare the right family information.",
       "parent-portal-registration.html",
     ],
     [
       "Pricing & policies",
-      "Coverage, sibling eligibility and billing questions.",
+      "Understand coverage and written terms.",
       "pricing-policies.html",
-    ],
-    [
-      "Service scenarios",
-      "The planning behind common transport needs.",
-      "case-studies.html",
     ],
   ]
     .map(
-      (a, i) =>
-        `<a href="${a[2]}"><span class="number">0${i + 1}</span><div><h3>${a[0]}</h3><p>${a[1]}</p></div><span>↗</span></a>`,
+      ([t, c, u]) =>
+        `<a href="${u}"><strong>${t}</strong><span>${c}</span><b aria-hidden="true">↗</b></a>`,
     )
-    .join("")}</div>`,
-  "surface",
-)}
-${closing()}`,
+    .join("")}</div></div></section>`,
 );
 
 add(
@@ -148,7 +189,7 @@ ${section(
     ],
   ])}</div>`,
 )}
-<section class="section mint" id="special-journeys"><div class="container split">${photo("home/bus-forest", "School bus on a wooded road", "", "portrait-photo")}<div><span class="eyebrow">After-school activities</span><h2>The school day does not always end at the bell.</h2><p>Activity shuttles need a confirmed dismissal time, an approved passenger list and a return collection plan.</p><ul class="check-list"><li>Match travel days to the club or tutoring calendar</li><li>Confirm who supervises students before departure</li><li>Share late changes through the agreed contact</li></ul></div></div></section>
+<section class="section subtle" id="special-journeys"><div class="container split">${photo("home/bus-forest", "School bus on a wooded road")}<div><span class="eyebrow">After-school activities</span><h2>The school day does not always end at the bell.</h2><p>Activity shuttles need a confirmed dismissal time, an approved passenger list and a return collection plan.</p><ul class="check-list"><li>Match travel days to the club or tutoring calendar</li><li>Confirm who supervises students before departure</li><li>Share late changes through the agreed contact</li></ul></div></div></section>
 ${section(
   "Field trips & groups",
   "Make the return plan part of the trip.",
@@ -450,7 +491,7 @@ ${section(
     ],
   ]),
 )}
-<section class="section mint"><div class="container split">${photo("real/school-ready", "Students holding textbooks beside a school bus")}<div><span class="eyebrow">School-day confidence</span><h2>Information that respects a family’s attention.</h2><p>Useful details should be easy to find, comfortable to read and connected to the right student and journey.</p><p>Our approach favors clear routes, practical guidance and straightforward next steps over noise or unsupported claims.</p><a class="text-link" href="how-it-works.html">See the journey from the start ↗</a></div></div></section>
+<section class="section subtle"><div class="container split">${photo("real/school-ready", "Students holding textbooks beside a school bus")}<div><span class="eyebrow">School-day confidence</span><h2>Information that respects a family’s attention.</h2><p>Useful details should be easy to find, comfortable to read and connected to the right student and journey.</p><p>Our approach favors clear routes, practical guidance and straightforward next steps over noise or unsupported claims.</p><a class="text-link" href="how-it-works.html">See the journey from the start ↗</a></div></div></section>
 ${closing("Let’s connect the school day.")}`,
 );
 
@@ -768,7 +809,7 @@ function documentHTML(file, p) {
       );
   const extra =
     p.kind === "auth" ? "auth" : p.kind === "dashboard" ? "dashboard" : "";
-  return `<!doctype html>\n<html lang="en" dir="ltr">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n  <title>${p.title} | KinderRide Transit</title>\n  <meta name="description" content="${p.description}">\n  <meta property="og:title" content="${p.title} | KinderRide Transit">\n  <meta property="og:type" content="website">\n  <link rel="icon" href="${prefix}assets/images/brand/favicon.svg">\n  <link rel="canonical" href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/${root ? "index.html" : "pages/" + file}">\n  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('kinderride:wayfinder:v1:theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dir=JSON.parse(localStorage.getItem('kinderride:wayfinder:v1:dir'))||'ltr'}catch{document.documentElement.dataset.theme='light'}</script>\n  ${["fonts", "style", "dark-mode", "rtl", ...(extra ? [extra] : [])].map((c) => `<link rel="stylesheet" href="${prefix}assets/css/${c}.css?v=${version}">`).join("\n  ")}\n</head>\n<body data-page="${p.id}"${extra ? ` class="${extra}-body"` : ""}>\n${p.kind === "public" ? "<div data-site-header></div>" : ""}\n<main id="main-content">\n${content}\n</main>\n${p.kind === "public" ? "<div data-site-footer></div>" : ""}\n${p.kind === "dashboard" ? `<script src="${prefix}assets/js/plugins/jspdf.umd.min.js"></script>\n` : ""}<script type="module" src="${prefix}assets/js/${p.kind === "dashboard" ? "dashboard" : "main"}.js?v=${version}"></script>\n</body>\n</html>\n`;
+  return `<!doctype html>\n<html lang="en" dir="ltr">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n  <title>${p.title} | KinderRide Transit</title>\n  <meta name="description" content="${p.description}">\n  <meta property="og:title" content="${p.title} | KinderRide Transit">\n  <meta property="og:type" content="website">\n  <link rel="icon" href="${prefix}assets/images/brand/favicon.svg?v=${version}">\n  <link rel="canonical" href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/${root ? "index.html" : "pages/" + file}">\n  <script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem('kinderride:wayfinder:v1:theme'))||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dir=JSON.parse(localStorage.getItem('kinderride:wayfinder:v1:dir'))||'ltr'}catch{document.documentElement.dataset.theme='light'}</script>\n  ${["fonts", "style", "dark-mode", "rtl", ...(extra ? [extra] : [])].map((c) => `<link rel="stylesheet" href="${prefix}assets/css/${c}.css?v=${version}">`).join("\n  ")}\n</head>\n<body data-page="${p.id}"${extra ? ` class="${extra}-body"` : ""}>\n${p.kind === "public" ? "<div data-site-header></div>" : ""}\n<main id="main-content">\n${content}\n</main>\n${p.kind === "public" ? "<div data-site-footer></div>" : ""}\n${p.kind === "dashboard" ? `<script src="${prefix}assets/js/plugins/jspdf.umd.min.js"></script>\n` : ""}<script type="module" src="${prefix}assets/js/${p.kind === "dashboard" ? "dashboard" : "main"}.js?v=${version}"></script>\n</body>\n</html>\n`;
 }
 for (const [file, p] of pages)
   fs.writeFileSync(

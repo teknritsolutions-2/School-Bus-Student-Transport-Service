@@ -9,7 +9,7 @@
   position: fixed;
   inset-block: 0;
   inset-inline-start: 0;
-  background: var(--teal);
+  background: var(--ink);
   color: var(--on-dark);
   padding: 28px 22px;
   display: flex;
@@ -21,15 +21,15 @@
   font-size: 21px;
 }
 .workspace-sidebar .brand-symbol i {
-  background: var(--teal);
+  background: var(--ink);
 }
 .workspace-sidebar .brand-symbol i:nth-child(2) {
-  background: var(--yellow);
+  background: var(--on-dark);
 }
 .sidebar-label {
   font-size: 13px;
   letter-spacing: 0.15em;
-  color: #c7ded8;
+  color: #c5cccf;
   margin: 18px 0;
 }
 .workspace-sidebar nav {
@@ -47,19 +47,19 @@
 }
 .workspace-sidebar [aria-current] {
   background: #ffffff15;
-  box-shadow: inset 3px 0 var(--yellow);
+  box-shadow: inset 3px 0 var(--primary);
 }
 .workspace-sidebar nav a:hover {
   background: #ffffff15;
 }
 .nav-index {
   font-size: 13px;
-  color: #b9d0c9;
+  color: #c5cccf;
 }
 .notice-count {
   margin-inline-start: auto;
-  background: var(--yellow);
-  color: #153b3c;
+  background: var(--primary);
+  color: var(--on-primary);
   min-width: 22px;
   text-align: center;
   border-radius: 3px;
@@ -71,7 +71,7 @@
   margin-top: auto;
   padding-top: 30px;
   font-size: 15px;
-  color: #c7ded8;
+  color: #c5cccf;
 }
 .workspace-main {
   margin-inline-start: 252px;
@@ -106,7 +106,7 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--mint);
+  background: var(--subtle);
   color: var(--text);
   font-family: var(--heading);
   font-size: 15px;
@@ -192,7 +192,7 @@
   font-size: 16px;
 }
 .assignment-panel {
-  border-top: 4px solid var(--teal);
+  border-top: 4px solid var(--primary);
 }
 .pickup-time {
   font: 500 44px var(--heading);
@@ -239,7 +239,8 @@
   min-height: 88px;
 }
 .route-canvas .passed .stop-dot {
-  background: var(--yellow);
+  background: var(--primary);
+  color: var(--on-primary);
 }
 .playback-progress {
   height: 8px;
@@ -252,7 +253,7 @@
   display: block;
   width: 0;
   height: 100%;
-  background: var(--yellow);
+  background: var(--primary);
   transition: width 0.3s linear;
 }
 .playback-buttons {
@@ -311,7 +312,7 @@ td {
   margin-top: 11px;
 }
 .unread .notice-dot {
-  background: var(--yellow);
+  background: var(--primary);
 }
 .workspace-panel .field {
   margin-bottom: 20px;

@@ -194,12 +194,59 @@ function searchContent() {
     );
   });
 }
+function serviceSelector() {
+  const root = document.querySelector("[data-service-selector]");
+  if (!root) return;
+  const tabs = [...root.querySelectorAll("[data-service-tab]")];
+  const panels = [...root.querySelectorAll("[data-service-panel]")];
+  function select(index, focus = false, updateURL = true) {
+    tabs.forEach((tab, i) => {
+      tab.setAttribute("aria-selected", String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+    });
+    panels.forEach((panel, i) => {
+      panel.hidden = i !== index;
+    });
+    if (focus) tabs[index].focus();
+    if (updateURL) history.replaceState(null, "", `#${panels[index].id}`);
+  }
+  tabs.forEach((tab, index) =>
+    tab.addEventListener("click", () => select(index)),
+  );
+  root.addEventListener("keydown", (event) => {
+    const index = tabs.indexOf(event.target);
+    if (
+      index < 0 ||
+      !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)
+    )
+      return;
+    event.preventDefault();
+    const forward =
+      document.documentElement.dir === "rtl" ? "ArrowLeft" : "ArrowRight";
+    const next =
+      event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? tabs.length - 1
+          : (index + (event.key === forward ? 1 : tabs.length - 1)) %
+            tabs.length;
+    select(next, true);
+  });
+  const fromHash = () =>
+    Math.max(
+      0,
+      panels.findIndex((panel) => panel.id === location.hash.slice(1)),
+    );
+  addEventListener("hashchange", () => select(fromHash(), false, false));
+  select(fromHash(), false, false);
+}
 shell();
 preferences();
 initRouteFinders();
 initForms();
 journeySelector();
 searchContent();
+serviceSelector();
 const closePublicDrawer = setupDrawer({
   drawer: document.querySelector("[data-drawer]"),
   open: document.querySelector("[data-menu-open]"),

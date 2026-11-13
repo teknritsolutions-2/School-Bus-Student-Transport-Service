@@ -1,40 +1,15 @@
+/* Neutral dark surfaces. Primary color is reserved for controls and selection. */
 html[data-theme="dark"] {
   color-scheme: dark;
-  --canvas: #102729;
-  --surface: #1d383a;
-  --mint: #244749;
-  --text: #f0f6ee;
-  --muted: #b4ccc6;
-  --line: #3e6060;
-  --yellow: #f9d16b;
-  --danger: #ffb0a8;
-}
-html[data-theme="dark"] .ink,
-html[data-theme="dark"] .site-footer {
-  background: #092023;
-}
-html[data-theme="dark"] .stop-dot {
-  border-color: #b4ccc6;
-}
-html[data-theme="dark"] .journey-rail li::before {
-  color: var(--text);
-}
-html[data-theme="dark"] .filter[aria-pressed="true"],
-html[data-theme="dark"] .stage-tabs [aria-selected="true"] {
-  background: var(--mint);
-}
-html[data-theme="dark"] .hero-picture {
-  background: #244749;
-}
-html[data-theme="dark"] .check-list li::before {
-  color: var(--yellow);
-}
-html[data-theme="dark"] .stop-list li:last-child .stop-dot {
-  color: #153b3c;
-}
-html[data-theme="dark"] .route-canvas .passed .stop-dot {
-  color: #153b3c;
-}
-html[data-theme="dark"] .journey-rail .is-current::before {
-  color: #153b3c;
+  --primary: #8ac6bd;
+  --primary-hover: #a8d8d0;
+  --on-primary: #111b19;
+  --ink: #0d0f10;
+  --canvas: #121416;
+  --surface: #1b1e20;
+  --subtle: #24282b;
+  --text: #f0f3f2;
+  --muted: #b7bfc3;
+  --line: #3c4448;
+  --danger: #ffb3aa;
 }

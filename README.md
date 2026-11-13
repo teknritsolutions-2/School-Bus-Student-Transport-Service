@@ -1,6 +1,6 @@
 # KinderRide Transit — The School-day Wayfinder
 
-A complete static frontend rebuild with 23 physical HTML pages, two distinct homepages, a combined-filter Route Finder and a nine-view parent workspace. Deep teal, controlled transport yellow and mint replace the former design. Lexend and Source Sans 3 are self-hosted.
+A complete static frontend rebuild with 23 physical HTML pages, two distinct homepages, a combined-filter Route Finder and a nine-view parent workspace. A single teal primary color sits on neutral light or charcoal dark surfaces. Lexend and Source Sans 3 are self-hosted.
 
 ## Preview
 
@@ -8,7 +8,7 @@ No install or build is required. Serve this folder with `python3 -m http.server 
 
 ## Source structure
 
-- `index.html` and `pages/`: physical page content, metadata and shared-shell mounts; all previous page URLs retained.
+- `index.html` and `pages/`: physical page content, metadata and shared-shell mounts; all previous page URLs retained. Services uses an accessible three-option selector with distinct photos and detail links.
 - `assets/css/`: fonts, shared components, semantic dark theme, logical RTL rules, standalone authentication and dashboard styles.
 - `assets/js/site-config.js`: subpath-safe URLs, storage and formatting.
 - `transport-data.js`: explicitly fictional reference routes, students, history and coverage categories.

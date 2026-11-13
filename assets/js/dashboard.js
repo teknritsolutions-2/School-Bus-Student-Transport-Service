@@ -123,12 +123,12 @@ export function createReceipt() {
     return;
   }
   const doc = new api.jsPDF();
-  doc.setFillColor(21, 59, 60);
+  doc.setFillColor(24, 92, 86);
   doc.rect(0, 0, 210, 42, "F");
   doc.setTextColor(248, 249, 244);
   doc.setFontSize(21);
   doc.text("KinderRide Transit", 18, 25);
-  doc.setTextColor(21, 59, 60);
+  doc.setTextColor(24, 92, 86);
   doc.setFontSize(17);
   doc.text("DRAFT - NOT PROOF OF PAYMENT", 18, 60);
   doc.setFontSize(11);
