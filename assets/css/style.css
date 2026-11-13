@@ -1503,9 +1503,6 @@ input[type="checkbox"] {
   .service-heading p {
     max-width: 60ch;
   }
-  .service-panel-photo {
-    max-width: 680px;
-  }
   .service-panel-copy h2 {
     max-width: 26ch;
   }
@@ -1526,7 +1523,6 @@ input[type="checkbox"] {
     order: -1;
   }
   .page-intro .photo-landscape {
-    max-width: 600px;
     width: 100%;
     justify-self: center;
   }
