@@ -365,6 +365,21 @@ function initForms() {
     return okay;
   }
 
+  document.querySelector('[data-enquiry-draft]')?.addEventListener('submit', event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (!validate(form)) return;
+    const values = new FormData(form);
+    const draft = ['KinderRide transport enquiry', '', `Name: ${values.get('name')}`, `Reply email: ${values.get('email')}`, `Topic: ${values.get('topic')}`, '', String(values.get('message')), '', 'Enquiry draft only. Send this document through your transport operator’s verified contact channel.'].join('\n');
+    const url = URL.createObjectURL(new Blob([draft], { type: 'text/plain;charset=utf-8' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'kinderride-enquiry.txt';
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    form.querySelector('.form-status').textContent = 'Your enquiry draft has been downloaded. It has not been sent; share it through your operator’s verified contact channel.';
+  });
+
   document.querySelectorAll('form[data-local-form]').forEach(form =>
     form.addEventListener('submit', event => {
       event.preventDefault();
