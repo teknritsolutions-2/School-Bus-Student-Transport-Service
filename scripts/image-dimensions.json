@@ -1,0 +1,98 @@
+{
+  "home/bus-forest": {
+    "width": 1600,
+    "height": 2398
+  },
+  "home/bus-road": {
+    "width": 1600,
+    "height": 1066
+  },
+  "plans/bus-city": {
+    "width": 1800,
+    "height": 2700
+  },
+  "real/city-service": {
+    "width": 1800,
+    "height": 2715
+  },
+  "real/daily-route": {
+    "width": 1800,
+    "height": 1200
+  },
+  "real/fleet-detail": {
+    "width": 1800,
+    "height": 1171
+  },
+  "real/driver-view": {
+    "width": 1800,
+    "height": 1201
+  },
+  "real/register": {
+    "width": 1800,
+    "height": 2400
+  },
+  "real/students-riding": {
+    "width": 1400,
+    "height": 933
+  },
+  "real/case-study": {
+    "width": 1800,
+    "height": 2700
+  },
+  "real/fleet-row": {
+    "width": 1400,
+    "height": 2100
+  },
+  "real/school-arrival": {
+    "width": 1400,
+    "height": 786
+  },
+  "real/field-trip": {
+    "width": 1400,
+    "height": 933
+  },
+  "real/route-wait": {
+    "width": 1800,
+    "height": 1012
+  },
+  "real/root-hero": {
+    "width": 1800,
+    "height": 1200
+  },
+  "real/school-ready": {
+    "width": 1400,
+    "height": 933
+  },
+  "real/services-hero": {
+    "width": 1800,
+    "height": 1192
+  },
+  "real/subscription": {
+    "width": 1800,
+    "height": 1243
+  },
+  "about/bus-urban": {
+    "width": 1600,
+    "height": 2133
+  },
+  "safety/bus-ready": {
+    "width": 1600,
+    "height": 1069
+  },
+  "safety/bus-stop": {
+    "width": 1800,
+    "height": 1200
+  },
+  "common/bus-interior": {
+    "width": 1800,
+    "height": 1350
+  },
+  "routes/bus-signal": {
+    "width": 1800,
+    "height": 2250
+  },
+  "routes/bus-parked": {
+    "width": 1600,
+    "height": 1067
+  }
+}

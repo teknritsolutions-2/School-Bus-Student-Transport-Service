@@ -1,8 +1,13 @@
 // Authoring helper. Output is ordinary physical HTML; no runtime build is required.
 import fs from "node:fs";
 const version = "wayfinder-1";
+const imageDimensions = JSON.parse(
+  fs.readFileSync(new URL("./image-dimensions.json", import.meta.url), "utf8"),
+);
+const imageSize = (src) =>
+  `width="${imageDimensions[src].width}" height="${imageDimensions[src].height}"`;
 export const photo = (src, alt, caption = "", extra = "") =>
-  `<figure class="editorial-photo ${extra}"><img src="../assets/images/${src}.webp" alt="${alt}" loading="lazy">${caption ? `<figcaption>${caption}</figcaption>` : ""}</figure>`;
+  `<figure class="editorial-photo ${extra}"><img src="../assets/images/${src}.webp" ${imageSize(src)} alt="${alt}" loading="lazy">${caption ? `<figcaption>${caption}</figcaption>` : ""}</figure>`;
 export const button = (label, file, secondary = false) =>
   `<a class="button${secondary ? " secondary" : ""}" href="${file}">${label} <span aria-hidden="true">→</span></a>`;
 export const rail = () =>
@@ -37,7 +42,7 @@ add(
   "A better school morning",
   "Clear routes, thoughtful school transport planning and useful parent information.",
   `
-<section class="hero"><div class="container"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">The school-day wayfinder</span><h1>The school day starts with a better journey.</h1><p class="lead">Clear routes, thoughtful transport planning, and the information families need from pickup to school arrival.</p><div class="button-row">${button("Explore routes", "routes.html")}${button("How it works", "how-it-works.html", true)}</div></div><div class="hero-picture"><img src="../assets/images/real/root-hero.webp" alt="Complete yellow school bus waiting beside a curb" fetchpriority="high"><div class="photo-label"><span>01 — A good place to start.</span><span>Home → School</span></div></div></div><div class="hero-foot"><span><b class="marker">1</b> Find the route</span><span><b class="marker">2</b> Prepare for pickup</span><span><b class="marker">3</b> Stay informed</span></div></div></section>
+<section class="hero"><div class="container"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">The school-day wayfinder</span><h1>The school day starts with a better journey.</h1><p class="lead">Clear routes, thoughtful transport planning, and the information families need from pickup to school arrival.</p><div class="button-row">${button("Explore routes", "routes.html")}${button("How it works", "how-it-works.html", true)}</div></div><div class="hero-picture"><img src="../assets/images/real/root-hero.webp" ${imageSize("real/root-hero")} alt="Complete yellow school bus waiting beside a curb" fetchpriority="high"><div class="photo-label"><span>01 — A good place to start.</span><span>Home → School</span></div></div></div><div class="hero-foot"><span><b class="marker">1</b> Find the route</span><span><b class="marker">2</b> Prepare for pickup</span><span><b class="marker">3</b> Stay informed</span></div></div></section>
 <section class="section-sm mint"><div class="container">${routeTool("home")}</div></section>
 ${section("A journey for every school day", "One routine. More ways to travel.", `<div class="feature-service"><div class="feature-service-copy"><span class="eyebrow">01 / Daily school transport</span><h3>From the neighborhood to the school gate.</h3><p>Morning pickup and afternoon return with an assigned stop, a school timetable and a clear collection arrangement.</p>${button("Daily transport", "transport-services.html#daily-pickup")}</div><div class="compact-list"><article><span class="number">02</span><div><h3>After-school shuttles</h3><p>Later travel for clubs, tutoring and supervised activities.</p><a class="text-link" href="transport-services.html#special-journeys">Activity transport ↗</a></div></article><article><span class="number">03</span><div><h3>Trips beyond the classroom</h3><p>Group journeys with passenger, supervision and return plans.</p><a class="text-link" href="transport-services.html#field-trips">School trips ↗</a></div></article></div></div>`)}
 ${section("The whole journey", "Four moments. One connected school day.", rail(), "ink")}
