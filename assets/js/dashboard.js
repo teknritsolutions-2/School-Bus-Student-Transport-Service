@@ -40,10 +40,10 @@ function drawRoute() {
   routeLine?.remove();
   busMarker?.remove();
   stopLayer?.remove();
-  routeLine = window.L.polyline(latlngs, { color: '#24557a', weight: 6, opacity: 0.92 }).addTo(map);
+  routeLine = window.L.polyline(latlngs, { color: '#a66a00', weight: 6, opacity: 0.92 }).addTo(map);
   stopLayer = window.L.layerGroup(
     route.stops.map(stop =>
-      window.L.circleMarker([stop.lat, stop.lng], { radius: 7, color: '#17324d', weight: 3, fillColor: '#fff', fillOpacity: 1 }).bindPopup(
+      window.L.circleMarker([stop.lat, stop.lng], { radius: 7, color: '#252724', weight: 3, fillColor: '#fff', fillOpacity: 1 }).bindPopup(
         `<strong>${stop.name}</strong><br>${direction === 'pickup' ? stop.pickup : stop.drop}`
       )
     )

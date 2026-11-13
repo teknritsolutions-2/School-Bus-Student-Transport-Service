@@ -503,7 +503,7 @@ function buildPublicMap() {
   if (!target || !window.L) return;
   const publicMap = window.L.map(target, { scrollWheelZoom: false });
   window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(publicMap);
-  const colors = ['#24557a', '#4f7892'];
+  const colors = ['#a66a00', '#665a36'];
   const bounds = [];
   routes.forEach((item, index) => {
     const latlngs = item.stops.map(stop => [stop.lat, stop.lng]);
