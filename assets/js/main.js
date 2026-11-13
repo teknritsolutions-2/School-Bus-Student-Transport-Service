@@ -128,31 +128,25 @@ function renderHeader() {
       <div class="container nav-wrap">
         <a class="brand" href="${pageUrl('index.html')}" aria-label="${BRAND.name} home">${brandMarkup()}</a>
         <nav class="desktop-nav" aria-label="Primary navigation">
-          ${navLink('Home', 'index.html', ['home', 'home2'])}
-          ${navLink('About', 'about.html', ['about'])}
-          <div class="nav-drop${activeClass(['services', 'transport', 'fleet', 'portal', 'routes', 'safety'])}">
+          <div class="nav-drop${activeClass(['home', 'home2'])}">
+            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="home-navigation">Home ${icon('chevron')}</button>
+            <div class="dropdown" id="home-navigation">
+              ${dropdownLink('Home 1', 'index.html', 'home')}
+              ${dropdownLink('Home 2', 'home2.html', 'home2')}
+            </div>
+          </div>
+          ${navLink('About Us', 'about.html', ['about'])}
+          <div class="nav-drop${activeClass(['services', 'transport', 'fleet', 'portal'])}">
             <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="services-navigation">Services ${icon('chevron')}</button>
             <div class="dropdown" id="services-navigation">
               ${dropdownLink('Services Overview', 'services.html', 'services')}
               ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
               ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
               ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
-              ${dropdownLink('Find a Route', 'routes.html', 'routes')}
-              ${dropdownLink('Safety Guide', 'safety-features.html', 'safety')}
             </div>
           </div>
           ${navLink('Pricing', 'pricing-policies.html', ['pricing', 'plans'])}
           ${navLink('Routes', 'routes.html', ['routes'])}
-          <div class="nav-drop${activeClass(['how', 'blog', 'faq', 'contact'])}">
-            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="resources-navigation">Resources ${icon('chevron')}</button>
-            <div class="dropdown" id="resources-navigation">
-              ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
-              ${dropdownLink('Case Studies & Proof', 'case-studies.html', 'proof')}
-              ${dropdownLink('Blog & Guides', 'blog.html', 'blog')}
-              ${dropdownLink('FAQ', 'faq.html', 'faq')}
-              ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}
-            </div>
-          </div>
           ${navLink('Contact', 'contact.html', ['contact'])}
           ${navLink('Dashboard ↗', 'parent-dashboard.html', ['dashboard'])}
         </nav>
@@ -171,20 +165,19 @@ function renderHeader() {
         <button class="icon-btn" type="button" data-drawer-close aria-label="Close menu">${icon('close')}</button>
       </div>
       <nav class="mobile-links">
-        ${dropdownLink('Home 1', 'index.html', 'home')}
-        ${dropdownLink('Home 2', 'home2.html', 'home2')}
-        ${dropdownLink('About', 'about.html', 'about')}
-        ${dropdownLink('Services Overview', 'services.html', 'services')}
-        ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
-        ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
-        ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
+        <details class="mobile-nav-group"${isActive(['home','home2']) ? ' open' : ''}><summary>Home ${icon('chevron')}</summary><div>
+          ${dropdownLink('Home 1', 'index.html', 'home')}
+          ${dropdownLink('Home 2', 'home2.html', 'home2')}
+        </div></details>
+        ${dropdownLink('About Us', 'about.html', 'about')}
+        <details class="mobile-nav-group"${isActive(['services','transport','fleet','portal']) ? ' open' : ''}><summary>Services ${icon('chevron')}</summary><div>
+          ${dropdownLink('Services Overview', 'services.html', 'services')}
+          ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
+          ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
+          ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
+        </div></details>
         ${dropdownLink('Pricing & Policies', 'pricing-policies.html', 'pricing')}
-        ${dropdownLink('Case Studies & Proof', 'case-studies.html', 'proof')}
         ${dropdownLink('Route Finder', 'routes.html', 'routes')}
-        ${dropdownLink('How It Works', 'how-it-works.html', 'how')}
-        ${dropdownLink('Safety Guide', 'safety-features.html', 'safety')}
-        ${dropdownLink('Blog & Guides', 'blog.html', 'blog')}
-        ${dropdownLink('FAQ', 'faq.html', 'faq')}
         ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}
         <a href="${pageUrl('parent-dashboard.html')}">Dashboard</a>
       </nav>
@@ -210,9 +203,9 @@ function renderFooter() {
     <footer class="site-footer">
       <div class="container footer-main">
         <div class="footer-brand">${brandMarkup(true)}<p>Little journeys. Big peace of mind.<br>School transport, thoughtfully connected.</p><span class="footer-tagline">A BETTER START TO THE SCHOOL DAY</span></div>
-        <div><h3>Explore KinderRide</h3><a href="${pageUrl('about.html')}">Our approach</a><a href="${pageUrl('services.html')}">Transport services</a><a href="${pageUrl('how-it-works.html')}">How it works</a><a href="${pageUrl('case-studies.html')}">Service proof</a><a href="${pageUrl('blog.html')}">Parent guides</a></div>
-        <div><h3>Plan your journey</h3><a href="${pageUrl('routes.html')}">Find a school route</a><a href="${pageUrl('safety-fleet.html')}">Safety &amp; fleet standards</a><a href="${pageUrl('safety-features.html')}">Student safety guide</a><a href="${pageUrl('pricing-policies.html')}">Pricing &amp; policies</a><a href="${pageUrl('subscription-plans.html')}">Compare plans</a></div>
-        <div><h3>For your family</h3><a href="${pageUrl('parent-portal-registration.html')}">Registration guide</a><a href="${pageUrl('register.html')}">Create an account</a><a href="${pageUrl('parent-dashboard.html')}">Parent dashboard</a><a href="${pageUrl('contact.html')}">Contact &amp; dispatch</a><a href="${pageUrl('faq.html')}">Questions &amp; answers</a></div>
+        <div><h3>Quick Links</h3><a href="${pageUrl('index.html')}">Home 1</a><a href="${pageUrl('home2.html')}">Home 2</a><a href="${pageUrl('about.html')}">About Us</a><a href="${pageUrl('services.html')}">Services</a><a href="${pageUrl('contact.html')}">Contact Us</a></div>
+        <div><h3>Our Services</h3><a href="${pageUrl('transport-services.html')}">Transport &amp; Route Coverage</a><a href="${pageUrl('safety-fleet.html')}">Student Safety &amp; Fleet</a><a href="${pageUrl('parent-portal-registration.html')}">Parent Portal &amp; Registration</a><a href="${pageUrl('pricing-policies.html')}">Pricing &amp; Policies</a><a href="${pageUrl('case-studies.html')}">Case Studies &amp; Proof</a></div>
+        <div><h3>Parent Resources</h3><a href="${pageUrl('routes.html')}">Route Finder</a><a href="${pageUrl('how-it-works.html')}">How It Works</a><a href="${pageUrl('safety-features.html')}">Bus Safety Guide</a><a href="${pageUrl('faq.html')}">FAQs</a><a href="${pageUrl('parent-dashboard.html')}">Parent Dashboard</a><a href="${pageUrl('blog.html')}">Blog &amp; Guides</a></div>
       </div>
       <div class="container footer-bottom"><span>© <span data-year></span> KinderRide. Every school day, connected.</span><div><a href="${pageUrl('privacy.html')}">Privacy policy</a><a href="${pageUrl('terms.html')}">Terms of service</a></div></div>
     </footer>

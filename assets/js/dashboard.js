@@ -1,5 +1,5 @@
 // KinderRide Student Transit Service - Parent Dashboard JavaScript
-import { routes, students, plans, initialLogs, initialNotifications, money, storeGet, storeSet, BRAND } from './main.js';
+import { routes, students, plans, initialLogs, initialNotifications, money, storeGet, storeSet, BRAND } from './main.js?v=20261113-r4';
 
 // --- Telemetry & Map Tracking Simulation ---
 let map;

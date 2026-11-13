@@ -234,7 +234,7 @@ a {
 }
 
 .dark-surface .faq-answer {
-  color: #dce8ee;
+  color: #e9dfc5;
 }
 
 .dark-surface .btn:not(.btn-outline) {
@@ -989,12 +989,12 @@ p {
 }
 
 .hero-wide .lead {
-  color: #edf4f7;
+  color: #f8f3e5;
 }
 
 .hero-wide .breadcrumbs,
 .hero-wide .breadcrumbs a {
-  color: #edf4f7;
+  color: #f8f3e5;
 }
 
 .hero-wide .btn-outline {
@@ -2069,7 +2069,7 @@ p {
   line-height: 1.55;
   margin-bottom: 14px;
   font-style: italic;
-  color: #f1f6fa;
+  color: #f8f5eb;
 }
 
 .testimonial-author {
@@ -2332,7 +2332,7 @@ p {
 .blog-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 32px rgba(40, 43, 39, 0.12);
-  border-color: rgba(139, 184, 210, 0.5);
+  border-color: rgba(242, 187, 53, 0.5);
 }
 
 .blog-card .media-frame {
@@ -2480,11 +2480,11 @@ p {
 
 .newsletter-input:focus {
   border-color: #f2bb35;
-  box-shadow: 0 0 0 3px rgba(139, 184, 210, 0.35);
+  box-shadow: 0 0 0 3px rgba(242, 187, 53, 0.35);
 }
 
 .newsletter-input::placeholder {
-  color: #7b8e9b;
+  color: #868477;
 }
 
 .newsletter-submit-btn {
@@ -2526,13 +2526,13 @@ p {
 .cta-card {
   position: relative;
   border-radius: 28px;
-  background: radial-gradient(120% 120% at 50% -10%, #a66a00 0%, #252724 55%, #0f2235 100%);
+  background: radial-gradient(120% 120% at 50% -10%, #a66a00 0%, #252724 55%, #282b27 100%);
   border: 1px solid rgba(215, 229, 237, 0.28);
   color: var(--white);
   padding: clamp(48px, 6vw, 76px) clamp(24px, 5vw, 64px);
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 30px 80px -15px rgba(40, 43, 39, 0.5), 0 0 0 1px rgba(139, 184, 210, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px -15px rgba(40, 43, 39, 0.5), 0 0 0 1px rgba(242, 187, 53, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   isolation: isolate;
 }
 
@@ -2542,7 +2542,7 @@ p {
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 184, 210, 0.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(242, 187, 53, 0.28) 0%, transparent 70%);
   content: "";
   pointer-events: none;
   z-index: 0;
@@ -2554,7 +2554,7 @@ p {
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(79, 120, 146, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(166, 106, 0, 0.3) 0%, transparent 70%);
   content: "";
   pointer-events: none;
   z-index: 0;
@@ -4316,6 +4316,15 @@ html[data-theme="dark"] body[data-page="home"] .page-hero { background: var(--pr
   .route-finder { padding: 18px; }
 }
 
+/* Compact mobile navigation mirrors the desktop hierarchy. */
+.mobile-nav-group { border-bottom:1px solid var(--border); }
+.mobile-nav-group summary { display:flex; justify-content:space-between; align-items:center; padding:14px 12px; color:var(--text); font-size:.95rem; font-weight:600; cursor:pointer; list-style:none; }
+.mobile-nav-group summary::-webkit-details-marker { display:none; }
+.mobile-nav-group[open] summary .icon { transform:rotate(180deg); }
+.mobile-nav-group>div { padding:0 0 10px 14px; }
+.mobile-nav-group>div a { font-size:.86rem; min-height:42px; }
+.mobile-drawer-footer { position:static; flex-shrink:0; }
+.mobile-links { overflow-y:auto; min-height:0; }
 /* KinderRide: warm white, ink and school-bus yellow. */
 body[data-page="about"] .page-hero-grid { grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr); }
 body[data-page="about"] .page-hero { padding-block:60px; }
