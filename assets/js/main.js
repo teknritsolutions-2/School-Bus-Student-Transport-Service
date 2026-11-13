@@ -136,15 +136,7 @@ function renderHeader() {
             </div>
           </div>
           ${navLink('About Us', 'about.html', ['about'])}
-          <div class="nav-drop${activeClass(['services', 'transport', 'fleet', 'portal'])}">
-            <button type="button" aria-haspopup="true" aria-expanded="false" aria-controls="services-navigation">Services ${icon('chevron')}</button>
-            <div class="dropdown" id="services-navigation">
-              ${dropdownLink('Services Overview', 'services.html', 'services')}
-              ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
-              ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
-              ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
-            </div>
-          </div>
+          ${navLink('Services', 'services.html', ['services', 'transport', 'fleet', 'portal'])}
           ${navLink('Pricing', 'pricing-policies.html', ['pricing', 'plans'])}
           ${navLink('Routes', 'routes.html', ['routes'])}
           ${navLink('Contact', 'contact.html', ['contact'])}
@@ -170,12 +162,7 @@ function renderHeader() {
           ${dropdownLink('Home 2', 'home2.html', 'home2')}
         </div></details>
         ${dropdownLink('About Us', 'about.html', 'about')}
-        <details class="mobile-nav-group"${isActive(['services','transport','fleet','portal']) ? ' open' : ''}><summary>Services ${icon('chevron')}</summary><div>
-          ${dropdownLink('Services Overview', 'services.html', 'services')}
-          ${dropdownLink('Transport & Route Coverage', 'transport-services.html', 'transport')}
-          ${dropdownLink('Student Safety & Fleet', 'safety-fleet.html', 'fleet')}
-          ${dropdownLink('Parent Portal & Registration', 'parent-portal-registration.html', 'portal')}
-        </div></details>
+        ${dropdownLink('Services', 'services.html', 'services')}
         ${dropdownLink('Pricing & Policies', 'pricing-policies.html', 'pricing')}
         ${dropdownLink('Route Finder', 'routes.html', 'routes')}
         ${dropdownLink('Contact & Dispatch', 'contact.html', 'contact')}

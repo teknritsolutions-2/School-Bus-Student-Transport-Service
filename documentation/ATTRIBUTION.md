@@ -26,6 +26,11 @@ The project includes optimized local WebP derivatives of Pexels and Unsplash pho
 | `assets/images/real/case-study.webp` | Marissa Lewis | [School buses viewed from a window — Unsplash](https://unsplash.com/photos/a-view-of-a-school-bus-from-a-window-t63_-EHCY2o) |
 | `assets/images/real/subscription.webp` | Austin Pacheco | [Front of a school bus — Unsplash](https://unsplash.com/photos/macro-photography-of-school-bus-uZkgI3opcvE) |
 | `assets/images/real/register.webp` | Rafael Garcin | [Front view of a yellow school bus — Unsplash](https://unsplash.com/photos/front-view-of-a-yellow-school-bus-on-a-street-UzKCgjEcCMc) |
+| `assets/images/real/field-trip.webp` | Quang Nguyen Vinh | [Children boarding a bus for a field trip — Pexels](https://www.pexels.com/photo/children-boarding-a-bus-for-a-field-trip-35105982/) |
+| `assets/images/real/school-ready.webp` | Mary Taylor | [Classmates with books near a school bus — Pexels](https://www.pexels.com/photo/crop-classmates-with-books-near-school-bus-5896466/) |
+| `assets/images/real/school-arrival.webp` | Roderick Salatan | [Students gathering at school — Pexels](https://www.pexels.com/photo/drone-photography-of-people-in-a-school-14210333/) |
+| `assets/images/real/fleet-row.webp` | Reba Spike | [Row of yellow school buses — Unsplash](https://unsplash.com/photos/a-row-of-yellow-school-buses-parked-in-a-parking-lot-Jrrc7wXIy-E) |
+| `assets/images/real/students-riding.webp` | kimmi jun | [Students travelling on a bus — Pexels](https://www.pexels.com/photo/group-of-teenager-school-students-travelling-on-a-bus-18506746/) |
 
 Source and license terms were verified on 13 November 2026. Recheck them before redistribution.
 
