@@ -79,7 +79,10 @@ body[data-page="home2"] .page-hero-grid { align-items:start; }
 .section:has(.compact-photo) .split { align-items:start; }
 body[data-page="home2"] .page-hero-copy h1 { font-size:clamp(2.3rem,3.6vw,3.3rem); }
 body[data-page="home2"] .page-hero-media img { width:100%; max-height:none; }
-.coverage-request { padding:28px; border:1px solid var(--border); background:var(--surface); border-radius:6px; }
+.coverage-request { padding:28px; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:6px; }
+.coverage-request h3,.coverage-request li { color:var(--text); }
+.route-workbench .coverage-request p,.route-workbench .coverage-request small { color:var(--text-muted); }
+.story-image>span { background:#252724; color:#ffffff; padding:8px 12px; border-radius:4px; width:fit-content; max-width:calc(100% - 40px); }
 .coverage-request p { color:var(--text-muted); }
 .coverage-request .check-list { margin-block:20px; }
 @media(max-width:1000px) {
