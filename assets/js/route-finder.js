@@ -37,5 +37,6 @@ export function initRouteFinders() {
         : `<div class="empty-state"><h3>No reference route matches these choices.</h3><p>Try a different school or area, or ask about coverage for your journey.</p><a class="button secondary" href="${pageUrl("contact.html")}">Request coverage</a></div>`;
       results.hidden = false;
     });
+    if (form.closest("[data-route-auto]")) form.requestSubmit();
   });
 }

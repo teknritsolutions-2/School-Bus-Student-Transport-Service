@@ -6,14 +6,14 @@
     <title>Contact & route enquiries | KinderRide Transit</title>
     <meta
       name="description"
-      content="Prepare a local school transport enquiry and download a request draft."
+      content="Prepare a clear school transport request and download an unsent enquiry draft."
     />
     <meta
       property="og:title"
       content="Contact & route enquiries | KinderRide Transit"
     />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="../assets/images/brand/favicon.svg?v=wayfinder-2" />
+    <link rel="icon" href="../assets/images/brand/favicon.svg?v=wayfinder-3" />
     <link
       rel="canonical"
       href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/pages/contact.html"
@@ -32,140 +32,126 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-2" />
-    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-2" />
-    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-2" />
-    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-2" />
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-3" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-3" />
+    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-3" />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-3" />
   </head>
   <body data-page="contact">
     <div data-site-header></div>
     <main id="main-content">
-      <section class="page-intro">
-        <div class="container split">
-          <div>
+      <section class="task-page">
+        <div class="container">
+          <div class="task-heading">
             <div class="breadcrumbs">
               <a href="../index.html">Home</a> / Contact & dispatch
             </div>
-            <span class="eyebrow">Contact & dispatch</span>
-            <h1>Every good journey starts with a question.</h1>
-            <p class="lead">
-              Tell us the school, area and service you have in mind. Prepare a
-              clear request to share with your transport operator.
-            </p>
-          </div>
-          <figure class="editorial-photo photo-landscape">
-            <img
-              src="../assets/images/real/services-hero.webp"
-              width="1800"
-              height="1192"
-              alt="Rear of a school bus under a clear sky"
-              loading="lazy"
-            />
-          </figure>
-        </div>
-      </section>
-      <section class="section">
-        <div class="container split">
-          <div>
             <span class="eyebrow">Let’s get the details right</span>
-            <h2>Prepare your transport enquiry.</h2>
-            <p>
-              Use a guardian reply contact. Do not include private student
-              schedules, medical records or exact pickup addresses in this
-              public interface.
+            <h1>What would make your school journey easier?</h1>
+            <p class="lead">
+              Start with the school, pickup area and the service you need.
             </p>
-            <p class="notice">
-              This form creates a local draft. It does not send a message or
-              store your entries.
-            </p>
-            <div class="compact-list">
-              <article>
-                <span class="number">01</span>
-                <div>
-                  <h3>General questions</h3>
-                  <p>
-                    Include the school, area, travel days and requested start
-                    date.
-                  </p>
-                </div>
-              </article>
-              <article>
-                <span class="number">02</span>
-                <div>
-                  <h3>Active journey</h3>
-                  <p>
-                    Use the verified dispatch number provided with your
-                    assignment. For immediate danger, contact local emergency
-                    services.
-                  </p>
-                </div>
-              </article>
-            </div>
           </div>
-          <form class="enquiry-form" data-enquiry>
-            <div class="form-grid">
-              <div class="field">
-                <label for="enquiry-name">Your name</label
-                ><input
-                  id="enquiry-name"
-                  name="name"
-                  autocomplete="name"
-                  required
+          <div class="contact-workbench">
+            <aside class="contact-context">
+              <figure class="editorial-photo photo-landscape">
+                <img
+                  src="../assets/images/real/route-support.webp"
+                  width="1500"
+                  height="1004"
+                  alt="A complete school transport vehicle travelling through a city"
+                  loading="lazy"
                 />
+              </figure>
+              <div class="contact-guidance">
+                <h2>Before you write</h2>
+                <p>
+                  Include travel days and the requested start date. Leave out
+                  private student schedules, medical records and exact home
+                  addresses.
+                </p>
+                <h2>An active journey concern?</h2>
+                <p>
+                  Use the verified dispatch number supplied with your
+                  assignment. For immediate danger, contact local emergency
+                  services.
+                </p>
               </div>
-              <div class="field">
-                <label for="enquiry-email">Reply email</label
-                ><input
-                  id="enquiry-email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  required
-                />
+            </aside>
+            <form
+              class="enquiry-form"
+              data-enquiry
+              aria-labelledby="enquiry-title"
+            >
+              <h2 id="enquiry-title">Your transport enquiry</h2>
+              <p class="notice">
+                Creates a local draft, not a sent message. Download it to share
+                through your operator’s verified contact.
+              </p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="enquiry-name">Your name</label
+                  ><input
+                    id="enquiry-name"
+                    name="name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="enquiry-email">Reply email</label
+                  ><input
+                    id="enquiry-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="field full">
+                  <label for="enquiry-topic">What can we help with?</label
+                  ><select id="enquiry-topic" name="topic">
+                    <option>Route &amp; stop availability</option>
+                    <option>Daily transport</option>
+                    <option>After-school shuttle</option>
+                    <option>Field trip or group journey</option>
+                    <option>Registration</option>
+                    <option>Pricing &amp; policies</option>
+                    <option>School partnership</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="enquiry-message">Your question</label
+                  ><textarea
+                    id="enquiry-message"
+                    name="message"
+                    required
+                    placeholder="School, neighborhood, service days and what you need to confirm."
+                  ></textarea>
+                </div>
+                <div class="full">
+                  <button class="button" type="submit">
+                    Preview my enquiry →
+                  </button>
+                </div>
               </div>
-              <div class="field full">
-                <label for="enquiry-topic">What can we help with?</label
-                ><select id="enquiry-topic" name="topic">
-                  <option>Route &amp; stop availability</option>
-                  <option>Daily transport</option>
-                  <option>After-school shuttle</option>
-                  <option>Field trip or group journey</option>
-                  <option>Registration</option>
-                  <option>Pricing &amp; policies</option>
-                  <option>School partnership</option>
-                </select>
-              </div>
-              <div class="field full">
-                <label for="enquiry-message">Your question</label
-                ><textarea
-                  id="enquiry-message"
-                  name="message"
-                  required
-                  placeholder="School, neighborhood, service days and what you need to confirm."
-                ></textarea>
-              </div>
-              <div class="full">
-                <button class="button" type="submit">
-                  Preview my enquiry →
+              <div data-enquiry-preview hidden>
+                <p role="status" class="form-status"></p>
+                <pre></pre>
+                <button
+                  class="button secondary"
+                  data-download-draft
+                  type="button"
+                >
+                  Download draft
                 </button>
               </div>
-            </div>
-            <div data-enquiry-preview hidden>
-              <p role="status" class="form-status"></p>
-              <pre></pre>
-              <button
-                class="button secondary"
-                data-download-draft
-                type="button"
-              >
-                Download draft
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </section>
     </main>
     <div data-site-footer></div>
-    <script type="module" src="../assets/js/main.js?v=wayfinder-2"></script>
+    <script type="module" src="../assets/js/main.js?v=wayfinder-3"></script>
   </body>
 </html>

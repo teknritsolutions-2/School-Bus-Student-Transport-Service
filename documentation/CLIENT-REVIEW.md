@@ -10,7 +10,7 @@ Route filtering no longer falls back to an unrelated route. Root contact links r
 
 ## Browser QA
 
-Local verification passed: 20 functional groups, all 23 physical routes and 23 unique genuine photographs, with no failed asset requests or browser exceptions. The responsive matrix passed 1,584 states (23 pages plus two additional service selections and eight additional dashboard views × 12 widths × two themes × two directions). Axe-core WCAG A/AA automated checks reported no violations across the public pages and dashboard views in both themes after the progress and notice labels were corrected. This does not claim manual screen-reader certification or cross-browser coverage; the real-browser run used Chromium through Brave.
+Local verification passed: 21 functional groups, all 23 physical routes and 22 unique genuine photographs, with no failed asset requests or browser exceptions. The responsive matrix passed 1,584 states (23 pages plus two additional service selections and eight additional dashboard views × 12 widths × two themes × two directions). Axe-core WCAG A/AA automated checks reported no violations across the public pages and dashboard views in both themes after the progress and notice labels were corrected. This does not claim manual screen-reader certification or cross-browser coverage; the real-browser run used Chromium through Brave.
 
 The committed `scripts/browser-qa.cjs` can run against an HTTP preview or published subpath with a development Playwright installation:
 
@@ -31,3 +31,7 @@ Authentication/OAuth/recovery, secure student records, approved routes/rates, li
 Teal is now the only UI primary color; yellow action styling and green-tinted dark backgrounds were removed. Dark mode uses neutral #121416 canvas, #1B1E20 panels and #24282B secondary surfaces. Services now has three accessible service selections, each with its own uncropped landscape photo, planning details and detail-page link. Selection supports keyboard navigation and direct hash access. Alternating service-photo rows were removed.
 
 Photo layouts follow actual source orientation. Portrait columns use their own narrower grid tracks; landscape photos fill their frames. Height caps and mismatched wrapper dimensions were removed, and mobile portrait/landscape sizing is handled separately. No AI images or repeated content photographs were introduced.
+
+## Reference comparison pass
+
+Courier and Yoga were inspected as published websites at desktop and mobile sizes. KinderRide still repeated generic introductions and placed tools too far down the page. The next pass introduces compact home route search, an editorial service directory, distinct About composition, a search-first Routes page with initial reference results, a form-first Contact page, and an estimate-focused Subscriptions page without a repeated pricing grid. Five genuine photos replace weak or tightly cropped source compositions. See DESIGN-COMPARISON.md.

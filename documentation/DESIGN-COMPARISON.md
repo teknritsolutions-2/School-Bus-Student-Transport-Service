@@ -1,0 +1,14 @@
+# Design comparison and refinement
+
+Compared the actual published [Courier](https://teknritsolutions-2.github.io/Courier-Parcel-Delivery-Service/) and [Yoga](https://teknritsolutions-2.github.io/Yoga-Meditation-Studio/) homepages at 1440px and 390px. The supplied Appliance `/pages/index.html` URL returned HTTP 404. The comparison uses the project links supplied in this conversation, not unseen chat history.
+
+| Observation                                                                     | KinderRide gap                                                               | Applied change                                                                                                                                              |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Courier puts tracking and a meaningful interaction into the opening experience. | Repeated photo introductions delayed access to routes and enquiries.         | Routes begins with filters and reference results. Contact begins with the enquiry flow. Both retain clear operating boundaries.                             |
+| Yoga varies image scale, section composition and content density.               | Several pages used the same introductory split and repeated text grids.      | About has a family/school editorial opening. Home service choices use a compact directory. Functional pages have compact task headings.                     |
+| Reference photography explains the experience of the service.                   | Some photos showed mostly sky, tightly cut vehicle details or foggy scenery. | Five genuine Pexels replacements show boarding, fleet context, full vehicles and school arrival. Source framing is inspected, not merely CSS aspect ratios. |
+| Strong pages make a clear next step easy to find.                               | The homepage steps were labels; pricing content repeated on two pages.       | Homepage steps link to routes, registration and the workspace. Subscriptions focuses on the estimator and links to the separate pricing comparison.         |
+
+The single teal primary color, charcoal dark surfaces, physical page URLs, standalone account pages, accessible navigation and dashboard are retained. The goal is comparable clarity and care, while keeping KinderRide specific to school transport.
+
+Images remain locally hosted and unique across page locations. Five old source compositions and one unnecessary estimate-page image are removed. Photographer credits and source/license links are recorded in ATTRIBUTION.md.

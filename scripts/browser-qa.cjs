@@ -311,6 +311,18 @@ async function test(name, run) {
     );
   }
   await go("pages/contact.html");
+  await test("task pages expose route results and enquiry controls without a large photo banner", async () => {
+    assert((await p.locator("[data-enquiry]").boundingBox()).y < 900);
+    await go("pages/routes.html");
+    assert.equal(await p.locator(".route-result").count(), 2);
+    assert((await p.locator("[data-route-finder]").boundingBox()).y < 900);
+    await p.selectOption("[name=area]", "Reference area A");
+    await p.selectOption("[name=school]", "Reference school B");
+    await p.locator("[data-route-finder] button").click();
+    assert.equal(await p.locator(".route-result").count(), 0);
+    assert(await p.locator(".empty-state").isVisible());
+    await go("pages/contact.html");
+  });
   await test("contact preview and downloadable unsent draft", async () => {
     await p.locator("[name=name]").fill("Parent");
     await p.locator("[name=email]").fill("parent@example.test");

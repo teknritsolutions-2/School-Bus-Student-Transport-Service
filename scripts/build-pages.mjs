@@ -1,6 +1,6 @@
 // Authoring helper. Output is ordinary physical HTML; no runtime build is required.
 import fs from "node:fs";
-const version = "wayfinder-2";
+const version = "wayfinder-3";
 const imageDimensions = JSON.parse(
   fs.readFileSync(new URL("./image-dimensions.json", import.meta.url), "utf8"),
 );
@@ -12,8 +12,8 @@ export const button = (label, file, secondary = false) =>
   `<a class="button${secondary ? " secondary" : ""}" href="${file}">${label} <span aria-hidden="true">→</span></a>`;
 export const rail = () =>
   `<ol class="journey-rail"><li><strong>Pickup stop</strong><p>A familiar place, an agreed time.</p></li><li><strong>Boarding</strong><p>Wait for the signal, then step aboard.</p></li><li><strong>School arrival</strong><p>A coordinated handoff at school.</p></li><li><strong>Afternoon return</strong><p>The same care on the way home.</p></li></ol>`;
-export const routeTool = (id = "route") =>
-  `<div class="route-tool"><div class="route-tool-head"><h2>Find your route.</h2><p>Explore reference routes to understand the journey. Actual schools, stops and availability are confirmed by the operator.</p></div><form data-route-finder><div class="finder-fields"><div class="field"><label for="${id}-area">Area</label><select name="area" id="${id}-area"><option value="">All reference areas</option></select></div><div class="field"><label for="${id}-school">School</label><select name="school" id="${id}-school"><option value="">All reference schools</option></select></div><div class="field"><label for="${id}-journey">Journey</label><select name="journey" id="${id}-journey"><option>Morning pickup</option><option>Afternoon return</option></select></div><button class="button" type="submit">Find a route →</button></div></form><div data-route-results aria-live="polite" hidden></div><small class="tool-note">Reference route data, not confirmed service coverage. <a href="contact.html">Request your area</a>.</small></div>`;
+export const routeTool = (id = "route", variant = "default") =>
+  `<div class="route-tool route-tool--${variant}">${variant === "search" ? "" : `<div class="route-tool-head"><h2>Find your route.</h2><p>${variant === "compact" ? "Choose an area, school and journey direction." : "Explore reference routes to understand the journey. Actual schools, stops and availability are confirmed by the operator."}</p></div>`}<form data-route-finder aria-label="School route finder"><div class="finder-fields"><div class="field"><label for="${id}-area">Area</label><select name="area" id="${id}-area"><option value="">All reference areas</option></select></div><div class="field"><label for="${id}-school">School</label><select name="school" id="${id}-school"><option value="">All reference schools</option></select></div><div class="field"><label for="${id}-journey">Journey</label><select name="journey" id="${id}-journey"><option>Morning pickup</option><option>Afternoon return</option></select></div><button class="button" type="submit">Find a route →</button></div></form><div data-route-results aria-live="polite" hidden></div><small class="tool-note">Reference route data, not confirmed service coverage. <a href="contact.html">Request your area</a>.</small></div>`;
 export const closing = (
   title = "Let’s plan a better school morning.",
   copy = "Start with the school, your area and the journeys you need.",
@@ -42,13 +42,40 @@ add(
   "A better school morning",
   "Clear routes, thoughtful school transport planning and useful parent information.",
   `
-<section class="hero"><div class="container"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">The school-day wayfinder</span><h1>The school day starts with a better journey.</h1><p class="lead">Clear routes, thoughtful transport planning, and the information families need from pickup to school arrival.</p><div class="button-row">${button("Explore routes", "routes.html")}${button("How it works", "how-it-works.html", true)}</div></div><div class="hero-picture"><img src="../assets/images/real/root-hero.webp" ${imageSize("real/root-hero")} alt="Complete yellow school bus waiting beside a curb" fetchpriority="high"><div class="photo-label"><span>01 — A good place to start.</span><span>Home → School</span></div></div></div><div class="hero-foot"><span><b class="marker">1</b> Find the route</span><span><b class="marker">2</b> Prepare for pickup</span><span><b class="marker">3</b> Stay informed</span></div></div></section>
-<section class="section-sm subtle"><div class="container">${routeTool("home")}</div></section>
-${section("A journey for every school day", "One routine. More ways to travel.", `<div class="feature-service"><div class="feature-service-copy"><span class="eyebrow">01 / Daily school transport</span><h3>From the neighborhood to the school gate.</h3><p>Morning pickup and afternoon return with an assigned stop, a school timetable and a clear collection arrangement.</p>${button("Daily transport", "transport-services.html#daily-pickup")}</div><div class="compact-list"><article><span class="number">02</span><div><h3>After-school shuttles</h3><p>Later travel for clubs, tutoring and supervised activities.</p><a class="text-link" href="transport-services.html#special-journeys">Activity transport ↗</a></div></article><article><span class="number">03</span><div><h3>Trips beyond the classroom</h3><p>Group journeys with passenger, supervision and return plans.</p><a class="text-link" href="transport-services.html#field-trips">School trips ↗</a></div></article></div></div>`)}
+<section class="hero"><div class="container"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">The school-day wayfinder</span><h1>The school day starts with a better journey.</h1><p class="lead">Clear routes, thoughtful transport planning, and the information families need from pickup to school arrival.</p><div class="button-row">${button("Explore routes", "routes.html")}${button("How it works", "how-it-works.html", true)}</div></div><div class="hero-picture"><img src="../assets/images/real/root-hero.webp" ${imageSize("real/root-hero")} alt="Complete yellow school bus waiting beside a curb" fetchpriority="high"><div class="photo-label"><span>Pickup point</span><i class="connection-line" aria-hidden="true"></i><span>School gate</span></div></div></div><div class="hero-foot"><a href="routes.html"><b class="marker">1</b> Find your route <span aria-hidden="true">↗</span></a><a href="parent-portal-registration.html"><b class="marker">2</b> Prepare for pickup <span aria-hidden="true">↗</span></a><a href="parent-dashboard.html"><b class="marker">3</b> Open parent workspace <span aria-hidden="true">↗</span></a></div></div></section>
+<section class="section-sm subtle"><div class="container">${routeTool("home", "compact")}</div></section>
+<section class="section"><div class="container home-services"><div><span class="eyebrow">A journey for every school day</span><h2>Different days.<br>The right kind of journey.</h2><p class="muted">Regular school travel, a later club finish or a day beyond the classroom.</p></div><div class="transport-directory">${[
+    [
+      "01",
+      "Daily school transport",
+      "Morning pickup and afternoon return.",
+      "School days",
+      "transport-services.html#daily-pickup",
+    ],
+    [
+      "02",
+      "After-school shuttles",
+      "A clear plan for later departures.",
+      "After dismissal",
+      "transport-services.html#special-journeys",
+    ],
+    [
+      "03",
+      "Trips & group journeys",
+      "Outbound, supervision and return planning.",
+      "By arrangement",
+      "transport-services.html#field-trips",
+    ],
+  ]
+    .map(
+      ([n, t, c, tag, url]) =>
+        `<a href="${url}"><span class="number">${n}</span><div><h3>${t}</h3><p>${c}</p><small>${tag}</small></div><span aria-hidden="true">↗</span></a>`,
+    )
+    .join("")}</div></div></section>
 ${section("The whole journey", "Four moments. One connected school day.", rail(), "ink")}
-<section class="section"><div class="container split">${photo("safety/bus-ready", "School bus parked before a journey")}<div><span class="eyebrow">Prepared before pickup</span><h2>Confidence comes from the details.</h2><p>Understand the checks and routines to discuss with your transport operator.</p><ul class="check-list"><li>Vehicle readiness and maintenance records</li><li>Driver verification and route preparation</li><li>Boarding and authorized handoff arrangements</li><li>Verified dispatch and emergency communication</li></ul><div class="button-row">${button("Explore safety", "safety-fleet.html", true)}</div></div></div></section>
+<section class="section"><div class="container split">${photo("real/boarding-routine", "Students boarding a bus from a paved waiting point", "A familiar waiting point and a clear boarding routine.")}<div><span class="eyebrow">Prepared before pickup</span><h2>Confidence comes from the details.</h2><p>Understand the checks and routines to discuss with your transport operator.</p><ul class="check-list"><li>Vehicle readiness and maintenance records</li><li>Driver verification and route preparation</li><li>Boarding and authorized handoff arrangements</li><li>Verified dispatch and emergency communication</li></ul><div class="button-row">${button("Explore safety", "safety-fleet.html", true)}</div></div></div></section>
 <section class="section surface"><div class="container split"><div><span class="eyebrow">Your family, in the picture</span><h2>Less searching.<br>More useful information.</h2><p>Keep student, stop, schedule and journey notices together. Explore the parent workspace without signing in.</p>${button("Open Parent Dashboard", "parent-dashboard.html")}</div>${preview()}</div></section>
-<section class="section"><div class="container split">${photo("real/fleet-row", "Rows of real school buses with mirrors and windscreens visible")}<div><span class="eyebrow">Fleet &amp; environment</span><h2>The right vehicle for the journey.</h2><p>Vehicle suitability depends on passenger capacity, access, maintenance and the route itself. Ask your operator about vehicle checks and any environmental commitments.</p><p class="muted">Photography is representative stock imagery, not a claim about the KinderRide fleet.</p><a class="text-link" href="safety-fleet.html">What to ask about the fleet ↗</a></div></div></section>
+<section class="section"><div class="container split">${photo("real/fleet-depot", "School transport vehicles parked together at a depot")}<div><span class="eyebrow">Fleet &amp; environment</span><h2>The right vehicle for the journey.</h2><p>Vehicle suitability depends on passenger capacity, access, maintenance and the route itself. Ask your operator about vehicle checks and any environmental commitments.</p><p class="muted">Photography is representative stock imagery, not a claim about the KinderRide fleet.</p><a class="text-link" href="safety-fleet.html">What to ask about the fleet ↗</a></div></div></section>
 ${closing()}`,
 );
 
@@ -212,27 +239,9 @@ add(
   "routes.html",
   "routes",
   "Route Finder",
-  "Filter reference school routes, inspect stops and compare journey directions.",
+  "Find reference school routes, inspect stop sequences and ask about real coverage.",
   `
-${intro("Routes & stops", "A clearer route to the school day.", "Filter by area, school and direction. Read the stop sequence before asking about availability.", "routes/bus-signal", "School bus at a city intersection")}
-${section("Route Finder", "Start with the school and the stop.", routeTool("routes"))}
-${section(
-  "Before enrollment",
-  "What a confirmed assignment includes.",
-  scope([
-    ["The route", "School, travel days, direction and assigned stop."],
-    [
-      "The timetable",
-      "Agreed pickup and return windows and how changes are communicated.",
-    ],
-    [
-      "The handoff",
-      "Waiting position, authorized collection and the verified dispatch contact.",
-    ],
-  ]),
-  "surface",
-)}
-${closing("Your area is not listed?", "Share your school, area and travel days.", "Request coverage")}`,
+<section class="task-page"><div class="container"><div class="task-heading"><div class="breadcrumbs"><a href="../index.html">Home</a> / Routes & stops</div><span class="eyebrow">Routes & stops</span><h1>Find a route that fits the school day.</h1><p class="lead">Choose the area, school and journey direction. Then explore the stop sequence and timetable.</p></div><div class="routes-workbench"><div data-route-auto>${routeTool("routes", "search")}</div><aside class="coverage-aside">${photo("routes/bus-signal", "School bus travelling through a city neighborhood")}<div><h2>A different school or stop?</h2><p>Share the school, neighborhood and travel days to ask about coverage.</p><a class="text-link" href="contact.html">Request your area ↗</a></div></aside></div><div class="assignment-strip"><h2>Before you enroll</h2><p><strong>Route:</strong> School, direction and assigned stop.</p><p><strong>Timetable:</strong> Confirmed pickup and return windows.</p><p><strong>Handoff:</strong> Authorized collection and verified contact.</p></div></div></section>`,
 );
 
 add(
@@ -322,7 +331,7 @@ add(
   "Registration guide",
   "Prepare route eligibility, guardian details and the transport confirmation process.",
   `
-${intro("Parent registration", "A clear first step for your family.", "Prepare the information needed to assess route eligibility and agree the right journey.", "real/route-wait", "Two students waiting on a rural route")}
+${intro("Parent registration", "A clear first step for your family.", "Prepare the information needed to assess route eligibility and agree the right journey.", "real/school-entrance", "Students with backpacks arriving at a school entrance")}
 ${section(
   "Before you begin",
   "Only the information the journey needs.",
@@ -465,34 +474,31 @@ add(
   "subscription-plans.html",
   "plans",
   "Coverage & estimates",
-  "Compare coverage options and calculate a clearly marked example estimate.",
+  "Explore how students, direction and duration affect an illustrative transport estimate.",
   `
-${intro("Coverage & estimates", "Plan for the school week.", "Review the coverage categories and explore an example estimate. Final prices are confirmed by the operator.", "real/subscription", "Front of a school bus")}
-${section("Coverage options", "A plan for your routine.", planComparison())}
-${section("Estimate explorer", "Understand how coverage changes the total.", estimator(), "surface")}${closing()}`,
+<section class="task-page"><div class="container"><div class="task-heading"><div class="breadcrumbs"><a href="../index.html">Home</a> / Coverage & estimates</div><span class="eyebrow">Plan for the school week</span><h1>Understand the coverage before the cost.</h1><p class="lead">Explore how journey direction, siblings and months affect an example estimate.</p></div>${estimator()}<div class="assignment-strip"><h2>Choose the journey</h2><p><strong>Single Journey</strong>One daily direction, morning or afternoon.</p><p><strong>Daily Return</strong>Morning pickup and afternoon travel.</p><p><strong>Family Return</strong>Sibling coverage, with eligibility confirmed together.</p></div><div class="estimate-next"><div><h2>A useful estimate starts with the route.</h2><p>Actual rates depend on the school, pickup area, travel days, availability and the operator’s written terms.</p></div>${button("Compare coverage & policies", "pricing-policies.html", true)}</div></div></section>`,
 );
 
 add(
   "about.html",
   "about",
   "About KinderRide Transit",
-  "Our approach to clear, family-centered school transport information.",
+  "A family-centered approach to connecting routes, schools and the everyday journey.",
   `
-${intro("About KinderRide", "The school morning deserves a clearer way.", "KinderRide brings the route, the school day and family information into one thoughtfully organized transport experience.", "about/bus-urban", "School bus in an urban school neighborhood")}
-${section(
-  "Our approach",
-  "Clarity is part of the journey.",
-  scope([
-    ["For families", "Understand the stop, the schedule and what to prepare."],
-    ["For schools", "Coordinate arrival and dismissal with a clear handoff."],
+<section class="about-opening"><div class="container"><div class="breadcrumbs"><a href="../index.html">Home</a> / About us</div><div class="about-title"><div><span class="eyebrow">About KinderRide</span><h1>Good school days start with clear connections.</h1></div><p>Between home and the school gate, families need a familiar routine and information they can use.</p></div><div class="about-audiences">${photo("real/school-day", "Students with backpacks arriving together at school")}<div><span class="eyebrow">One connected school day</span>${[
+    ["Families", "Know the stop, the schedule and what to prepare."],
+    ["Schools", "Coordinate arrival, dismissal and the student handoff."],
     [
-      "For transport teams",
-      "Connect assignments, route information and verified support channels.",
+      "Transport teams",
+      "Keep assignments, route information and communication together.",
     ],
-  ]),
-)}
-<section class="section subtle"><div class="container split">${photo("real/school-ready", "Students holding textbooks beside a school bus")}<div><span class="eyebrow">School-day confidence</span><h2>Information that respects a family’s attention.</h2><p>Useful details should be easy to find, comfortable to read and connected to the right student and journey.</p><p>Our approach favors clear routes, practical guidance and straightforward next steps over noise or unsupported claims.</p><a class="text-link" href="how-it-works.html">See the journey from the start ↗</a></div></div></section>
-${closing("Let’s connect the school day.")}`,
+  ]
+    .map(
+      ([t, c], i) =>
+        `<article><span class="number">0${i + 1}</span><div><h2>${t}</h2><p>${c}</p></div></article>`,
+    )
+    .join("")}</div></div></div></section>
+<section class="section surface"><div class="container split">${photo("about/bus-urban", "A school bus on a city route")}<div><span class="eyebrow">Our approach</span><h2>Clarity is part of the care.</h2><p>A good transport plan gives each family a clear next step before the journey begins.</p><dl class="principle-list"><div><dt>A familiar place</dt><dd>An agreed stop and school entrance.</dd></div><div><dt>A shared routine</dt><dd>Boarding, seating and collection arrangements.</dd></div><div><dt>A useful update</dt><dd>The right information for the right student.</dd></div></dl><a class="text-link" href="how-it-works.html">See how the journey comes together ↗</a></div></div></section>${closing("Let’s connect the school day.")}`,
 );
 
 add(
@@ -533,7 +539,7 @@ ${section(
     )
     .join("")}</div>`,
 )}
-${section("Every school day", "The routine continues beyond pickup.", rail(), "mint")}${closing()}`,
+${section("Every school day", "The routine continues beyond pickup.", rail(), "subtle")}${closing()}`,
 );
 
 const faqs = [
@@ -716,9 +722,9 @@ add(
   "contact.html",
   "contact",
   "Contact & route enquiries",
-  "Prepare a local school transport enquiry and download a request draft.",
-  `${intro("Contact & dispatch", "Every good journey starts with a question.", "Tell us the school, area and service you have in mind. Prepare a clear request to share with your transport operator.", "real/services-hero", "Rear of a school bus under a clear sky")}
-<section class="section"><div class="container split"><div><span class="eyebrow">Let’s get the details right</span><h2>Prepare your transport enquiry.</h2><p>Use a guardian reply contact. Do not include private student schedules, medical records or exact pickup addresses in this public interface.</p><p class="notice">This form creates a local draft. It does not send a message or store your entries.</p><div class="compact-list"><article><span class="number">01</span><div><h3>General questions</h3><p>Include the school, area, travel days and requested start date.</p></div></article><article><span class="number">02</span><div><h3>Active journey</h3><p>Use the verified dispatch number provided with your assignment. For immediate danger, contact local emergency services.</p></div></article></div></div><form class="enquiry-form" data-enquiry><div class="form-grid"><div class="field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" autocomplete="name" required></div><div class="field"><label for="enquiry-email">Reply email</label><input id="enquiry-email" name="email" type="email" autocomplete="email" required></div><div class="field full"><label for="enquiry-topic">What can we help with?</label><select id="enquiry-topic" name="topic"><option>Route &amp; stop availability</option><option>Daily transport</option><option>After-school shuttle</option><option>Field trip or group journey</option><option>Registration</option><option>Pricing &amp; policies</option><option>School partnership</option></select></div><div class="field full"><label for="enquiry-message">Your question</label><textarea id="enquiry-message" name="message" required placeholder="School, neighborhood, service days and what you need to confirm."></textarea></div><div class="full"><button class="button" type="submit">Preview my enquiry →</button></div></div><div data-enquiry-preview hidden><p role="status" class="form-status"></p><pre></pre><button class="button secondary" data-download-draft type="button">Download draft</button></div></form></div></section>`,
+  "Prepare a clear school transport request and download an unsent enquiry draft.",
+  `
+<section class="task-page"><div class="container"><div class="task-heading"><div class="breadcrumbs"><a href="../index.html">Home</a> / Contact & dispatch</div><span class="eyebrow">Let’s get the details right</span><h1>What would make your school journey easier?</h1><p class="lead">Start with the school, pickup area and the service you need.</p></div><div class="contact-workbench"><aside class="contact-context">${photo("real/route-support", "A complete school transport vehicle travelling through a city")}<div class="contact-guidance"><h2>Before you write</h2><p>Include travel days and the requested start date. Leave out private student schedules, medical records and exact home addresses.</p><h2>An active journey concern?</h2><p>Use the verified dispatch number supplied with your assignment. For immediate danger, contact local emergency services.</p></div></aside><form class="enquiry-form" data-enquiry aria-labelledby="enquiry-title"><h2 id="enquiry-title">Your transport enquiry</h2><p class="notice">Creates a local draft, not a sent message. Download it to share through your operator’s verified contact.</p><div class="form-grid"><div class="field"><label for="enquiry-name">Your name</label><input id="enquiry-name" name="name" autocomplete="name" required></div><div class="field"><label for="enquiry-email">Reply email</label><input id="enquiry-email" name="email" type="email" autocomplete="email" required></div><div class="field full"><label for="enquiry-topic">What can we help with?</label><select id="enquiry-topic" name="topic"><option>Route &amp; stop availability</option><option>Daily transport</option><option>After-school shuttle</option><option>Field trip or group journey</option><option>Registration</option><option>Pricing &amp; policies</option><option>School partnership</option></select></div><div class="field full"><label for="enquiry-message">Your question</label><textarea id="enquiry-message" name="message" required placeholder="School, neighborhood, service days and what you need to confirm."></textarea></div><div class="full"><button class="button" type="submit">Preview my enquiry →</button></div></div><div data-enquiry-preview hidden><p role="status" class="form-status"></p><pre></pre><button class="button secondary" data-download-draft type="button">Download draft</button></div></form></div></div></section>`,
 );
 
 for (const [file, id, title, paras] of [

@@ -35,10 +35,6 @@
     "width": 1800,
     "height": 2700
   },
-  "real/fleet-row": {
-    "width": 1400,
-    "height": 2100
-  },
   "real/school-arrival": {
     "width": 1400,
     "height": 786
@@ -47,33 +43,13 @@
     "width": 1400,
     "height": 933
   },
-  "real/route-wait": {
-    "width": 1800,
-    "height": 1012
-  },
   "real/root-hero": {
     "width": 1800,
     "height": 1200
   },
-  "real/school-ready": {
-    "width": 1400,
-    "height": 933
-  },
-  "real/services-hero": {
-    "width": 1800,
-    "height": 1192
-  },
-  "real/subscription": {
-    "width": 1800,
-    "height": 1243
-  },
   "about/bus-urban": {
     "width": 1600,
     "height": 2133
-  },
-  "safety/bus-ready": {
-    "width": 1600,
-    "height": 1069
   },
   "safety/bus-stop": {
     "width": 1800,
@@ -90,5 +66,25 @@
   "routes/bus-parked": {
     "width": 1600,
     "height": 1067
+  },
+  "real/boarding-routine": {
+    "width": 1500,
+    "height": 971
+  },
+  "real/fleet-depot": {
+    "width": 1600,
+    "height": 1012
+  },
+  "real/school-entrance": {
+    "width": 1500,
+    "height": 1000
+  },
+  "real/school-day": {
+    "width": 1500,
+    "height": 1000
+  },
+  "real/route-support": {
+    "width": 1500,
+    "height": 1004
   }
 }
