@@ -1,1 +1,155 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>School Bus Routes &amp; Stops | KinderRide Transit</title><meta name="description" content="Search student transport routes, review stop sequences and indicative schedules, and explore route coverage on a map."><meta property="og:title" content="KinderRide Routes &amp; Stops"><meta property="og:type" content="website"><link rel="icon" href="../assets/images/brand/favicon.svg"><script>(()=>{const t=localStorage.getItem('schoolTransport:theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),d=localStorage.getItem('schoolTransport:dir')||'ltr';document.documentElement.dataset.theme=t;document.documentElement.dir=d})()</script><link rel="stylesheet" href="../assets/css/style.css?v=20261113-r6"><link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261113-r6"><link rel="stylesheet" href="../assets/css/rtl.css?v=20261113-r6"><link rel="stylesheet" href="../assets/js/plugins/leaflet/leaflet.css"><link rel="stylesheet" href="../assets/css/services.css?v=20261113-r7"></head><body data-page="routes"><div data-site-header></div><main id="main-content"><section class="route-hero section"><div class="container split"><div class="route-hero-copy"><div class="breadcrumbs"><a href="../index.html">Home</a> / Routes</div><span class="eyebrow">Routes &amp; stops</span><h1>Find the right starting point.</h1><p class="lead">Check school transport availability for your area and the journeys your family needs.</p><p>Route availability depends on the school timetable, vehicle access, stop arrangements and available seats.</p><a class="btn" href="contact.html">Ask about your area →</a></div><figure class="natural-photo"><img src="../assets/images/routes/bus-signal.webp" alt="School bus serving a city neighborhood"></figure></div></section><section class="section"><div class="container"><div class="section-head"><span class="eyebrow">Request coverage</span></div><div class="coverage-request"><h3>What to include in your route enquiry</h3><ul class="check-list"><li>School name and neighborhood or postcode</li><li>Morning pickup, afternoon return, or both</li><li>Student count and requested start date</li><li>Accessibility or collection requirements</li></ul><a class="btn" href="contact.html">Prepare a route enquiry →</a></div></div></section><section class="section"><div class="container"><div class="section-head"><span class="eyebrow">How a route is confirmed</span></div><div class="service-scope"><article><h3>Area &amp; school</h3><p>Share the pickup area, destination school and required service days.</p></article><article><h3>Stop &amp; access</h3><p>The operator reviews vehicle access, waiting position, walking distance and collection needs.</p></article><article><h3>Seat &amp; timetable</h3><p>Confirm capacity, the pickup window and the start date before enrollment.</p></article></div></div></section><section class="section"><div class="container"><div class="section-head"><span class="eyebrow">Before the first journey</span></div><h2>Prepare the stop routine together.</h2><p>Check where to wait, who may collect the student, and how changes should be reported.</p><div class="button-row"><a class="btn" href="safety-features.html">Bus safety guide →</a><a class="quiet-link" href="transport-services.html">Transport service details ↗</a></div></div></section></main><div data-site-footer></div><script src="../assets/js/plugins/leaflet/leaflet.js"></script><script type="module" src="../assets/js/main.js?v=20261113-r6"></script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Route Finder | KinderRide Transit</title>
+    <meta
+      name="description"
+      content="Filter reference school routes, inspect stops and compare journey directions."
+    />
+    <meta property="og:title" content="Route Finder | KinderRide Transit" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="../assets/images/brand/favicon.svg" />
+    <link
+      rel="canonical"
+      href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/pages/routes.html"
+    />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          JSON.parse(localStorage.getItem("kinderride:wayfinder:v1:theme")) ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.dir =
+          JSON.parse(localStorage.getItem("kinderride:wayfinder:v1:dir")) ||
+          "ltr";
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-1" />
+  </head>
+  <body data-page="routes">
+    <div data-site-header></div>
+    <main id="main-content">
+      <section class="page-intro">
+        <div class="container split">
+          <div>
+            <div class="breadcrumbs">
+              <a href="../index.html">Home</a> / Routes & stops
+            </div>
+            <span class="eyebrow">Routes & stops</span>
+            <h1>A clearer route to the school day.</h1>
+            <p class="lead">
+              Filter by area, school and direction. Read the stop sequence
+              before asking about availability.
+            </p>
+          </div>
+          <figure class="editorial-photo portrait-photo">
+            <img
+              src="../assets/images/routes/bus-signal.webp"
+              alt="School bus at a city intersection"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Route Finder</span>
+              <h2>Start with the school and the stop.</h2>
+            </div>
+          </div>
+          <div class="route-tool">
+            <div class="route-tool-head">
+              <h2>Find your route.</h2>
+              <p>
+                Explore reference routes to understand the journey. Actual
+                schools, stops and availability are confirmed by the operator.
+              </p>
+            </div>
+            <form data-route-finder>
+              <div class="finder-fields">
+                <div class="field">
+                  <label for="routes-area">Area</label
+                  ><select name="area" id="routes-area">
+                    <option value="">All reference areas</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="routes-school">School</label
+                  ><select name="school" id="routes-school">
+                    <option value="">All reference schools</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="routes-journey">Journey</label
+                  ><select name="journey" id="routes-journey">
+                    <option>Morning pickup</option>
+                    <option>Afternoon return</option>
+                  </select>
+                </div>
+                <button class="button" type="submit">Find a route →</button>
+              </div>
+            </form>
+            <div data-route-results aria-live="polite" hidden></div>
+            <small class="tool-note"
+              >Reference route data, not confirmed service coverage.
+              <a href="contact.html">Request your area</a>.</small
+            >
+          </div>
+        </div>
+      </section>
+      <section class="section surface">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Before enrollment</span>
+              <h2>What a confirmed assignment includes.</h2>
+            </div>
+          </div>
+          <div class="scope-grid">
+            <article>
+              <h3>The route</h3>
+              <p>School, travel days, direction and assigned stop.</p>
+            </article>
+            <article>
+              <h3>The timetable</h3>
+              <p>
+                Agreed pickup and return windows and how changes are
+                communicated.
+              </p>
+            </article>
+            <article>
+              <h3>The handoff</h3>
+              <p>
+                Waiting position, authorized collection and the verified
+                dispatch contact.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="closing">
+        <div class="container">
+          <div>
+            <h2>Your area is not listed?</h2>
+            <p>Share your school, area and travel days.</p>
+          </div>
+          <a class="button" href="contact.html"
+            >Request coverage <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script type="module" src="../assets/js/main.js?v=wayfinder-1"></script>
+  </body>
+</html>

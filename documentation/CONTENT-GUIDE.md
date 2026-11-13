@@ -1,32 +1,9 @@
-# Content Guide
+# Content guide
 
-The delivered copy is polished illustrative content, not a statement about a real transport operator.
+Home 1 introduces the brand, route tool and service choices. Home 2 follows the daily parent journey with interactive stages. Services introduces three transport categories; Transport Details covers coverage, enrollment, scheduling, suitability and trip planning.
 
-## Replace before launch
+Routes uses fictional reference areas and schools, clearly identified at the tool. Stop sequences are schematic, not geographic maps. Case Studies is an educational service-scenarios page, not a claim about actual customers. The journal links useful practical guides without unsupported performance statistics.
 
-- Organization name, logo, social links, and contact details
-- Route codes, neighborhoods, stops, coordinates, schools, and schedules
-- Student and parent names
-- Subscription prices, inclusions, renewal, refund, and cancellation terms
-- Vehicle, driver, tracking, notification, and safety claims
-- Testimonials and operational statistics
-- Privacy policy, terms, governing law, and child-data practices
-- Published sitemap origin if hosting changes
+Safety text explains what to ask or prepare. It does not assert installed GPS/CCTV, certifications, insurance, school partnerships or fleet performance. Pricing comparison lists coverage categories; illustrative amounts appear only with their qualification in the estimator and workspace.
 
-## Where content lives
-
-- Public editorial content: individual files in `pages/`
-- Header and footer labels: `assets/js/main.js`
-- Routes, students, plans, initial notifications, and logs: `assets/js/main.js`
-- Tracking event text: `assets/js/dashboard.js`
-- Dashboard view copy: `pages/parent-dashboard.html`
-
-## Writing recommendations
-
-Use precise and verifiable wording. Avoid promising real-time tracking, response times, safety certifications, or service availability unless the deployed system and operator support those claims. State whether displayed arrival times are scheduled, estimated, or live.
-
-Keep titles under roughly 60 characters and meta descriptions near 120–160 characters. Use one H1 per page and descriptive H2/H3 sections.
-
-## Images
-
-The included images are locally stored and credited in `ATTRIBUTION.md`. Keep meaningful alternative text when replacing images. For decorative images, use an empty `alt` attribute.
+Do not add fake contact information, paid status, message-sent confirmations or real-time alerts. Keep disclosures concise and close to the interaction they describe. All photographs are representative stock and must not be presented as the operator's actual children or fleet.

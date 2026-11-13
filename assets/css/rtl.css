@@ -1,92 +1,20 @@
-html[dir="rtl"] {
-  direction: rtl;
+html[dir="rtl"] .site-drawer {
+  transform: translateX(-100%);
 }
-
-html[dir="rtl"] .brand img,
-html[dir="rtl"] .media-frame img,
-html[dir="rtl"] .hero-media img,
-html[dir="rtl"] .hero-wide > img,
-html[dir="rtl"] .map,
-html[dir="rtl"] .public-map,
-html[dir="rtl"] .leaflet-container {
-  direction: ltr;
+html[dir="rtl"] .site-drawer.is-open {
+  transform: none;
 }
-
-html[dir="rtl"] .check-list li {
-  padding: 7px 25px 7px 0;
+html[dir="rtl"] .journey-rail li {
+  padding: 58px 0 0 28px;
 }
-
-html[dir="rtl"] .check-list li::before {
-  inset: 13px 2px auto auto;
+html[dir="rtl"] .stage-tabs [aria-selected="true"] {
+  box-shadow: inset -5px 0 var(--yellow);
 }
-
-html[dir="rtl"] .faq-answer {
-  padding: 0 0 20px 40px;
+html[dir="rtl"] .button svg {
+  transform: scaleX(-1);
 }
-
-html[dir="rtl"] .back-top {
-  inset: auto auto 18px 18px;
-}
-
-html[dir="rtl"] .dash-header h1 {
-  margin: 0 0 0 auto;
-}
-
-html[dir="rtl"] .mini-event {
-  padding: 2px 25px 19px 0;
-}
-
-html[dir="rtl"] .mini-event::before {
-  inset: 5px -5px auto auto;
-}
-
-html[dir="rtl"] .switch::after {
-  inset: 3px 3px auto auto;
-}
-
-html[dir="rtl"] .switch[aria-checked="true"]::after {
-  transform: translateX(-22px);
-}
-
-html[dir="rtl"] .dash-sidebar {
-  inset: 0 0 0 auto;
-}
-
-@media (max-width: 1180px) {
-  html[dir="rtl"] .dash-sidebar {
-    transform: translateX(105%);
-  }
-
-  html[dir="rtl"] .dash-sidebar.open {
-    transform: none;
+@media (max-width: 560px) {
+  html[dir="rtl"] .journey-rail li {
+    padding: 0 58px 28px 0;
   }
 }
-
-@media (max-width: 1100px) {
-  html[dir="rtl"] .mobile-drawer {
-    inset: 0 auto 0 0;
-    transform: translateX(-105%);
-  }
-
-  html[dir="rtl"] .mobile-drawer.open {
-    transform: none;
-  }
-}
-
-html[dir="rtl"] .cta-arrow {
-  transform: rotate(180deg);
-}
-
-html[dir="rtl"] .cta-btn-primary:hover .cta-arrow {
-  transform: translateX(-4px) rotate(180deg);
-}
-
-html[dir="rtl"] .auth-visual-brand {
-  left: auto;
-  right: 36px;
-}
-
-html[dir="rtl"] .featured-card .featured-content {
-  padding: 16px 8px 16px 20px;
-}
-

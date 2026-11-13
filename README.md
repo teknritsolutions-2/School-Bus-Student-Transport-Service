@@ -1,54 +1,32 @@
-# KinderRide Transit - School Bus & Student Transport Service
+# KinderRide Transit — The School-day Wayfinder
 
-A responsive static website built with HTML, CSS, and vanilla JavaScript. It includes two distinct homepages, detailed transport and route coverage, fleet safety standards, parent registration guidance, pricing and policies, service proof, support content, and a nine-view parent dashboard with local route playback and an example PDF receipt.
+A complete static frontend rebuild with 23 physical HTML pages, two distinct homepages, a combined-filter Route Finder and a nine-view parent workspace. Deep teal, controlled transport yellow and mint replace the former design. Lexend and Source Sans 3 are self-hosted.
 
-## Run locally
+## Preview
 
-No installation or build step is required.
+No install or build is required. Serve this folder with `python3 -m http.server 8080` and open `http://localhost:8080/`. JavaScript modules require HTTP rather than file URLs.
 
-```sh
-python3 -m http.server 8080
-```
+## Source structure
 
-Open `http://localhost:8080/`.
-
-## Project structure
-
-```text
-School-Bus-Student-Transport-Service/
-├── assets/
-│   ├── css/
-│   │   ├── style.css (main styles)
-│   │   ├── dark-mode.css
-│   │   └── rtl.css
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── dashboard.js (if applicable)
-│   │   └── plugins/
-│   ├── images/
-│   └── fonts/
-├── documentation/
-├── index.html (home)
-├── pages/
-│   ├── about.html
-│   ├── services.html
-│   ├── transport-services.html
-│   ├── safety-fleet.html
-│   ├── parent-portal-registration.html
-│   ├── pricing-policies.html
-│   ├── case-studies.html
-│   ├── blog.html
-│   ├── contact.html
-│   └── [template-specific pages]
-└── README.md
-```
-
-## Important operating boundary
-
-Routes, people, schools, prices, schedules, notices, and journey events are illustrative. The frontend does not provide secure authentication, send form submissions, collect payment information, or report a live vehicle. Connect approved production services and replace all illustrative content before operating a real transport service.
+- `index.html` and `pages/`: physical page content, metadata and shared-shell mounts; all previous page URLs retained.
+- `assets/css/`: fonts, shared components, semantic dark theme, logical RTL rules, standalone authentication and dashboard styles.
+- `assets/js/site-config.js`: subpath-safe URLs, storage and formatting.
+- `transport-data.js`: explicitly fictional reference routes, students, history and coverage categories.
+- `main.js`: shared navigation/footer, preferences, drawers, journey tabs and search.
+- `route-finder.js`: combined filters and accessible stop sequences; no unrelated fallback.
+- `forms.js`: validation, unsent enquiry drafts and illustrative estimates.
+- `dashboard.js`: nine views, selection, local preferences and draft PDF generation.
+- `tracking.js`: isolated in-memory playback; never writes history or notifications.
+- `assets/js/plugins/jspdf.umd.min.js`: retained PDF library. No mapping runtime is loaded.
+- `scripts/build-pages.mjs` and `workspace-pages.mjs`: optional authoring helpers for physical HTML. They are not required to serve or deploy. Edit these when regenerating content, then format output.
+- `scripts/browser-qa.cjs`: development-only real-browser checks; see `documentation/CLIENT-REVIEW.md`.
 
 ## Published site
 
-The repository is configured for GitHub Pages at:
+https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/
 
-`https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/`
+The pre-rebuild baseline is preserved on `archive/pre-wayfinder-f07c110` at `f07c110950399b9bc2db43aab7fe8cf17dc18ea3`.
+
+## Operating boundary
+
+No identity provider, student database, live fleet feed, messaging or payment gateway is connected. Routes and students are fictional; prices are illustrative at the estimate point. Account forms do not sign in or redirect, enquiries stay local, and PDFs are visibly drafts. Only non-sensitive workspace preferences are stored. Production integration requirements are in `documentation/FORM-INTEGRATION.md`.

@@ -1,83 +1,40 @@
-/* One dark palette, including interaction states. */
 html[data-theme="dark"] {
   color-scheme: dark;
-  --surface: #20231f;
-  --surface-soft: #292c26;
-  --off-white: #292c26;
-  --text: #f1f1e8;
-  --charcoal: #f1f1e8;
-  --text-muted: #c0c5b8;
-  --text-secondary: #c0c5b8;
-  --border: #444a3e;
-  --primary: #f2bb35;
-  --primary-dark: #f5f0dc;
-  --primary-medium: #d8b85c;
-  --primary-light: #665a36;
-  --primary-pale: #373324;
-  --signal: #f2bb35;
-  --signal-dark: #f5f0dc;
-  --signal-pale: #373324;
-  --shadow-sm: 0 4px 18px rgb(0 0 0 / 15%);
-  --shadow-md: 0 12px 36px rgb(0 0 0 / 24%);
+  --canvas: #102729;
+  --surface: #1d383a;
+  --mint: #244749;
+  --text: #f0f6ee;
+  --muted: #b4ccc6;
+  --line: #3e6060;
+  --yellow: #f9d16b;
+  --danger: #ffb0a8;
 }
-html[data-theme="dark"] .brand-logo-light { display:none; }
-html[data-theme="dark"] .brand-logo-dark { display:block; }
-html[data-theme="dark"] .site-header,
-html[data-theme="dark"] .site-header.scrolled { background:var(--surface); }
-html[data-theme="dark"] .btn,
-html[data-theme="dark"] .filter-btn.active,
-html[data-theme="dark"] .back-top { background:#f2bb35; color:#252724; border-color:#f2bb35; }
-html[data-theme="dark"] .btn:hover,
-html[data-theme="dark"] .back-top:hover { background:#e3aa22; border-color:#e3aa22; color:#252724; }
-html[data-theme="dark"] .btn-outline,
-html[data-theme="dark"] .sso-btn { background:transparent; color:var(--text); border-color:var(--border); }
-html[data-theme="dark"] .btn-outline:hover,
-html[data-theme="dark"] .sso-btn:hover { background:var(--primary-pale); color:var(--text); border-color:var(--primary); }
-html[data-theme="dark"] .btn-text { background:transparent; color:var(--primary); border-color:transparent; }
-html[data-theme="dark"] .desktop-nav .nav-link,
-html[data-theme="dark"] .desktop-nav .nav-drop>button,
-html[data-theme="dark"] .dropdown a,
-html[data-theme="dark"] .mobile-links a,
-html[data-theme="dark"] .mobile-nav-group summary { color:var(--text); }
-html[data-theme="dark"] .nav-link.active,
-html[data-theme="dark"] .nav-drop.active>button,
-html[data-theme="dark"] .nav-drop:hover>button,
-html[data-theme="dark"] .nav-drop.open>button,
-html[data-theme="dark"] .dropdown a:hover,
-html[data-theme="dark"] .dropdown a.active,
-html[data-theme="dark"] .mobile-links a:hover,
-html[data-theme="dark"] .mobile-links a.active { background:var(--primary-pale); color:var(--primary); }
-html[data-theme="dark"] .dropdown,
-html[data-theme="dark"] .mobile-drawer,
-html[data-theme="dark"] .icon-btn,
-html[data-theme="dark"] .filter-btn { background:var(--surface); color:var(--text); border-color:var(--border); }
-html[data-theme="dark"] .field input,
-html[data-theme="dark"] .field select,
-html[data-theme="dark"] .field textarea,
-html[data-theme="dark"] input,
-html[data-theme="dark"] textarea,
-html[data-theme="dark"] select { background:var(--surface-soft); color:var(--text); border-color:var(--border); }
-html[data-theme="dark"] .dark-surface,
-html[data-theme="dark"] .site-footer,
-html[data-theme="dark"] .dash-sidebar { background:#171a16; }
-html[data-theme="dark"] .eyebrow,
-html[data-theme="dark"] .feature-index,
-html[data-theme="dark"] .rail-number { color:var(--primary); }
-html[data-theme="dark"] .eyebrow:before { background:var(--primary); }
-html[data-theme="dark"] .tag,
-html[data-theme="dark"] .status-tag { background:var(--primary-pale); color:var(--text); border-color:var(--primary-light); }
-html[data-theme="dark"] .price { color:var(--text); }
-html[data-theme="dark"] .lead,
-html[data-theme="dark"] .muted,
-html[data-theme="dark"] .price small { color:var(--text-muted); }
-html[data-theme="dark"] .auth-switch a,
-html[data-theme="dark"] .auth-link-forgot { color:var(--primary); }
-html[data-theme="dark"] .leaflet-tile-pane { filter:grayscale(.6) brightness(.72); }
-html[data-theme="dark"] .leaflet-control-zoom a,
-html[data-theme="dark"] .leaflet-control-attribution,
-html[data-theme="dark"] .leaflet-popup-content-wrapper,
-html[data-theme="dark"] .leaflet-popup-tip { background:var(--surface); color:var(--text); }
-html[data-theme="dark"] .hero-proof-card,
-html[data-theme="dark"] .route-ticket { background:var(--surface); border-color:var(--border); color:var(--text); }
-html[data-theme="dark"] .site-footer a { color:#e0e2d9; }
-html[data-theme="dark"] .site-footer h3 { color:var(--primary); }
+html[data-theme="dark"] .ink,
+html[data-theme="dark"] .site-footer {
+  background: #092023;
+}
+html[data-theme="dark"] .stop-dot {
+  border-color: #b4ccc6;
+}
+html[data-theme="dark"] .journey-rail li::before {
+  color: var(--text);
+}
+html[data-theme="dark"] .filter[aria-pressed="true"],
+html[data-theme="dark"] .stage-tabs [aria-selected="true"] {
+  background: var(--mint);
+}
+html[data-theme="dark"] .hero-picture {
+  background: #244749;
+}
+html[data-theme="dark"] .check-list li::before {
+  color: var(--yellow);
+}
+html[data-theme="dark"] .stop-list li:last-child .stop-dot {
+  color: #153b3c;
+}
+html[data-theme="dark"] .route-canvas .passed .stop-dot {
+  color: #153b3c;
+}
+html[data-theme="dark"] .journey-rail .is-current::before {
+  color: #153b3c;
+}

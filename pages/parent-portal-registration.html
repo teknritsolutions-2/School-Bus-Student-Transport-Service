@@ -1,11 +1,199 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Parent Portal &amp; Route Registration | KinderRide Transit</title>
-  <meta name="description" content="Understand online student enrollment, route registration, digital bus passes, GPS journey context and emergency alerts.">
-  <link rel="icon" href="../assets/images/brand/favicon.svg">
-  <script>(()=>{const t=localStorage.getItem('schoolTransport:theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),d=localStorage.getItem('schoolTransport:dir')||'ltr';document.documentElement.dataset.theme=t;document.documentElement.dir=d})()</script>
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261113-r6"><link rel="stylesheet" href="../assets/css/dark-mode.css?v=20261113-r6"><link rel="stylesheet" href="../assets/css/rtl.css?v=20261113-r6">
-<link rel="stylesheet" href="../assets/css/services.css?v=20261113-r7"></head>
-<body data-page="portal"><div data-site-header></div><main id="main-content"><section class="service-introduction section"><div class="container split"><div><div class="breadcrumbs"><a href="../index.html">Home</a> / <a href="services.html">Services</a> / Parent portal & registration</div><span class="eyebrow">Parent portal & registration</span><h1>One place for the daily details.</h1><p class="lead">Prepare the student profile, request a route and follow the assignment. The parent workspace brings the next journey, notices and records together.</p><div class="button-row"><a class="btn" href="contact.html">Ask about enrollment →</a><a class="quiet-link" href="services.html">All services ↗</a></div></div><figure class="natural-photo"><img src="../assets/images/real/route-wait.webp" alt="Students waiting on a rural school route"></figure></div></section><section class="section" id="parent-tools"><div class="container"><div class="section-head"><span class="eyebrow">At a glance</span><h2>Your family’s journey, in context.</h2></div><div class="service-scope"><article><span class="section-number">01</span><h3>Student & route</h3><p>Keep each student connected to the school, assigned stop, journey direction and timetable.</p><small>Student profile · Route request · Operator approval</small></article><article><span class="section-number">02</span><h3>Pass & journey notices</h3><p>A digital bus pass links a student to the approved route. Review pickup, boarding and emergency notices when connected.</p><small>Digital bus pass · GPS context · Journey alerts</small></article><article><span class="section-number">03</span><h3>Plans & records</h3><p>Review coverage, travel history and billing records from the parent dashboard.</p><small>Journey history · Plan details · Receipt records</small></article></div></div></section><section class="section warm-section"><div class="container split"><div class="coverage-request"><h3>Registration checklist</h3><p>Keep the information needed to assess your route request together.</p><ul class="check-list"><li>Student and school details</li><li>Travel days and pickup area</li><li>Guardian and collection contacts</li><li>Journey support requirements</li></ul></div><div><span class="eyebrow">Before you register</span><h2>Have the essentials ready.</h2><ul class="check-list"><li>School, grade and requested start date</li><li>Home area, pickup location and travel days</li><li>Guardian and authorized collection contacts</li><li>Accessibility and journey support needs</li></ul><a class="btn" href="parent-dashboard.html">Explore parent dashboard →</a></div></div></section><section class="section"><div class="container"><div class="section-head"><span class="eyebrow">Your next steps</span><h2>Keep the process straightforward.</h2></div><ol class="service-process"><li><h3>Create the family account</h3><p>Add guardian contact information.</p></li><li><h3>Request the route</h3><p>Add the student, school, stop and required days.</p></li><li><h3>Wait for confirmation</h3><p>The operator confirms eligibility, capacity and start date.</p></li></ol></div></section><section class="page-next"><div class="container"><div><h2>Need a detail confirmed?</h2><p>Share your school, area and the journey you have in mind.</p></div><a class="btn" href="contact.html">Contact &amp; dispatch →</a></div></section></main><div data-site-footer></div><script type="module" src="../assets/js/main.js?v=20261113-r6"></script></body></html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Registration guide | KinderRide Transit</title>
+    <meta
+      name="description"
+      content="Prepare route eligibility, guardian details and the transport confirmation process."
+    />
+    <meta
+      property="og:title"
+      content="Registration guide | KinderRide Transit"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="../assets/images/brand/favicon.svg" />
+    <link
+      rel="canonical"
+      href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/pages/parent-portal-registration.html"
+    />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          JSON.parse(localStorage.getItem("kinderride:wayfinder:v1:theme")) ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.dir =
+          JSON.parse(localStorage.getItem("kinderride:wayfinder:v1:dir")) ||
+          "ltr";
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-1" />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-1" />
+  </head>
+  <body data-page="portal">
+    <div data-site-header></div>
+    <main id="main-content">
+      <section class="page-intro">
+        <div class="container split">
+          <div>
+            <div class="breadcrumbs">
+              <a href="../index.html">Home</a> / Parent registration
+            </div>
+            <span class="eyebrow">Parent registration</span>
+            <h1>A clear first step for your family.</h1>
+            <p class="lead">
+              Prepare the information needed to assess route eligibility and
+              agree the right journey.
+            </p>
+          </div>
+          <figure class="editorial-photo portrait-photo">
+            <img
+              src="../assets/images/real/route-wait.webp"
+              alt="Two students waiting on a rural route"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Before you begin</span>
+              <h2>Only the information the journey needs.</h2>
+            </div>
+          </div>
+          <div class="policy-grid">
+            <article>
+              <h3>School & travel days</h3>
+              <p>
+                School name, requested start date and morning, return or daily
+                coverage.
+              </p>
+            </article>
+            <article>
+              <h3>Pickup & collection</h3>
+              <p>
+                Home area, proposed stop and authorized collection arrangements.
+              </p>
+            </article>
+            <article>
+              <h3>Guardian contacts</h3>
+              <p>
+                A reply contact and any approved alternative collector. Share
+                sensitive details only through secure operator channels.
+              </p>
+            </article>
+            <article>
+              <h3>Journey support</h3>
+              <p>
+                Discuss accessibility or assistance needs directly with the
+                transport team.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section surface">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">The registration sequence</span>
+              <h2>Request. Review. Confirm.</h2>
+            </div>
+          </div>
+          <div class="compact-list">
+            <article>
+              <span class="marker">1</span>
+              <div>
+                <h3>Check eligibility</h3>
+                <p>
+                  Confirm whether the school and area have suitable coverage.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span class="marker">2</span>
+              <div>
+                <h3>Prepare the family details</h3>
+                <p>
+                  Gather student, guardian and collection information. Initial
+                  account creation does not need sensitive student data.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span class="marker">3</span>
+              <div>
+                <h3>Agree the plan</h3>
+                <p>Review direction, service days, terms and any quote.</p>
+              </div>
+            </article>
+            <article>
+              <span class="marker">4</span>
+              <div>
+                <h3>Receive the assignment</h3>
+                <p>
+                  Confirm route, stop, timetable and start date before travel.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Parent information</span>
+              <h2>Keep the assignment in context.</h2>
+            </div>
+          </div>
+          <div class="scope-grid">
+            <article>
+              <h3>Student & route</h3>
+              <p>Use the correct profile, school, stop and travel direction.</p>
+            </article>
+            <article>
+              <h3>Digital pass & notices</h3>
+              <p>
+                Availability of bus passes, GPS and emergency notices depends on
+                the operator’s connected systems.
+              </p>
+            </article>
+            <article>
+              <h3>Plans & records</h3>
+              <p>
+                Review coverage and journey records through the approved parent
+                service.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="closing">
+        <div class="container">
+          <div>
+            <h2>Have a registration question?</h2>
+            <p>
+              Begin with the school and pickup area, without sharing sensitive
+              student details.
+            </p>
+          </div>
+          <a class="button" href="contact.html"
+            >Prepare an enquiry <span aria-hidden="true">→</span></a
+          >
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script type="module" src="../assets/js/main.js?v=wayfinder-1"></script>
+  </body>
+</html>

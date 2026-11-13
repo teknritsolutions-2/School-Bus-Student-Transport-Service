@@ -1,34 +1,7 @@
 # Installation
 
-KinderRide Transit is a standalone static website. It has no package manager, build command, framework runtime, or server-side requirement.
+Serve the repository root with any static HTTP server, such as `python3 -m http.server 8080`. Open `/index.html`; it is Home 1, not a redirect. No package manager, bundler or application server is required.
 
-## Preview locally
+Keep `pages/` and `assets/` relative to the root. Use a current browser supporting ES modules, CSS logical properties, `inert` and `:has()`. Self-hosted fonts and optimized real photography work without third-party font or image services.
 
-From the project folder, use any static web server. For example:
-
-```sh
-python3 -m http.server 8080
-```
-
-Then open `http://localhost:8080/index.html` (or `http://localhost:8080/`).
-
-Do not open pages through an editor's private preview protocol. JavaScript modules are most reliable over `http://` or `https://`.
-
-## Directory permissions
-
-Upload the files without changing their relative structure. Typical web-host permissions are `644` for files and `755` for folders.
-
-## Browser support
-
-Use current versions of Chrome, Edge, Firefox, or Safari. The template uses JavaScript modules, CSS custom properties, `dialog`, localStorage, and modern DOM APIs.
-
-## First-run checklist
-
-1. Open the root URL and confirm it lands on `pages/index.html`.
-2. Check desktop and mobile navigation.
-3. Test dark mode and RTL mode, then reload to confirm persistence.
-4. Open the Dashboard directly; optionally review the account interfaces.
-5. Open all nine parent dashboard views.
-6. Start, pause, reset, and switch the tracking simulation.
-7. Select a plan preference and download the clearly labeled example PDF receipt.
-8. Replace all illustrative content described in `CONTENT-GUIDE.md`.
+Check both Home destinations, theme and direction persistence, mobile navigation and direct Dashboard access after installing. The dashboard intentionally has no fake sign-in gate.

@@ -1,32 +1,11 @@
 # Deployment
 
-Deploy the project as static files. No build step is required.
+GitHub Pages publishes the repository root from `main`. There is no build step. Preserve the physical HTML pages and the assets directory. Shared URLs resolve from `assets/js/site-config.js`, so direct navigation and refresh work under `/School-Bus-Student-Transport-Service/`.
 
-## Generic static hosting
+The previous working baseline is preserved in `archive/pre-wayfinder-f07c110`. Avoid force-pushing either branch.
 
-Upload the entire project root so `index.html`, `404.html`, `pages/`, `assets/`, `documentation/`, `robots.txt`, and `sitemap.xml` keep the same relationship.
+Before publishing, run the browser QA script against an HTTP preview, inspect representative desktop/tablet/mobile screenshots, and check real downloads. After publishing, repeat direct page access, refresh and critical interactions on the actual GitHub Pages URL. A local check alone does not verify deployment.
 
-## GitHub Pages
+If the hosting origin changes, update canonical URLs in the HTML authoring helper, `sitemap.xml` and `robots.txt`. The utility page is `pages/404.html`; no automatic root-level custom-404 routing is configured.
 
-Publish from the repository root or copy the project to the configured Pages folder. Relative links and the JavaScript-calculated site base support repository subpaths. Configure the platform's custom 404 behavior to use the root `404.html` when available.
-
-## Netlify
-
-Set the publish directory to the project root and leave the build command empty. To activate Netlify Forms, follow `FORM-INTEGRATION.md`.
-
-## Cloudflare Pages
-
-Choose a static/no-framework preset, leave the build command empty, and publish the project root.
-
-## Traditional hosting
-
-Copy the directory by SFTP or a hosting file manager. Make sure `index.html` is the default document.
-
-## Before production
-
-- If the hosting origin changes, update the published GitHub Pages origin in `robots.txt` and `sitemap.xml`.
-- Replace illustrative routes, schools, people, prices, schedules, safety statements, and legal text.
-- Add verified contact and company information.
-- Test every page at the final domain and deployment subpath.
-- Configure authentication, payment, vehicle telemetry, and messaging services if those features are required.
-- Review privacy, child-data, payment, and transport obligations with qualified professionals.
+No backend integrations are implied by deployment. See FORM-INTEGRATION.md for remaining services and approved operating data.

@@ -1,33 +1,11 @@
 # Customization
 
-## Brand
+Change semantic colors and shared type scales in `assets/css/style.css`; dark surfaces belong in `dark-mode.css`. Logical-direction adjustments are in `rtl.css`. Auth and dashboard have dedicated stylesheets and layouts.
 
-Replace the SVG files in `assets/images/brand/` while keeping their filenames: `logo.svg` for light backgrounds, `logo-white.svg` for dark backgrounds, and `favicon.svg` for the browser icon.
+Public navigation/footer and brand markup live in `assets/js/main.js`. Home has two destinations; Services is a direct link. Preserve the accessible drawer focus handling and tested sticky-header mount.
 
-## Colors and layout
+Edit physical HTML directly, or edit `scripts/build-pages.mjs` / `workspace-pages.mjs` and regenerate all pages using Node. Format the resulting physical HTML before committing. There is no runtime generation requirement for hosting.
 
-Edit the custom properties at the top of `assets/css/style.css`. The interface uses a transit-blue family (`#24557A`, `#17324D`, `#4F7892`, `#D7E5ED`, and `#EFF5F8`) with a restrained safety-gold signal (`#E2A32B`) and neutral surfaces and text. Keep stylesheet order unchanged in every page: `style.css`, then `dark-mode.css`, then `rtl.css`.
+Keep each real photo unique across the content pages and preserve its natural ratio. Update ATTRIBUTION.md when replacing a photo. Use the genuine source image, not an AI reconstruction.
 
-## Typography
-
-Headings use Outfit and body/interface copy uses DM Sans. Both families and their declared weights are loaded from Google Fonts at the top of `assets/css/style.css` with `display=swap`. If the font provider changes, retain only these two family roles or update the typography tokens together.
-
-## Shared navigation and footer
-
-Edit `assets/js/main.js`. It creates the public header, dropdown navigation, mobile drawer, call-to-action band, footer, theme switch, RTL switch, canonical URL, and website structured data. Generated links resolve from the script URL, so the template works in a deployment subdirectory.
-
-## Public pages
-
-Each file in `pages/` is a real HTML document. Edit its content directly. Preserve one clear `<h1>` per page, unique title and description metadata, meaningful heading order, alternative text, and accessible labels.
-
-## Dashboard
-
-All nine dashboard views live in `pages/parent-dashboard.html`. `assets/js/dashboard.js` changes views in place, provides route playback, and updates the URL hash; editable datasets live in `assets/js/main.js`.
-
-## Maps and PDF receipts
-
-Leaflet and jsPDF are vendored in `assets/js/plugins/`. OpenStreetMap tiles require network access, but the interactive route layer and controls are client-side.
-
-## Dark mode and RTL
-
-Theme and direction are stored as `schoolTransport:theme` and `schoolTransport:dir` in localStorage. Dark-specific rules belong in `dark-mode.css`; direction-specific rules belong in `rtl.css`.
+Replace reference data only with approved business information. Changes to routes, themes or responsive components require the relevant browser checks again.

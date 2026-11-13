@@ -1,56 +1,14 @@
-# Requirements Checklist
+# Rebuild acceptance checklist
 
-## Architecture
+- Physical HTML/CSS/vanilla JS with all 23 previous URLs preserved.
+- New Wayfinder palette, self-hosted typography, header, footer, heroes and component system.
+- Distinct Home 1, Home 2, Services overview, Transport Details, route, safety, registration and supporting pages.
+- Home 1/Home 2 dropdown; direct Services; standalone account forms; direct Dashboard.
+- Combined route filters, true no-results state, reversible stop times and enquiry action.
+- Nine dashboard views; student switching, isolated playback, local preferences, reference history/notices and real draft PDF download.
+- Honest unconnected authentication, unsent enquiry drafts and qualified example amounts.
+- Natural photo proportions, unique real images, mobile image-before-copy, tablet reflow and mobile history cards.
+- Theme/RTL persistence, actual sticky header, drawer focus management and working back-to-top.
+- Legacy CSS, old logo artwork, unused mapping runtime and unused photography removed; baseline preserved in Git.
 
-- [x] Standalone HTML, CSS, and vanilla JavaScript source
-- [x] No framework or build tool required
-- [x] Central `assets/`, `pages/`, and `documentation/` directories
-- [x] Clean root structure matching client technical specifications and README
-- [x] Relative and script-derived paths support hosting subdirectories
-
-## Pages
-
-- [x] Home One and Home Two
-- [x] About, Services, Routes, Safety Features, Subscription Plans
-- [x] Detailed Transport & Route Coverage and Student Safety & Fleet Standards pages
-- [x] Detailed Parent Portal & Registration and Pricing & Policies pages
-- [x] Detailed Case Studies & Proof page with clearly labeled illustrative scenarios
-- [x] How It Works, Blog, Contact, FAQ
-- [x] Login and Register
-- [x] One parent dashboard containing all nine modules
-- [x] Privacy, Terms, Coming Soon, and custom 404
-
-## Shared experience
-
-- [x] One JavaScript-driven public header and footer
-- [x] Desktop dropdown navigation and responsive mobile drawer
-- [x] Persistent dark mode and RTL mode
-- [x] Keyboard-visible focus, skip navigation, labels, and alternative text
-- [x] Responsive layouts for desktop, tablet, and mobile
-
-## Parent portal
-
-- [x] Overview, tracking, students, subscription, receipts, logs, notifications, settings, and help
-- [x] Interactive Leaflet route map
-- [x] Local plan preference and clearly labeled jsPDF example receipt
-- [x] Start, pause, reset, route switch, trip switch, ETA, and progress state
-- [x] Interval and event de-duplication
-
-## Forms, SEO, and content
-
-- [x] Client-side validation and local success states
-- [x] Formspree and Netlify integration documentation
-- [x] Unique titles and descriptions
-- [x] Runtime canonical URLs and WebSite structured data
-- [x] Exactly one H1 per content page
-- [x] Local images and attribution documentation
-- [x] Unique image-led introductions for Home 1, Home 2, About, Services, and each detailed service page
-- [x] Illustrative route, tracking, and receipt boundaries clearly identified
-
-## Manual production actions
-
-- [x] Publish the GitHub Pages origin in sitemap and robots files
-- [ ] Replace and legally review illustrative business, route, pricing, safety, and legal content
-- [ ] Confirm the commercial license chain for all production photography
-- [ ] Connect production authentication, payment, forms, telemetry, and messaging if needed
-- [ ] Run browser and assistive-technology QA on the final deployed domain
+Actual browser findings and remaining integration boundaries are recorded in CLIENT-REVIEW.md. Automated checks do not replace production data approval or manual assistive-technology testing.
