@@ -6,7 +6,7 @@
     <title>Coverage & estimates | KinderRide Transit</title>
     <meta
       name="description"
-      content="Explore how students, direction and duration affect an illustrative transport estimate."
+      content="Explore how student age, the number of students and months affect an illustrative transport estimate."
     />
     <meta
       property="og:title"
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <link
       rel="icon"
-      href="../assets/images/brand/favicon.svg?v=schoolday-refine-2"
+      href="../assets/images/brand/favicon.svg?v=schoolday-age-3"
     />
     <link
       rel="canonical"
@@ -35,19 +35,13 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=schoolday-age-3" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=schoolday-age-3" />
     <link
       rel="stylesheet"
-      href="../assets/css/fonts.css?v=schoolday-refine-2"
+      href="../assets/css/dark-mode.css?v=schoolday-age-3"
     />
-    <link
-      rel="stylesheet"
-      href="../assets/css/style.css?v=schoolday-refine-2"
-    />
-    <link
-      rel="stylesheet"
-      href="../assets/css/dark-mode.css?v=schoolday-refine-2"
-    />
-    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-refine-2" />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-age-3" />
   </head>
   <body data-page="plans">
     <div data-site-header></div>
@@ -61,28 +55,33 @@
             <span class="eyebrow">Plan for the school week</span>
             <h1>Understand the coverage before the cost.</h1>
             <p class="lead">
-              Explore how journey direction, siblings and months affect an
-              example estimate.
+              Choose an age band, the number of students in that band and the
+              months you need.
             </p>
           </div>
           <form class="estimator" data-estimator>
             <div>
               <h3>Explore an example estimate.</h3>
               <p class="meta muted">
-                Illustrative monthly rates only: ₹1,850 single, ₹2,950 return,
-                ₹4,950 for two-student family coverage. Not an official quote.
+                Example age-based monthly fares: ₹500 for ages 3–5, ₹1,000 for
+                ages 6–10, and ₹1,500 for ages 11–17, per student. Not an
+                official quote. For siblings in different age bands, calculate
+                each band separately.
               </p>
               <div class="estimator-fields">
                 <div class="field">
-                  <label for="estimate-plan">Coverage</label
-                  ><select id="estimate-plan" name="plan">
-                    <option value="single">Single Journey</option>
-                    <option value="daily" selected>Daily Return</option>
-                    <option value="family">Family Return</option>
+                  <label for="estimate-age">Student age band</label
+                  ><select id="estimate-age" name="ageBand">
+                    <option value="early">3–5 years · ₹500</option>
+                    <option value="primary" selected>
+                      6–10 years · ₹1,000
+                    </option>
+                    <option value="secondary">11–17 years · ₹1,500</option>
                   </select>
                 </div>
                 <div class="field">
-                  <label for="estimate-students">Students</label
+                  <label for="estimate-students"
+                    >Students in this age band</label
                   ><input
                     id="estimate-students"
                     name="students"
@@ -107,7 +106,7 @@
             </div>
             <div>
               <span class="meta">Illustrative total</span
-              ><output aria-live="polite">₹2,950</output>
+              ><output aria-live="polite">₹1,000</output>
             </div>
           </form>
           <div class="assignment-strip">
@@ -140,9 +139,6 @@
       </section>
     </main>
     <div data-site-footer></div>
-    <script
-      type="module"
-      src="../assets/js/main.js?v=schoolday-refine-2"
-    ></script>
+    <script type="module" src="../assets/js/main.js?v=schoolday-age-3"></script>
   </body>
 </html>

@@ -1216,6 +1216,10 @@ input[type="checkbox"] {
   margin-bottom: 28px;
   font-size: 17px;
 }
+.pricing-note {
+  max-width: 84ch;
+  margin-bottom: 28px;
+}
 .price {
   font: 500 30px var(--heading);
   margin-block: 20px;

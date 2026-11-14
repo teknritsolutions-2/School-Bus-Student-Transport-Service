@@ -103,3 +103,15 @@ export const initialNotifications = [
     unread: true,
   },
 ];
+
+// Example age-based monthly fares for design review; not approved operator rates.
+export const ageRates = [
+  { id: "early", label: "Early years", ages: "3–5 years", price: 500 },
+  { id: "primary", label: "Primary years", ages: "6–10 years", price: 1000 },
+  {
+    id: "secondary",
+    label: "Secondary years",
+    ages: "11–17 years",
+    price: 1500,
+  },
+];

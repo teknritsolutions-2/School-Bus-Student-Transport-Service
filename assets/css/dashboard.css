@@ -358,9 +358,8 @@ td {
   .workspace-preferences {
     display: grid;
     gap: 10px;
-    border-bottom: 1px solid #ffffff30;
-    padding-bottom: 20px;
-    margin-top: 8px;
+    border-top: 1px solid #ffffff30;
+    padding-block: 18px 4px;
     font-size: 15px;
   }
   .workspace-preferences > div {

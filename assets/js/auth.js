@@ -1,4 +1,4 @@
-import { AUTH_CONFIG } from "./auth-config.js?v=schoolday-refine-2";
+import { AUTH_CONFIG } from "./auth-config.js?v=schoolday-age-3";
 import { assetUrl, pageUrl } from "./site-config.js";
 
 const unavailable =

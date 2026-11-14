@@ -1,11 +1,11 @@
-import { plans } from "./transport-data.js";
+import { ageRates } from "./transport-data.js?v=schoolday-age-3";
 import { money } from "./site-config.js";
 import {
   submitAccount,
   signInProvider,
   recoverAccount,
   finishAccountRedirect,
-} from "./auth.js?v=schoolday-refine-2";
+} from "./auth.js?v=schoolday-age-3";
 export function initForms() {
   const authCard = document.querySelector(".auth-card");
   const authStatus = authCard?.querySelector("[data-auth-status]");
@@ -128,7 +128,7 @@ export function initForms() {
   });
   document.querySelectorAll("[data-estimator]").forEach((form) => {
     const run = () => {
-      const p = plans.find((x) => x.id === form.elements.plan.value),
+      const p = ageRates.find((x) => x.id === form.elements.ageBand.value),
         c = Number(form.elements.students.value),
         m = Number(form.elements.months.value);
       if (
@@ -142,9 +142,7 @@ export function initForms() {
         form.querySelector("output").textContent = "Enter valid quantities";
         return;
       }
-      form.querySelector("output").textContent = money(
-        p.price * (p.id === "family" ? Math.ceil(c / 2) : c) * m,
-      );
+      form.querySelector("output").textContent = money(p.price * c * m);
     };
     form.addEventListener("input", run);
     run();

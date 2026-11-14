@@ -1,6 +1,6 @@
 import { pageUrl, storeSet } from "./site-config.js";
 import { initRouteFinders } from "./route-finder.js";
-import { initForms } from "./forms.js?v=schoolday-refine-2";
+import { initForms } from "./forms.js?v=schoolday-age-3";
 
 const page = document.body.dataset.page;
 export const brand = () =>

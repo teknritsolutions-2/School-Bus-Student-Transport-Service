@@ -1,6 +1,7 @@
 // Authoring helper. Output is ordinary physical HTML; no runtime build is required.
 import fs from "node:fs";
-const version = "schoolday-refine-2";
+import { ageRates } from "../assets/js/transport-data.js";
+const version = "schoolday-age-3";
 const imageDimensions = JSON.parse(
   fs.readFileSync(new URL("./image-dimensions.json", import.meta.url), "utf8"),
 );
@@ -404,50 +405,17 @@ ${closing("Have a registration question?", "Begin with the school and pickup are
 );
 
 const planComparison = () =>
-  `<div class="plan-grid">${[
-    [
-      "Single Journey",
-      "One daily direction.",
-      [
-        "Morning pickup or afternoon return",
-        "One student",
-        "Subject to route availability",
-      ],
-    ],
-    [
-      "Daily Return",
-      "The full school day.",
-      [
-        "Morning and afternoon journeys",
-        "One student",
-        "School-calendar coverage",
-      ],
-    ],
-    [
-      "Family Return",
-      "Coverage for siblings.",
-      [
-        "Multiple student assignments",
-        "Eligibility confirmed together",
-        "Ask about sibling discounts",
-      ],
-    ],
-  ]
-    .map(
-      (a, i) =>
-        `<article class="plan${i === 1 ? " featured" : ""}"><span class="eyebrow">0${i + 1} / Coverage</span><h3>${a[0]}</h3><p>${a[1]}</p><ul>${a[2].map((x) => `<li>${x}</li>`).join("")}</ul>${button("Request a quote", "contact.html", i !== 1)}</article>`,
-    )
-    .join("")}</div>`;
+  `<p class="muted pricing-note">Example monthly fares per student for school-day return travel. These age bands and amounts are for review; the operator confirms route availability, final fares and eligibility.</p><div class="plan-grid">${ageRates.map((rate, i) => `<article class="plan${i === 1 ? " featured" : ""}"><span class="eyebrow">${rate.ages}</span><h3>${rate.label}</h3><p class="price">₹${rate.price.toLocaleString("en-IN")} <small>/ student / month</small></p><ul><li>Morning pickup and afternoon return</li><li>Travel from the assigned stop</li><li>School-calendar journeys</li></ul>${button("Check route availability", "routes.html", i !== 1)}</article>`).join("")}</div>`;
 const estimator = () =>
-  `<form class="estimator" data-estimator><div><h3>Explore an example estimate.</h3><p class="meta muted">Illustrative monthly rates only: ₹1,850 single, ₹2,950 return, ₹4,950 for two-student family coverage. Not an official quote.</p><div class="estimator-fields"><div class="field"><label for="estimate-plan">Coverage</label><select id="estimate-plan" name="plan"><option value="single">Single Journey</option><option value="daily" selected>Daily Return</option><option value="family">Family Return</option></select></div><div class="field"><label for="estimate-students">Students</label><input id="estimate-students" name="students" type="number" min="1" max="8" value="1"></div><div class="field"><label for="estimate-months">Months</label><input id="estimate-months" name="months" type="number" min="1" max="12" value="1"></div></div></div><div><span class="meta">Illustrative total</span><output aria-live="polite">₹2,950</output></div></form>`;
+  `<form class="estimator" data-estimator><div><h3>Explore an example estimate.</h3><p class="meta muted">Example age-based monthly fares: ₹500 for ages 3–5, ₹1,000 for ages 6–10, and ₹1,500 for ages 11–17, per student. Not an official quote. For siblings in different age bands, calculate each band separately.</p><div class="estimator-fields"><div class="field"><label for="estimate-age">Student age band</label><select id="estimate-age" name="ageBand">${ageRates.map((rate) => `<option value="${rate.id}"${rate.id === "primary" ? " selected" : ""}>${rate.ages} · ₹${rate.price.toLocaleString("en-IN")}</option>`).join("")}</select></div><div class="field"><label for="estimate-students">Students in this age band</label><input id="estimate-students" name="students" type="number" min="1" max="8" value="1"></div><div class="field"><label for="estimate-months">Months</label><input id="estimate-months" name="months" type="number" min="1" max="12" value="1"></div></div></div><div><span class="meta">Illustrative total</span><output aria-live="polite">₹1,000</output></div></form>`;
 add(
   "pricing-policies.html",
   "pricing",
   "Pricing & policies",
-  "Compare school transport coverage and review terms before requesting a quote.",
+  "Review example age-based school transport fares and the conditions to confirm before enrollment.",
   `
-${intro("Pricing & policies", "Choose the journeys your week needs.", "Compare coverage first. Confirm the actual route, rate, discount eligibility and service conditions before enrollment.", "premium/pricing-bus", "Complete yellow school bus parked beside trees")}
-${section("Coverage comparison", "One direction, both ways, or the family.", planComparison())}
+${intro("Pricing & policies", "Choose the journeys your week needs.", "Explore example monthly fares from ₹500 to ₹1,500 by student age. Confirm your route, final rate and service conditions before enrollment.", "premium/pricing-bus", "Complete yellow school bus parked beside trees")}
+${section("Example monthly pricing", "A simple starting point for every age.", planComparison())}
 ${section(
   "Before you confirm",
   "The full picture, in plain language.",
@@ -471,15 +439,15 @@ ${section(
   ]),
   "surface",
 )}
-${closing("Ready for a route-specific quote?")}`,
+${closing("Find the route for your school day?")}`,
 );
 add(
   "subscription-plans.html",
   "plans",
   "Coverage & estimates",
-  "Explore how students, direction and duration affect an illustrative transport estimate.",
+  "Explore how student age, the number of students and months affect an illustrative transport estimate.",
   `
-<section class="task-page"><div class="container"><div class="task-heading"><div class="breadcrumbs"><a href="../index.html">Home</a> / Coverage & estimates</div><span class="eyebrow">Plan for the school week</span><h1>Understand the coverage before the cost.</h1><p class="lead">Explore how journey direction, siblings and months affect an example estimate.</p></div>${estimator()}<div class="assignment-strip"><h2>Choose the journey</h2><p><strong>Single Journey</strong>One daily direction, morning or afternoon.</p><p><strong>Daily Return</strong>Morning pickup and afternoon travel.</p><p><strong>Family Return</strong>Sibling coverage, with eligibility confirmed together.</p></div><div class="estimate-next"><div><h2>A useful estimate starts with the route.</h2><p>Actual rates depend on the school, pickup area, travel days, availability and the operator’s written terms.</p></div>${button("Compare coverage & policies", "pricing-policies.html", true)}</div></div></section>`,
+<section class="task-page"><div class="container"><div class="task-heading"><div class="breadcrumbs"><a href="../index.html">Home</a> / Coverage & estimates</div><span class="eyebrow">Plan for the school week</span><h1>Understand the coverage before the cost.</h1><p class="lead">Choose an age band, the number of students in that band and the months you need.</p></div>${estimator()}<div class="assignment-strip"><h2>Choose the journey</h2><p><strong>Single Journey</strong>One daily direction, morning or afternoon.</p><p><strong>Daily Return</strong>Morning pickup and afternoon travel.</p><p><strong>Family Return</strong>Sibling coverage, with eligibility confirmed together.</p></div><div class="estimate-next"><div><h2>A useful estimate starts with the route.</h2><p>Actual rates depend on the school, pickup area, travel days, availability and the operator’s written terms.</p></div>${button("Compare coverage & policies", "pricing-policies.html", true)}</div></div></section>`,
 );
 
 add(

@@ -254,11 +254,11 @@ async function test(name, run) {
     });
   }
   await go("pages/subscription-plans.html");
-  await test("example family estimate", async () => {
-    await p.selectOption("[name=plan]", "family");
+  await test("example age-band estimate", async () => {
+    await p.selectOption("[name=ageBand]", "secondary");
     await p.locator("[name=students]").fill("3");
     await p.locator("[name=months]").fill("2");
-    assert.match(await p.locator("output").textContent(), /19,800/);
+    assert.match(await p.locator("output").textContent(), /9,000/);
   });
   for (const path of ["login", "register"]) {
     await go("pages/" + path + ".html");
