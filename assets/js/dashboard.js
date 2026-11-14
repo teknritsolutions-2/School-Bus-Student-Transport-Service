@@ -1,4 +1,5 @@
-import { brand, setupDrawer } from "./main.js";
+import { exitAccount } from "./auth.js?v=schoolday-amber-1";
+import { brand, setupDrawer } from "./main.js?v=schoolday-amber-1";
 import {
   routes,
   students,
@@ -68,7 +69,7 @@ function shell() {
       )
       .join(
         "",
-      )}</nav><div class="sidebar-bottom"><a href="${pageUrl("index.html")}">← Back to the website</a><span>Reference family workspace</span></div></aside><div class="drawer-backdrop" data-workspace-backdrop hidden></div><div class="workspace-main"><header class="workspace-topbar"><button class="icon-button workspace-menu" data-workspace-menu aria-label="Open dashboard navigation" aria-expanded="false">☰</button><div><span class="meta muted">KinderRide Transit</span><strong>Parent workspace</strong></div><div class="workspace-tools"><button class="icon-button" data-theme-toggle aria-label="Switch color theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15A8 8 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></svg></button><button class="icon-button direction-button" data-dir-toggle aria-label="Switch text direction">RTL</button><a class="avatar" href="#settings" aria-label="Open preferences">P</a></div></header><div class="workspace-content"><div class="workspace-heading"><div><span class="eyebrow">Your family’s wayfinder</span><h1 data-workspace-title></h1></div><div class="student-select"><label for="selected-student">Selected student</label><select id="selected-student">${students.map((s) => `<option value="${s.id}"${s.id === selected.id ? " selected" : ""}>${s.name} · ${s.grade}</option>`).join("")}</select></div></div><p class="workspace-boundary">Fictional reference records. No live location, real student database or payment service is connected.</p><div data-workspace-content></div><p role="status" class="workspace-status" data-workspace-status></p></div></div></div>`;
+      )}</nav><div class="sidebar-bottom"><a href="${pageUrl("index.html")}" data-account-exit>Exit</a><span>Reference family workspace</span></div></aside><div class="drawer-backdrop" data-workspace-backdrop hidden></div><div class="workspace-main"><header class="workspace-topbar"><button class="icon-button workspace-menu" data-workspace-menu aria-label="Open dashboard navigation" aria-expanded="false">☰</button><div><span class="meta muted">KinderRide Transit</span><strong>Parent workspace</strong></div><div class="workspace-tools"><button class="icon-button" data-theme-toggle aria-label="Switch color theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15A8 8 0 0 1 9 4a8.5 8.5 0 1 0 11 11Z"/></svg></button><button class="icon-button direction-button" data-dir-toggle aria-label="Switch text direction">RTL</button><a class="avatar" href="#settings" aria-label="Open preferences">P</a></div></header><div class="workspace-content"><div class="workspace-heading"><div><span class="eyebrow">Your family’s wayfinder</span><h1 data-workspace-title></h1></div><div class="student-select"><label for="selected-student">Selected student</label><select id="selected-student">${students.map((s) => `<option value="${s.id}"${s.id === selected.id ? " selected" : ""}>${s.name} · ${s.grade}</option>`).join("")}</select></div></div><p class="workspace-boundary">Fictional reference records. No live location, real student database or payment service is connected.</p><div data-workspace-content></div><p role="status" class="workspace-status" data-workspace-status></p></div></div></div>`;
 }
 function overview() {
   const r = route(),
@@ -123,12 +124,12 @@ export function createReceipt() {
     return;
   }
   const doc = new api.jsPDF();
-  doc.setFillColor(24, 92, 86);
+  doc.setFillColor(245, 173, 43);
   doc.rect(0, 0, 210, 42, "F");
-  doc.setTextColor(248, 249, 244);
+  doc.setTextColor(33, 24, 12);
   doc.setFontSize(21);
   doc.text("KinderRide Transit", 18, 25);
-  doc.setTextColor(24, 92, 86);
+  doc.setTextColor(75, 43, 0);
   doc.setFontSize(17);
   doc.text("DRAFT - NOT PROOF OF PAYMENT", 18, 60);
   doc.setFontSize(11);
@@ -319,6 +320,11 @@ document.querySelector("#selected-student").addEventListener("change", (ev) => {
   render();
 });
 document.addEventListener("click", (ev) => {
+  if (ev.target.closest("[data-account-exit]")) {
+    ev.preventDefault();
+    exitAccount().catch((error) => status(error.message));
+    return;
+  }
   const s = ev.target.closest("[data-select-student]");
   if (s) {
     selected = students.find((x) => x.id === s.dataset.selectStudent);

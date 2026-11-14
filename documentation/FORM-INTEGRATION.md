@@ -2,7 +2,7 @@
 
 Contact uses `data-enquiry` in `pages/contact.html`; `assets/js/forms.js` prepares a local text preview and downloadable unsent draft. It makes no submission request. To connect a backend, replace that handler with validated delivery and show success only after the server confirms receipt. Keep the authoring helper consistent if regenerating pages.
 
-Login, Register, provider and recovery controls explicitly report that account services are unconnected. They neither save passwords nor redirect after validation. Connect a secure identity provider and server-side sessions before presenting successful sign-in or restricting real student records.
+Login, Register, provider and recovery controls use the official Supabase SDK through `auth.js`. No project is configured yet, so the controls report that sign-in is unavailable. See [AUTH-SETUP.md](AUTH-SETUP.md) for activation. A configured project supports email/password, Google/Apple PKCE redirects, password recovery and sign-out. Passwords are never written to application storage. Real student records still require authorization on the server; the current public reference dashboard is not an account security boundary.
 
 Production services still needed:
 

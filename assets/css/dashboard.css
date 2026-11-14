@@ -29,7 +29,7 @@
 .sidebar-label {
   font-size: 13px;
   letter-spacing: 0.15em;
-  color: #c5cccf;
+  color: #cbc5ba;
   margin: 18px 0;
 }
 .workspace-sidebar nav {
@@ -54,7 +54,7 @@
 }
 .nav-index {
   font-size: 13px;
-  color: #c5cccf;
+  color: #cbc5ba;
 }
 .notice-count {
   margin-inline-start: auto;
@@ -71,7 +71,7 @@
   margin-top: auto;
   padding-top: 30px;
   font-size: 15px;
-  color: #c5cccf;
+  color: #cbc5ba;
 }
 .workspace-main {
   margin-inline-start: 252px;

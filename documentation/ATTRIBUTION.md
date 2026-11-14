@@ -43,3 +43,16 @@ jsPDF is vendored under `assets/js/plugins/`. The rebuilt stop diagrams load no 
 
 The new route-mark logo is CSS-native; the matching favicon is SVG. Controls use inline SVG or text labels. Lexend and Source Sans 3 are self-hosted under their included SIL Open Font Licenses in `assets/fonts/`.
 The five comparison-pass replacements use the [Pexels license](https://www.pexels.com/license/), verified 13 November 2026. Files retain the source composition; the CDN derivatives are resized and compressed as WebP, without AI generation or reconstruction.
+
+## Premium transport photographs — November refinement
+
+These are real licensed stock photographs, illustrating transport rather than claiming to depict the operator's own fleet. Login and Register each have a different photograph. New wide photographs retain their source aspect ratios in editorial placements.
+
+| Local file                       | Photographer    | Source                                                                    |
+| -------------------------------- | --------------- | ------------------------------------------------------------------------- |
+| `premium/login-interior.webp`    | Kenneth Surillo | [Coach lounge, Pexels 20849161](https://www.pexels.com/photo/20849161/)   |
+| `premium/register-interior.webp` | Safi Erneste    | [Coach interior, Pexels 18029608](https://www.pexels.com/photo/18029608/) |
+| `premium/school-minibus.webp`    | Safi Erneste    | [Modern minibus, Pexels 18029632](https://www.pexels.com/photo/18029632/) |
+| `premium/group-coach.webp`       | Spain Buddy     | [Group coach, Pexels 40919466](https://www.pexels.com/photo/40919466/)    |
+
+Supabase JavaScript SDK 2.119.0 is vendored from the official npm distribution (`@supabase/supabase-js`, `dist/umd/supabase.js`). Its MIT license is included alongside it at `assets/js/plugins/supabase.LICENSE.txt`. No runtime CDN dependency is required.

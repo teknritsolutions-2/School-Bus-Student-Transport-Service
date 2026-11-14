@@ -1,15 +1,16 @@
 /* Neutral dark surfaces. Primary color is reserved for controls and selection. */
 html[data-theme="dark"] {
   color-scheme: dark;
-  --primary: #8ac6bd;
-  --primary-hover: #a8d8d0;
-  --on-primary: #111b19;
-  --ink: #0d0f10;
-  --canvas: #121416;
-  --surface: #1b1e20;
-  --subtle: #24282b;
-  --text: #f0f3f2;
-  --muted: #b7bfc3;
-  --line: #3c4448;
+  --primary: #f5ad2b;
+  --accent-text: #f5bd57;
+  --primary-hover: #ffc04b;
+  --on-primary: #21180c;
+  --ink: #0f0e0c;
+  --canvas: #141312;
+  --surface: #1f1d1b;
+  --subtle: #292623;
+  --text: #f5f2ed;
+  --muted: #c1b9ae;
+  --line: #474139;
   --danger: #ffb3aa;
 }

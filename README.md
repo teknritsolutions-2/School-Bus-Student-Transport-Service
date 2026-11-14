@@ -1,6 +1,6 @@
 # KinderRide Transit — The School-day Wayfinder
 
-A complete static frontend rebuild with 23 physical HTML pages, two distinct homepages, a combined-filter Route Finder and a nine-view parent workspace. A single teal primary color sits on neutral light or charcoal dark surfaces. Lexend and Source Sans 3 are self-hosted.
+A complete static frontend rebuild with 23 physical HTML pages, two distinct homepages, a combined-filter Route Finder and a nine-view parent workspace. A single orange-yellow primary color sits on warm light or neutral charcoal dark surfaces. Lexend and Source Sans 3 are self-hosted.
 
 ## Preview
 
@@ -15,6 +15,7 @@ No install or build is required. Serve this folder with `python3 -m http.server 
 - `main.js`: shared navigation/footer, preferences, drawers, journey tabs and search.
 - `route-finder.js`: combined filters and accessible stop sequences; no unrelated fallback.
 - `forms.js`: validation, unsent enquiry drafts and illustrative estimates.
+- `auth.js` and `auth-config.js`: Supabase email/password, Google/Apple PKCE redirects, recovery and sign-out; activation steps in [AUTH-SETUP](documentation/AUTH-SETUP.md).
 - `dashboard.js`: nine views, selection, local preferences and draft PDF generation.
 - `tracking.js`: isolated in-memory playback; never writes history or notifications.
 - `assets/js/plugins/jspdf.umd.min.js`: retained PDF library. No mapping runtime is loaded.
@@ -29,4 +30,4 @@ The pre-rebuild baseline is preserved on `archive/pre-wayfinder-f07c110` at `f07
 
 ## Operating boundary
 
-No identity provider, student database, live fleet feed, messaging or payment gateway is connected. Routes and students are fictional; prices are illustrative at the estimate point. Account forms do not sign in or redirect, enquiries stay local, and PDFs are visibly drafts. Only non-sensitive workspace preferences are stored. Production integration requirements are in `documentation/FORM-INTEGRATION.md`.
+No identity provider, student database, live fleet feed, messaging or payment gateway is connected. Routes and students are fictional; prices are illustrative at the estimate point. Account controls use a prepared Supabase integration, awaiting a configured project. They report unavailability until configured; passwords are never stored by application code. Enquiries stay local, and PDFs are visibly drafts. After activation, the official SDK manages account sessions; real student records still require a protected backend. Production integration requirements are in `documentation/FORM-INTEGRATION.md`.

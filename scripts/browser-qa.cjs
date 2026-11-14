@@ -263,9 +263,16 @@ async function test(name, run) {
   for (const path of ["login", "register"]) {
     await go("pages/" + path + ".html");
     await test(
-      path + " validation and honest unconnected behavior",
+      path + " validation, in-card branding and unavailable-service handling",
       async () => {
-        assert.equal(await p.locator(".site-header,.site-footer").count(), 0);
+        assert.equal(
+          await p
+            .locator(".site-header,.site-footer,.auth-boundary,.auth-dashboard")
+            .count(),
+          0,
+        );
+        assert.equal(await p.locator(".auth-card .brand").count(), 1);
+        assert.equal(await p.locator(".auth-scene img").count(), 1);
         if (path === "register") await p.locator("[name=name]").fill("Parent");
         await p.locator("[name=email]").fill("parent@example.test");
         await p.locator("[name=password]").fill("Testing123!");
@@ -288,18 +295,18 @@ async function test(name, run) {
         assert(p.url().includes(path + ".html"));
         assert.match(
           await p.locator("[data-auth-status]").textContent(),
-          /not connected/,
+          /not available yet/,
         );
         await p.locator("[data-provider]").first().click();
         assert.match(
           await p.locator("[data-auth-status]").textContent(),
-          /No sign-in request/,
+          /not available yet/,
         );
         if (path === "login") {
           await p.locator("[data-forgot]").click();
           assert.match(
             await p.locator("[data-auth-status]").textContent(),
-            /No reset email/,
+            /not available yet/,
           );
         }
         assert(
@@ -486,6 +493,7 @@ async function test(name, run) {
                 .filter(
                   (i) =>
                     i.complete &&
+                    !i.closest(".auth-scene") &&
                     i.naturalWidth &&
                     Math.abs(
                       i.getBoundingClientRect().width /

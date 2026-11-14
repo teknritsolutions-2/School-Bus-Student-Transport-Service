@@ -86,5 +86,21 @@
   "real/route-support": {
     "width": 1500,
     "height": 1004
+  },
+  "premium/login-interior": {
+    "width": 1800,
+    "height": 1200
+  },
+  "premium/group-coach": {
+    "width": 1800,
+    "height": 1200
+  },
+  "premium/school-minibus": {
+    "width": 1800,
+    "height": 1200
+  },
+  "premium/register-interior": {
+    "width": 1800,
+    "height": 2700
   }
 }

@@ -2,7 +2,7 @@
 
 ## Implementation
 
-All 23 physical pages and the nine-view dashboard have new layouts and styling. The revised design uses one teal primary color, neutral light/charcoal surfaces, Lexend and Source Sans 3. Home 1 is brand-led; Home 2 follows the school-day stages. Services and Transport Details have distinct scopes.
+All 23 physical pages and the nine-view dashboard have new layouts and styling. The revised design uses one orange-yellow primary color, neutral light/charcoal surfaces, Lexend and Source Sans 3. Home 1 is brand-led; Home 2 follows the school-day stages. Services and Transport Details have distinct scopes.
 
 The route/stop model, journey directions, plan categories, URL resolution, browser preferences and jsPDF concept informed the replacement. The old accumulated CSS, service overrides, bus-logo artwork and unused Leaflet runtime were removed. The previous commit remains recoverable on the archive branch.
 
@@ -10,7 +10,7 @@ Route filtering no longer falls back to an unrelated route. Root contact links r
 
 ## Browser QA
 
-Local verification passed: 21 functional groups, all 23 physical routes and 22 unique genuine photographs, with no failed asset requests or browser exceptions. The responsive matrix passed 1,584 states (23 pages plus two additional service selections and eight additional dashboard views × 12 widths × two themes × two directions). Axe-core WCAG A/AA automated checks reported no violations across the public pages and dashboard views in both themes after the progress and notice labels were corrected. This does not claim manual screen-reader certification or cross-browser coverage; the real-browser run used Chromium through Brave.
+Local verification passed: 21 functional groups, all 23 physical routes and 24 unique genuine photographs, with no failed asset requests or browser exceptions. The responsive matrix passed 1,584 states (23 pages plus two additional service selections and eight additional dashboard views × 12 widths × two themes × two directions). Axe-core WCAG A/AA automated checks reported no violations across the public pages and dashboard views in both themes after the progress and notice labels were corrected. This does not claim manual screen-reader certification or cross-browser coverage; the real-browser run used Chromium through Brave.
 
 The committed `scripts/browser-qa.cjs` can run against an HTTP preview or published subpath with a development Playwright installation:
 
@@ -24,14 +24,26 @@ Responsive checks use 320, 360, 390, 425, 430, 768, 820, 960, 1024, 1180, 1280 a
 
 ## Remaining services
 
-Authentication/OAuth/recovery, secure student records, approved routes/rates, live fleet telemetry, enquiry delivery, dispatch/alerts, payments and official receipts need real backend integrations. Business and policy content needs operator approval. No real student information is exposed in this reference frontend.
+Authentication project/provider activation (see AUTH-SETUP.md), secure student records, approved routes/rates, live fleet telemetry, enquiry delivery, dispatch/alerts, payments and official receipts need real backend integrations. Business and policy content needs operator approval. No real student information is exposed in this reference frontend.
 
 ## Color, Services and image correction
 
-Teal is now the only UI primary color; yellow action styling and green-tinted dark backgrounds were removed. Dark mode uses neutral #121416 canvas, #1B1E20 panels and #24282B secondary surfaces. Services now has three accessible service selections, each with its own uncropped landscape photo, planning details and detail-page link. Selection supports keyboard navigation and direct hash access. Alternating service-photo rows were removed.
+Orange-yellow (#F5AD2B) is the single UI primary in both themes. Dark mode uses warm neutral #141312 canvas, #1F1D1B panels and #292623 secondary surfaces. Readable amber text uses a darker shade on light surfaces. Services now has three accessible service selections, each with its own uncropped landscape photo, planning details and detail-page link. Selection supports keyboard navigation and direct hash access. Alternating service-photo rows were removed.
 
 Photo layouts follow actual source orientation. Portrait columns use their own narrower grid tracks; landscape photos fill their frames. Height caps and mismatched wrapper dimensions were removed, and mobile portrait/landscape sizing is handled separately. No AI images or repeated content photographs were introduced.
 
 ## Reference comparison pass
 
 Courier and Yoga were inspected as published websites at desktop and mobile sizes. KinderRide still repeated generic introductions and placed tools too far down the page. The next pass introduces compact home route search, an editorial service directory, distinct About composition, a search-first Routes page with initial reference results, a form-first Contact page, and an estimate-focused Subscriptions page without a repeated pricing grid. Five genuine photos replace weak or tightly cropped source compositions. See DESIGN-COMPARISON.md.
+
+## Account, spacing and amber refinement — 14 November 2026
+
+Branding is inside both standalone account cards, over different genuine coach interior photographs. The previous footer disclaimer and dashboard exploration link were removed. Official Supabase email/password, signup, Google/Apple PKCE, recovery and Exit wiring is prepared, with empty public configuration because the owner has no identity project yet. Provider URL and server-error checks use intercepted endpoints; they do not certify real provider sign-in.
+
+The homepage journey directory now uses a compact heading and three balanced service columns. Section spacing is tighter; the About principles photograph is landscape and matches the content column. Contact has a shorter heading, clearer form grouping and a small unsent-draft explanation next to its action. Login is an amber navbar button, Dashboard has no arrow, and the workspace exit reads Exit.
+
+At 1180px and below, home and standard side-photo introductions use their photograph as a background with a readable dark overlay. Desktop editorial photographs retain natural source proportions. Home 2 and group service photographs now show complete modern transport vehicles. No AI imagery was used.
+
+The original client requests remain covered through a direct Services destination, transport detail anchors, Routes, Safety & Fleet, Parent Portal & Registration, Pricing & Policies and Case Studies. Door pickups, clubs, school trips, stop finding, GPS/camera questions, driver preparation, digital passes, registration, alerts, sibling savings, payment guidance and collection rules remain in their relevant pages. Unverified operator contacts, response targets, prices and live integrations are not invented. No extra page families were added.
+
+Final local verification for this refinement: 21 functional groups and 1,584 responsive states passed, with 24 distinct real photographs and no failed asset requests or browser errors. Axe-core reported zero automated A/AA violations across 31 destinations in both themes. Four additional auth wiring checks passed (Google PKCE URL, Apple PKCE URL, server-rejected email login and Exit/navigation); real provider account completion remains pending configuration.

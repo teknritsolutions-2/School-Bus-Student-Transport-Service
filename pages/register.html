@@ -6,14 +6,17 @@
     <title>Create an account | KinderRide Transit</title>
     <meta
       name="description"
-      content="Standalone parent account interface with clearly unconnected authentication."
+      content="Sign in to your KinderRide parent account or create an account for your family."
     />
     <meta
       property="og:title"
       content="Create an account | KinderRide Transit"
     />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="../assets/images/brand/favicon.svg?v=wayfinder-3" />
+    <link
+      rel="icon"
+      href="../assets/images/brand/favicon.svg?v=schoolday-amber-1"
+    />
     <link
       rel="canonical"
       href="https://teknritsolutions-2.github.io/School-Bus-Student-Transport-Service/pages/register.html"
@@ -32,29 +35,39 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-    <link rel="stylesheet" href="../assets/css/fonts.css?v=wayfinder-3" />
-    <link rel="stylesheet" href="../assets/css/style.css?v=wayfinder-3" />
-    <link rel="stylesheet" href="../assets/css/dark-mode.css?v=wayfinder-3" />
-    <link rel="stylesheet" href="../assets/css/rtl.css?v=wayfinder-3" />
-    <link rel="stylesheet" href="../assets/css/auth.css?v=wayfinder-3" />
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=schoolday-amber-1" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=schoolday-amber-1" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/dark-mode.css?v=schoolday-amber-1"
+    />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-amber-1" />
+    <link rel="stylesheet" href="../assets/css/auth.css?v=schoolday-amber-1" />
   </head>
   <body data-page="register" class="auth-body">
     <main id="main-content">
+      <div class="auth-scene" aria-hidden="true">
+        <img
+          src="../assets/images/premium/register-interior.webp"
+          width="1800"
+          height="2700"
+          alt=""
+          fetchpriority="high"
+        />
+      </div>
       <div class="auth-wrap">
-        <a
-          class="brand auth-brand"
-          href="../index.html"
-          aria-label="KinderRide Transit Home 1"
-          ><span class="brand-symbol" aria-hidden="true"
-            ><i></i><i></i><i></i></span
-          ><span>KinderRide<small>TRANSIT</small></span></a
-        >
         <section class="auth-card">
-          <span class="eyebrow">Parent account</span>
+          <a
+            class="brand auth-brand"
+            href="../index.html"
+            aria-label="KinderRide Transit Home 1"
+            ><span class="brand-symbol" aria-hidden="true"
+              ><i></i><i></i><i></i></span
+            ><span>KinderRide<small>TRANSIT</small></span></a
+          ><span class="eyebrow">Parent account</span>
           <h1>Create your parent account.</h1>
-          <p>
-            Start with your guardian details. Student information belongs in a
-            secured registration process.
+          <p data-auth-description>
+            A simpler start to your family’s school journey.
           </p>
           <form data-auth-form>
             <div class="field">
@@ -134,7 +147,25 @@
               data-provider="Google"
               type="button"
             >
-              <b aria-hidden="true">G</b> Google</button
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="#4285F4"
+                  d="M22 12.2c0-.7-.1-1.4-.2-2.2H12v4.1h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.4 3.1-7.6Z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M12 22c2.8 0 5.2-.9 6.9-2.5l-3.4-2.6c-.9.6-2.1 1-3.5 1-2.7 0-5-1.8-5.8-4.3H2.7v2.7A10.4 10.4 0 0 0 12 22Z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M6.2 13.6a6.2 6.2 0 0 1 0-3.2V7.7H2.7a10 10 0 0 0 0 8.6l3.5-2.7Z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 6.1c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 2.7 7.7l3.5 2.7C7 7.9 9.3 6.1 12 6.1Z"
+                />
+              </svg>
+              Google</button
             ><button
               class="button secondary"
               data-provider="Apple"
@@ -151,17 +182,13 @@
           <p class="auth-switch">
             Already have an account? <a href="login.html">Sign in</a>
           </p>
-          <small class="auth-boundary"
-            >Account services are not connected. No sign-in or account creation
-            is performed.</small
-          >
         </section>
-        <a class="text-link auth-dashboard" href="parent-dashboard.html"
-          >Explore the Parent Dashboard ↗</a
-        >
       </div>
     </main>
 
-    <script type="module" src="../assets/js/main.js?v=wayfinder-3"></script>
+    <script
+      type="module"
+      src="../assets/js/main.js?v=schoolday-amber-1"
+    ></script>
   </body>
 </html>
