@@ -19,7 +19,9 @@ No install or build is required. Serve this folder with `python3 -m http.server 
 - `dashboard.js`: nine views, selection, local preferences and draft PDF generation.
 - `tracking.js`: isolated in-memory playback; never writes history or notifications.
 - `assets/js/plugins/jspdf.umd.min.js`: retained PDF library. No mapping runtime is loaded.
+- Photographs have 640px/960px responsive WebP variants; keep source dimensions and responsive attributes consistent when replacing them.
 - `scripts/build-pages.mjs` and `workspace-pages.mjs`: optional authoring helpers for physical HTML. They are not required to serve or deploy. Edit these when regenerating content, then format output.
+- `scripts/refinement-qa.cjs`: targeted checks for Pricing gutters, Home 2 density, responsive dashboard controls and image variants.
 - `scripts/browser-qa.cjs`: development-only real-browser checks; see `documentation/CLIENT-REVIEW.md`.
 
 ## Published site

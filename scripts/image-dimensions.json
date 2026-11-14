@@ -1,39 +1,31 @@
 {
   "home/bus-forest": {
-    "width": 1600,
-    "height": 2398
-  },
-  "home/bus-road": {
-    "width": 1600,
-    "height": 1066
-  },
-  "plans/bus-city": {
-    "width": 1800,
-    "height": 2700
+    "width": 1440,
+    "height": 2158
   },
   "real/city-service": {
-    "width": 1800,
-    "height": 2715
+    "width": 1440,
+    "height": 2172
   },
   "real/daily-route": {
-    "width": 1800,
-    "height": 1200
+    "width": 1440,
+    "height": 960
   },
   "real/fleet-detail": {
-    "width": 1800,
-    "height": 1171
+    "width": 1440,
+    "height": 937
   },
   "real/driver-view": {
-    "width": 1800,
-    "height": 1201
+    "width": 1440,
+    "height": 961
   },
   "real/students-riding": {
     "width": 1400,
     "height": 933
   },
   "real/case-study": {
-    "width": 1800,
-    "height": 2700
+    "width": 1440,
+    "height": 2160
   },
   "real/school-arrival": {
     "width": 1400,
@@ -44,63 +36,63 @@
     "height": 933
   },
   "real/root-hero": {
-    "width": 1800,
-    "height": 1200
+    "width": 1440,
+    "height": 960
   },
   "about/bus-urban": {
-    "width": 1600,
-    "height": 2133
+    "width": 1440,
+    "height": 1920
   },
   "safety/bus-stop": {
-    "width": 1800,
-    "height": 1200
+    "width": 1440,
+    "height": 960
   },
   "common/bus-interior": {
-    "width": 1800,
-    "height": 1350
+    "width": 1440,
+    "height": 1080
   },
   "routes/bus-signal": {
-    "width": 1800,
-    "height": 2250
+    "width": 1440,
+    "height": 1800
   },
   "routes/bus-parked": {
-    "width": 1600,
-    "height": 1067
+    "width": 1440,
+    "height": 960
   },
   "real/boarding-routine": {
-    "width": 1500,
-    "height": 971
+    "width": 1440,
+    "height": 932
   },
   "real/fleet-depot": {
-    "width": 1600,
-    "height": 1012
+    "width": 1440,
+    "height": 911
   },
   "real/school-entrance": {
-    "width": 1500,
-    "height": 1000
+    "width": 1440,
+    "height": 960
   },
   "real/school-day": {
-    "width": 1500,
-    "height": 1000
+    "width": 1440,
+    "height": 960
   },
   "real/route-support": {
-    "width": 1500,
-    "height": 1004
-  },
-  "premium/login-interior": {
-    "width": 1800,
-    "height": 1200
+    "width": 1440,
+    "height": 964
   },
   "premium/group-coach": {
-    "width": 1800,
-    "height": 1200
+    "width": 1440,
+    "height": 960
   },
   "premium/school-minibus": {
-    "width": 1800,
-    "height": 1200
+    "width": 1440,
+    "height": 960
   },
-  "premium/register-interior": {
-    "width": 1800,
-    "height": 2700
+  "premium/pricing-bus": {
+    "width": 1440,
+    "height": 960
+  },
+  "premium/signup-bus": {
+    "width": 1440,
+    "height": 960
   }
 }

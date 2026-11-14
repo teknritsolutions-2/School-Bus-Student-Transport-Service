@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <link
       rel="icon"
-      href="../assets/images/brand/favicon.svg?v=schoolday-amber-1"
+      href="../assets/images/brand/favicon.svg?v=schoolday-refine-2"
     />
     <link
       rel="canonical"
@@ -35,13 +35,19 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-    <link rel="stylesheet" href="../assets/css/fonts.css?v=schoolday-amber-1" />
-    <link rel="stylesheet" href="../assets/css/style.css?v=schoolday-amber-1" />
     <link
       rel="stylesheet"
-      href="../assets/css/dark-mode.css?v=schoolday-amber-1"
+      href="../assets/css/fonts.css?v=schoolday-refine-2"
     />
-    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-amber-1" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/style.css?v=schoolday-refine-2"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/css/dark-mode.css?v=schoolday-refine-2"
+    />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-refine-2" />
   </head>
   <body data-page="safety">
     <div data-site-header></div>
@@ -49,7 +55,8 @@
       <section
         class="page-intro has-banner"
         style="
-          --banner-image: url(&quot;../images/routes/bus-parked.webp&quot;);
+          --banner-image: url(&quot;../images/routes/bus-parked-960.webp&quot;);
+          --banner-mobile: url(&quot;../images/routes/bus-parked-640.webp&quot;);
         "
       >
         <div class="container split">
@@ -67,10 +74,18 @@
           <figure class="editorial-photo photo-landscape">
             <img
               src="../assets/images/routes/bus-parked.webp"
-              width="1600"
-              height="1067"
+              width="1440"
+              height="960"
+              srcset="
+                ../assets/images/routes/bus-parked-640.webp  640w,
+                ../assets/images/routes/bus-parked-960.webp  960w,
+                ../assets/images/routes/bus-parked.webp     1440w
+              "
+              sizes="(max-width: 820px) calc(100vw - 40px), 640px"
+              decoding="async"
               alt="School bus parked before departure"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
             />
           </figure>
         </div>
@@ -159,7 +174,7 @@
     <div data-site-footer></div>
     <script
       type="module"
-      src="../assets/js/main.js?v=schoolday-amber-1"
+      src="../assets/js/main.js?v=schoolday-refine-2"
     ></script>
   </body>
 </html>

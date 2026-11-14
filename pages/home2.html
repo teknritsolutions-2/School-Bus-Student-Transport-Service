@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <link
       rel="icon"
-      href="../assets/images/brand/favicon.svg?v=schoolday-amber-1"
+      href="../assets/images/brand/favicon.svg?v=schoolday-refine-2"
     />
     <link
       rel="canonical"
@@ -35,13 +35,19 @@
         document.documentElement.dataset.theme = "light";
       }
     </script>
-    <link rel="stylesheet" href="../assets/css/fonts.css?v=schoolday-amber-1" />
-    <link rel="stylesheet" href="../assets/css/style.css?v=schoolday-amber-1" />
     <link
       rel="stylesheet"
-      href="../assets/css/dark-mode.css?v=schoolday-amber-1"
+      href="../assets/css/fonts.css?v=schoolday-refine-2"
     />
-    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-amber-1" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/style.css?v=schoolday-refine-2"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/css/dark-mode.css?v=schoolday-refine-2"
+    />
+    <link rel="stylesheet" href="../assets/css/rtl.css?v=schoolday-refine-2" />
   </head>
   <body data-page="home2">
     <div data-site-header></div>
@@ -49,7 +55,8 @@
       <section
         class="page-intro has-banner"
         style="
-          --banner-image: url(&quot;../images/premium/school-minibus.webp&quot;);
+          --banner-image: url(&quot;../images/premium/school-minibus-960.webp&quot;);
+          --banner-mobile: url(&quot;../images/premium/school-minibus-640.webp&quot;);
         "
       >
         <div class="container split">
@@ -74,10 +81,18 @@
           <figure class="editorial-photo photo-landscape">
             <img
               src="../assets/images/premium/school-minibus.webp"
-              width="1800"
-              height="1200"
+              width="1440"
+              height="960"
+              srcset="
+                ../assets/images/premium/school-minibus-640.webp  640w,
+                ../assets/images/premium/school-minibus-960.webp  960w,
+                ../assets/images/premium/school-minibus.webp     1440w
+              "
+              sizes="(max-width: 820px) calc(100vw - 40px), 640px"
+              decoding="async"
               alt="Modern minibus ready for a group journey"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
             />
           </figure>
         </div>
@@ -102,26 +117,32 @@
               aria-orientation="horizontal"
             >
               <button
+                id="daily-tab-0"
                 role="tab"
                 data-stage="0"
                 aria-selected="true"
                 aria-controls="daily-stage"
               >
-                Morning pickup</button
+                <span class="stage-number" aria-hidden="true">01</span
+                ><span>Morning pickup</span></button
               ><button
+                id="daily-tab-1"
                 role="tab"
                 data-stage="1"
                 aria-selected="false"
                 aria-controls="daily-stage"
               >
-                School arrival</button
+                <span class="stage-number" aria-hidden="true">02</span
+                ><span>School arrival</span></button
               ><button
+                id="daily-tab-2"
                 role="tab"
                 data-stage="2"
                 aria-selected="false"
                 aria-controls="daily-stage"
               >
-                Afternoon return
+                <span class="stage-number" aria-hidden="true">03</span
+                ><span>Afternoon return</span>
               </button>
             </div>
             <div
@@ -131,20 +152,6 @@
               data-stage-content
               aria-live="polite"
             ></div>
-            <ol class="journey-rail">
-              <li>
-                <strong>Morning pickup</strong>
-                <p>Prepare at the stop.</p>
-              </li>
-              <li>
-                <strong>School arrival</strong>
-                <p>Complete the handoff.</p>
-              </li>
-              <li>
-                <strong>Afternoon return</strong>
-                <p>Follow the collection plan.</p>
-              </li>
-            </ol>
           </div>
         </div>
       </section>
@@ -155,6 +162,13 @@
               src="../assets/images/real/school-arrival.webp"
               width="1400"
               height="786"
+              srcset="
+                ../assets/images/real/school-arrival-640.webp  640w,
+                ../assets/images/real/school-arrival-960.webp  960w,
+                ../assets/images/real/school-arrival.webp     1400w
+              "
+              sizes="(max-width: 820px) calc(100vw - 40px), 640px"
+              decoding="async"
               alt="Students gathering beside school transport at a school entrance"
               loading="lazy"
             />
@@ -309,7 +323,7 @@
     <div data-site-footer></div>
     <script
       type="module"
-      src="../assets/js/main.js?v=schoolday-amber-1"
+      src="../assets/js/main.js?v=schoolday-refine-2"
     ></script>
   </body>
 </html>

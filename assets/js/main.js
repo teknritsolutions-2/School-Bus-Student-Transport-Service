@@ -1,6 +1,6 @@
 import { pageUrl, storeSet } from "./site-config.js";
 import { initRouteFinders } from "./route-finder.js";
-import { initForms } from "./forms.js?v=schoolday-amber-1";
+import { initForms } from "./forms.js?v=schoolday-refine-2";
 
 const page = document.body.dataset.page;
 export const brand = () =>
@@ -138,10 +138,10 @@ function journeySelector() {
       });
       const s = stages[i];
       root.querySelector("[data-stage-content]").innerHTML =
-        `<span class="eyebrow">${s.label}</span><h2>${s.title}</h2><p>${s.body}</p><ul class="check-list">${s.items.map((v) => `<li>${v}</li>`).join("")}</ul>`;
+        `<div class="stage-summary"><span class="eyebrow">${s.label}</span><h2>${s.title}</h2><p>${s.body}</p></div><ul class="check-list">${s.items.map((v) => `<li>${v}</li>`).join("")}</ul>`;
       root
-        .querySelectorAll(".journey-rail li")
-        .forEach((el, j) => el.classList.toggle("is-current", i === j));
+        .querySelector("[data-stage-content]")
+        .setAttribute("aria-labelledby", `daily-tab-${i}`);
     };
     root.addEventListener("click", (e) => {
       const b = e.target.closest("[data-stage]");

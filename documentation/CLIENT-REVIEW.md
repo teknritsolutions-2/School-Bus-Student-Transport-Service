@@ -38,7 +38,7 @@ Courier and Yoga were inspected as published websites at desktop and mobile size
 
 ## Account, spacing and amber refinement — 14 November 2026
 
-Branding is inside both standalone account cards, over different genuine coach interior photographs. The previous footer disclaimer and dashboard exploration link were removed. Official Supabase email/password, signup, Google/Apple PKCE, recovery and Exit wiring is prepared, with empty public configuration because the owner has no identity project yet. Provider URL and server-error checks use intercepted endpoints; they do not certify real provider sign-in.
+Branding is inside both standalone account cards, over different genuine exterior school-bus photographs. The previous footer disclaimer and dashboard exploration link were removed. Official Supabase email/password, signup, Google/Apple PKCE, recovery and Exit wiring is prepared, with empty public configuration because the owner has no identity project yet. Provider URL and server-error checks use intercepted endpoints; they do not certify real provider sign-in.
 
 The homepage journey directory now uses a compact heading and three balanced service columns. Section spacing is tighter; the About principles photograph is landscape and matches the content column. Contact has a shorter heading, clearer form grouping and a small unsent-draft explanation next to its action. Login is an amber navbar button, Dashboard has no arrow, and the workspace exit reads Exit.
 
@@ -47,3 +47,13 @@ At 1180px and below, home and standard side-photo introductions use their photog
 The original client requests remain covered through a direct Services destination, transport detail anchors, Routes, Safety & Fleet, Parent Portal & Registration, Pricing & Policies and Case Studies. Door pickups, clubs, school trips, stop finding, GPS/camera questions, driver preparation, digital passes, registration, alerts, sibling savings, payment guidance and collection rules remain in their relevant pages. Unverified operator contacts, response targets, prices and live integrations are not invented. No extra page families were added.
 
 Final local verification for this refinement: 21 functional groups and 1,584 responsive states passed, with 24 distinct real photographs and no failed asset requests or browser errors. Axe-core reported zero automated A/AA violations across 31 destinations in both themes. Four additional auth wiring checks passed (Google PKCE URL, Apple PKCE URL, server-rejected email login and Exit/navigation); real provider account completion remains pending configuration.
+
+## Pricing, Home 2 and responsive dashboard refinement
+
+Pricing's introductory container now matches the shared content gutters and uses a naturally wide, complete bus photograph in a balanced two-column composition. Home 2 uses a full-width horizontal stage selector above a compact summary/checklist panel; the duplicate lower timeline and empty side column were removed. Tab labels, selected state and keyboard navigation remain accessible.
+
+At 1180px and below, the dashboard header places branding at the left and its hamburger at the far right, in both text directions. Theme and RTL controls are available inside the side panel, while desktop retains its header controls. The responsive drawer still traps focus, supports Escape and closes after section navigation.
+
+Twenty-four genuine photo subjects remain unique across page placements. Full-size existing assets were recompressed (7,924,220 → 4,192,774 bytes in the compression pass), followed by the final Pricing/signup source replacements. Responsive 640px/960px versions let browsers request smaller files. The Pricing photo chosen at a standard desktop density is 67,478 bytes, compared with the previous 737,922-byte portrait. Banner/first-section images load eagerly with high priority; lower editorial images stay lazy, and explicit dimensions prevent layout shifts.
+
+Verification: all 21 functional groups and 1,584 responsive states passed with no browser errors, failed assets or image distortion. Automated A/AA checks passed across 31 destinations in both themes. `scripts/refinement-qa.cjs` additionally verifies Pricing gutter alignment, Home 2 density, menu/branding positions at five phone/tablet widths in both directions, actual drawer preferences, exterior account backgrounds and phone source selection. These are local browser results; actual transfer time depends on the visitor's connection and browser cache.

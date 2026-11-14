@@ -3,6 +3,7 @@ export function register(add, photo, imageSize) {
   const field = (id, label, type = "text", extra = "") =>
     `<div class="field"><label for="${id}">${label}</label>${type === "password" ? `<div class="password-control"><input id="${id}" name="${id.replace("auth-", "")}" type="password" minlength="8" required ${extra}><button type="button" data-password-toggle aria-label="Show password">Show</button></div>` : `<input id="${id}" name="${id.replace("auth-", "")}" type="${type}" required ${extra}>`}</div>`;
   for (const create of [false, true]) {
+    const background = create ? "premium/signup-bus" : "about/bus-urban";
     const title = create ? "Create your parent account." : "Welcome back.";
     add(
       create ? "register.html" : "login.html",
@@ -10,7 +11,7 @@ export function register(add, photo, imageSize) {
       create ? "Create an account" : "Parent login",
       "Sign in to your KinderRide parent account or create an account for your family.",
       `
-<div class="auth-scene" aria-hidden="true"><img src="../assets/images/premium/${create ? "register-interior" : "login-interior"}.webp" ${imageSize(`premium/${create ? "register-interior" : "login-interior"}`)} alt="" fetchpriority="high"></div><div class="auth-wrap"><section class="auth-card"><a class="brand auth-brand" href="../index.html" aria-label="KinderRide Transit Home 1">${mark}</a><span class="eyebrow">Parent account</span><h1>${title}</h1><p data-auth-description>${create ? "A simpler start to your family’s school journey." : "Your family’s transport information, thoughtfully connected."}</p><form data-auth-form>
+<div class="auth-scene" aria-hidden="true"><img src="../assets/images/${background}.webp" ${imageSize(background, "100vw")} alt="" fetchpriority="high"></div><div class="auth-wrap"><section class="auth-card"><a class="brand auth-brand" href="../index.html" aria-label="KinderRide Transit Home 1">${mark}</a><span class="eyebrow">Parent account</span><h1>${title}</h1><p data-auth-description>${create ? "A simpler start to your family’s school journey." : "Your family’s transport information, thoughtfully connected."}</p><form data-auth-form>
 ${create ? field("auth-name", "Parent / guardian name", "text", 'autocomplete="name"') : ""}
 ${field("auth-email", "Email address", "email", 'autocomplete="email"')}
 ${field("auth-password", create ? "Create password" : "Password", "password", `autocomplete="${create ? "new-password" : "current-password"}"`)}

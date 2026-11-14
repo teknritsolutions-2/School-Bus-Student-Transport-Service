@@ -331,11 +331,49 @@ td {
   font-size: 16px;
   margin-top: 22px;
 }
+.workspace-brand,
+.workspace-preferences,
 .workspace-menu,
 .workspace-close {
   display: none;
 }
 @media (max-width: 1180px) {
+  .workspace-topbar {
+    direction: ltr;
+    justify-content: space-between;
+  }
+  .workspace-topbar .workspace-brand {
+    display: inline-flex;
+    direction: ltr;
+  }
+  .workspace-topbar .workspace-caption,
+  .workspace-topbar .workspace-tools {
+    display: none;
+  }
+  .workspace-menu {
+    order: 2;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .workspace-preferences {
+    display: grid;
+    gap: 10px;
+    border-bottom: 1px solid #ffffff30;
+    padding-bottom: 20px;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+  .workspace-preferences > div {
+    display: flex;
+    gap: 10px;
+  }
+  .workspace-preferences .icon-button {
+    border-color: #ffffff5e;
+  }
+  .workspace-sidebar :focus-visible {
+    outline-color: var(--primary);
+  }
+
   .workspace-sidebar {
     visibility: hidden;
     transform: translateX(-100%);

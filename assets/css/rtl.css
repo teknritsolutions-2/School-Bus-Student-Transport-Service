@@ -7,9 +7,6 @@ html[dir="rtl"] .site-drawer.is-open {
 html[dir="rtl"] .journey-rail li {
   padding: 58px 0 0 28px;
 }
-html[dir="rtl"] .stage-tabs [aria-selected="true"] {
-  box-shadow: inset -5px 0 var(--primary);
-}
 html[dir="rtl"] .button svg {
   transform: scaleX(-1);
 }

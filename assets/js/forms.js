@@ -5,7 +5,7 @@ import {
   signInProvider,
   recoverAccount,
   finishAccountRedirect,
-} from "./auth.js?v=schoolday-amber-1";
+} from "./auth.js?v=schoolday-refine-2";
 export function initForms() {
   const authCard = document.querySelector(".auth-card");
   const authStatus = authCard?.querySelector("[data-auth-status]");
